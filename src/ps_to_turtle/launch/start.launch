@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="addr" default="" />
+
+    <include file="$(find ds4_driver)/launch/ds4_driver.launch" >
+        <arg name="addr" value="$(arg addr)" />
+        <arg name="use_standard_msgs" value="false" />
+    </include>
+
+    <node name="ctrl_to_cmd_vel" pkg="ps_to_turtle" type="controller_cmd" args="turtle1 3 2"/>
+
+    <!-- Turtle sim node -->
+    <node pkg="turtlesim" type="turtlesim_node" name="sim"/>
+
+    <!-- Axes -->
+    <param name="scale_linear" value="2" type="double"/>
+    <param name="scale_angular" value="2" type="double"/>
+
+    <!-- Broadcaster -->
+    <node pkg="ps_to_turtle" type="turtle_broadcaster" name="turtle1_tf2_broadcaster">
+        <param name="turtle" type="string" value="turtle1"/>
+    </node>
+    <node pkg="ps_to_turtle" type="turtle_broadcaster" name="turtle2_tf2_broadcaster">
+        <param name="turtle" type="string" value="turtle2"/>
+    </node>
+
+    <!-- Listener -->
+    <node pkg="ps_to_turtle" type="turtle_listener" name="listener1">
+        <param name="pri_nh/spawned_name" type="string" value="turtle2"/>
+        <param name="pri_nh/x_cord" type="double" value="1.0"/>
+        <param name="pri_nh/y_cord" type="double" value="5.2"/>
+    </node>
+
+    <!-- Detect the hit -->
+    <node name="detect_hit" pkg="ps_to_turtle" type="detect_hit"/>
+</launch>

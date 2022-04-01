@@ -1,0 +1,29 @@
+<launch>
+
+    <!-- Turtle sim node -->
+    <node pkg="turtlesim" type="turtlesim_node" name="sim"/>
+    <node pkg="turtlesim" type="turtle_teleop_key" name="teleop" output="screen"/>
+
+    <!-- Axes -->
+    <param name="scale_linear" value="2" type="double"/>
+    <param name="scale_angular" value="2" type="double"/>
+
+    <!-- Broadcaster -->
+    <node pkg="learn_tf2" type="turtle_tf2_broadcaster" name="turtle1_tf2_broadcaster">
+        <param name="turtle" type="string" value="turtle1"/>
+    </node>
+    <node pkg="learn_tf2" type="turtle_tf2_broadcaster" name="turtle2_tf2_broadcaster">
+        <param name="turtle" type="string" value="turtle2"/>
+    </node>
+
+    <!-- Listener -->
+    <node pkg="learn_tf2" type="turtle_tf2_listener" name="listener1">
+        <param name="pri_nh/spawned_name" type="string" value="turtle2"/>
+        <param name="pri_nh/x_cord" type="double" value="1.0"/>
+        <param name="pri_nh/y_cord" type="double" value="5.2"/>
+    </node>
+
+    <!-- A new frame -->
+    <node pkg="learn_tf2" type="frame_tf2_broadcaster"  name="broadcaster_frame"/>
+
+</launch>

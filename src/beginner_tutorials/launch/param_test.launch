@@ -1,0 +1,16 @@
+<launch>
+  <!-- 全局参数 -->
+  <param name="the_param" value="5" />
+
+  <!-- "bare_nh" 局部参数 -->
+  <param name="bare_nh/the_param" value="7" />
+
+  <!-- "~" 局部参数 -->
+  <node name="parameter_test" pkg="beginner_tutorials" type="param_test" output="screen">
+    <param name="the_param" value="10" />
+  </node>
+
+  <!-- "~p_b_nh" 局部参数 -->
+  <param name="parameter_test/p_b_nh/the_param" value="15" />
+
+</launch>
