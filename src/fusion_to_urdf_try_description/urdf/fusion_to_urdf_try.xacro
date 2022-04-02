@@ -1,0 +1,167 @@
+<?xml version="1.0" ?>
+<robot name="fusion_to_urdf_try" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find fusion_to_urdf_try_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find fusion_to_urdf_try_description)/urdf/fusion_to_urdf_try.trans" />
+<xacro:include filename="$(find fusion_to_urdf_try_description)/urdf/fusion_to_urdf_try.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin rpy="0 0 0" xyz="3.836774317438018e-14 -1.7519517431223827e-16 0.3475781551365197"/>
+    <mass value="574.1187704132183"/>
+    <inertia ixx="51.974322" ixy="-0.0" ixz="0.0" iyy="28.333113" iyz="-0.0" izz="70.960529"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://fusion_to_urdf_try_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://fusion_to_urdf_try_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_wheel_link_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-8.348877145181177e-16 -0.04999999999999993 -4.718447854656915e-16"/>
+    <mass value="11.686724671354028"/>
+    <inertia ixx="0.126606" ixy="-0.0" ixz="-0.0" iyy="0.233734" iyz="0.0" izz="0.126606"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0 0.5 -0.2"/>
+    <geometry>
+      <mesh filename="package://fusion_to_urdf_try_description/meshes/right_wheel_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0 0.5 -0.2"/>
+    <geometry>
+      <mesh filename="package://fusion_to_urdf_try_description/meshes/right_wheel_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_wheel_link_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-2.3160092400488117e-17 0.050000000000000044 0.0"/>
+    <mass value="11.686724671354028"/>
+    <inertia ixx="0.126606" ixy="0.0" ixz="0.0" iyy="0.233734" iyz="0.0" izz="0.126606"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0 -0.5 -0.2"/>
+    <geometry>
+      <mesh filename="package://fusion_to_urdf_try_description/meshes/left_wheel_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0 -0.5 -0.2"/>
+    <geometry>
+      <mesh filename="package://fusion_to_urdf_try_description/meshes/left_wheel_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_link_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-7.060360187511366e-18 -2.155131490299886e-17 0.03689248889946972"/>
+    <mass value="8.904370924987676"/>
+    <inertia ixx="0.014807" ixy="0.0" ixz="-0.0" iyy="0.014807" iyz="-0.0" izz="0.021496"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0 -0.0 -0.5"/>
+    <geometry>
+      <mesh filename="package://fusion_to_urdf_try_description/meshes/lidar_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0 -0.0 -0.5"/>
+    <geometry>
+      <mesh filename="package://fusion_to_urdf_try_description/meshes/lidar_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="pad_link_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="1.4361856253843233e-14 -8.137029039004664e-17 0.10582344929719556"/>
+    <mass value="5.8157379180789555"/>
+    <inertia ixx="0.228618" ixy="-0.0" ixz="0.0" iyy="0.116814" iyz="0.0" izz="0.344992"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0 -0.0 -0.5"/>
+    <geometry>
+      <mesh filename="package://fusion_to_urdf_try_description/meshes/pad_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0 -0.0 -0.5"/>
+    <geometry>
+      <mesh filename="package://fusion_to_urdf_try_description/meshes/pad_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rgbd_link_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.00132427759931936 0.0022759115610179186 0.05000124610435108"/>
+    <mass value="5.943682567131456"/>
+    <inertia ixx="0.111317" ixy="-0.030273" ixz="-0.0" iyy="0.016706" iyz="0.0" izz="0.118167"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0 -0.0 -0.66"/>
+    <geometry>
+      <mesh filename="package://fusion_to_urdf_try_description/meshes/rgbd_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0 -0.0 -0.66"/>
+    <geometry>
+      <mesh filename="package://fusion_to_urdf_try_description/meshes/rgbd_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="right_wheel_joint" type="continuous">
+  <origin rpy="0 0 0" xyz="0.0 -0.5 0.2"/>
+  <parent link="base_link"/>
+  <child link="right_wheel_link_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="left_whel_joint" type="continuous">
+  <origin rpy="0 0 0" xyz="0.0 0.5 0.2"/>
+  <parent link="base_link"/>
+  <child link="left_wheel_link_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="lidar_joint" type="continuous">
+  <origin rpy="0 0 0" xyz="0.0 0.0 0.5"/>
+  <parent link="base_link"/>
+  <child link="lidar_link_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="pad_fix_joint" type="fixed">
+  <origin rpy="0 0 0" xyz="0.0 0.0 0.5"/>
+  <parent link="base_link"/>
+  <child link="pad_link_1"/>
+</joint>
+
+<joint name="rgbd_joint" type="continuous">
+  <origin rpy="0 0 0" xyz="0.0 0.0 0.16"/>
+  <parent link="pad_link_1"/>
+  <child link="rgbd_link_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+</robot>

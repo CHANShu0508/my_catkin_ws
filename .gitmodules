@@ -2,3 +2,7 @@
 	path = src/ds4_driver
 	url = https://github.com/naoki-mizuno/ds4_driver.git
 	branch = noetic-devel
+[submodule "src/turtlebot3_simulations"]
+	path = src/turtlebot3_simulations
+	url = https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
+	branch = noetic-devel

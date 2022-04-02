@@ -1,0 +1,23 @@
+fusion_to_urdf_try_controller:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  # Position Controllers --------------------------------------
+  right_wheel_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: right_wheel_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  left_whel_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: left_whel_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  lidar_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: lidar_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  rgbd_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: rgbd_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
