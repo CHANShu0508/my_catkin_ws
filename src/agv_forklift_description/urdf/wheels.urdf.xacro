@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:macro name="wheel_macro" params="direction **content">
+  <!-- Links in the wheel -->
+  <link name="${direction}_wheel_left_tyre_link">
+    <inertial>
+      <origin xyz="3.333335224509071e-07 -0.018500000000241157 3.469446951953614e-17" rpy="0 0 0"/>
+      <mass value="0.1778455601197185"/>
+      <inertia ixx="0.000186" iyy="0.000331" izz="0.000186" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.416667 0.308 -0.05" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://agv_forklift_description/meshes/wheel_right_tyre_link_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="0.416667 0.308 -0.05" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://agv_forklift_description/meshes/wheel_right_tyre_link_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="${direction}_wheel_left_side_link">
+    <inertial>
+      <origin xyz="0.00010675169060286871 0.02309161955413208 -3.6442381300544335e-06" rpy="0 0 0"/>
+      <mass value="1.1123570626253076"/>
+      <inertia ixx="0.000468" iyy="0.000678" izz="0.00047" ixy="-1e-06" iyz="0.0" ixz="0.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.416667 0.35 -0.05" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://agv_forklift_description/meshes/wheel_right_side_link_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="0.416667 0.35 -0.05" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://agv_forklift_description/meshes/wheel_right_side_link_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="${direction}_wheel_right_tyre_link">
+    <inertial>
+      <origin xyz="3.333336075495019e-07 0.01849999999975882 -1.1102230246251565e-16" rpy="0 0 0"/>
+      <mass value="0.1778455601197185"/>
+      <inertia ixx="0.000186" iyy="0.000331" izz="0.000186" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.416667 0.492 -0.05" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://agv_forklift_description/meshes/wheel_left_tyre_link_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="0.416667 0.492 -0.05" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://agv_forklift_description/meshes/wheel_left_tyre_link_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="${direction}_wheel_right_side_link">
+    <inertial>
+      <origin xyz="3.3333352045250564e-07 -0.0230305917755671 -1.1796119636642288e-16" rpy="0 0 0"/>
+      <mass value="1.1064383020659443"/>
+      <inertia ixx="0.000467" iyy="0.000676" izz="0.000467" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.416667 0.45 -0.05" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://agv_forklift_description/meshes/wheel_left_side_link_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="0.416667 0.45 -0.05" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://agv_forklift_description/meshes/wheel_left_side_link_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="${direction}_wheel_body_link">
+    <inertial>
+      <origin xyz="3.3333356391773705e-07 -2.4108492979735274e-13 -0.039424239790861335" rpy="0 0 0"/>
+      <mass value="4.576097233565504"/>
+      <inertia ixx="0.010041" iyy="0.019675" izz="0.02442" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.416667 0.4 -0.1" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://agv_forklift_description/meshes/wheel_body_link_v1_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="0.416667 0.4 -0.1" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://agv_forklift_description/meshes/wheel_body_link_v1_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="${direction}_wheel_body_wheel_lid_link">
+    <inertial>
+      <origin xyz="0.10200033333356417 0.046999999999758846 -0.0025000000000000334" rpy="0 0 0"/>
+      <mass value="0.9476936807458183"/>
+      <inertia ixx="0.000954" iyy="0.003808" izz="0.004757" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.518667 0.447 -0.02" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://agv_forklift_description/meshes/wheel_body_wheel_lid_link_v1_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="0.518667 0.447 -0.02" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://agv_forklift_description/meshes/wheel_body_wheel_lid_link_v1_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Joints in the wheel -->
+  <joint name="${direction}_left_tyre_joint" type="fixed">
+    <origin xyz="0.0 0.042 0.0" rpy="0 0 0"/>
+    <parent link="${direction}_wheel_left_side_link"/>
+    <child link="${direction}_wheel_left_tyre_link"/>
+  </joint>
+
+  <joint name="${direction}_left_rotate_joint" type="continuous">
+    <origin xyz="0.0 0.055 -0.05" rpy="0 0 0"/>
+    <parent link="${direction}_wheel_body_link"/>
+    <child link="${direction}_wheel_left_side_link"/>
+    <axis xyz="-0.0 1.0 0.0"/>
+  </joint>
+
+  <joint name="${direction}_right_tyre_joint" type="fixed">
+    <origin xyz="0.0 -0.042 0.0" rpy="0 0 0"/>
+    <parent link="${direction}_wheel_right_side_link"/>
+    <child link="${direction}_wheel_right_tyre_link"/>
+  </joint>
+
+  <joint name="${direction}_right_rotate_joint" type="continuous">
+    <origin xyz="0.0 -0.055 -0.05" rpy="0 0 0"/>
+    <parent link="${direction}_wheel_body_link"/>
+    <child link="${direction}_wheel_right_side_link"/>
+    <axis xyz="-0.0 1.0 0.0"/>
+  </joint>
+
+  <joint name="${direction}_wheel_lid_joint" type="fixed">
+    <origin xyz="-0.102 -0.047 -0.08" rpy="0 0 0"/>
+    <parent link="${direction}_wheel_body_link"/>
+    <child link="${direction}_wheel_body_wheel_lid_link"/>
+  </joint>
+
+  <xacro:insert_block name="content"/>
+</xacro:macro>
+
+</robot>
