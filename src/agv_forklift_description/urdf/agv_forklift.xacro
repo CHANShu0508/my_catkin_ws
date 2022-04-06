@@ -5,6 +5,8 @@
 <xacro:include filename="$(find agv_forklift_description)/urdf/agv_forklift.trans" />
 <xacro:include filename="$(find agv_forklift_description)/urdf/agv_forklift.gazebo" />
 <xacro:include filename="$(find agv_forklift_description)/urdf/wheels.urdf.xacro" />
+
+<!-- The links -->
 <link name="base_link">
   <inertial>
     <origin xyz="-1.113481469298291 -6.437606003828477e-13 0.05983225879940115" rpy="0 0 0"/>
@@ -26,7 +28,28 @@
   </collision>
 </link>
 
-<link name="down_lidar_link_1">
+<link name="down_lidar_link_right">
+  <inertial>
+    <origin xyz="1.717830333536341e-08 -1.7178007793994254e-08 0.027500000000000156" rpy="0 0 0"/>
+    <mass value="4.882977461474621"/>
+    <inertia ixx="0.005626" iyy="0.005626" izz="0.008789" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.043934 0.556066 -0.055" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://agv_forklift_description/meshes/down_lidar_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.043934 0.556066 -0.055" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://agv_forklift_description/meshes/down_lidar_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="down_lidar_link_left">
   <inertial>
     <origin xyz="1.717830333536341e-08 -1.7178007793994254e-08 0.027500000000000156" rpy="0 0 0"/>
     <mass value="4.882977461474621"/>
@@ -68,7 +91,7 @@
   </collision>
 </link>
 
-<link name="AGV_forklift_body_link_v1_1">
+<link name="forklift_body_link">
   <inertial>
     <origin xyz="-0.3653016890644773 -3.642871057276427e-13 0.9701883309105319" rpy="0 0 0"/>
     <mass value="423.98667881089364"/>
@@ -196,10 +219,16 @@
   </collision>
 </link>
 
-<joint name="base_down_lidar_joint" type="fixed">
-  <origin xyz="-0.043934 -0.556066 0.055" rpy="0 0 0"/>
+<joint name="base_down_lidar_right_joint" type="fixed">
+  <origin xyz="-0.055934 -0.456066 0.055" rpy="0 0 0"/>
   <parent link="base_link"/>
-  <child link="down_lidar_link_1"/>
+  <child link="down_lidar_link_right"/>
+</joint>
+
+<joint name="base_down_lidar_left_joint" type="fixed">
+  <origin xyz="-0.055934 0.456066 0.055" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="down_lidar_link_left"/>
 </joint>
 
 <joint name="base_battery_joint" type="fixed">
@@ -211,12 +240,12 @@
 <joint name="base_body_joint" type="fixed">
   <origin xyz="0.0 0.0 0.105" rpy="0 0 0"/>
   <parent link="base_link"/>
-  <child link="AGV_forklift_body_link_v1_1"/>
+  <child link="forklift_body_link"/>
 </joint>
 
 <joint name="body_beam_joint" type="fixed">
   <origin xyz="-0.65 0.51 1.22" rpy="0 0 0"/>
-  <parent link="AGV_forklift_body_link_v1_1"/>
+  <parent link="forklift_body_link"/>
   <child link="beam_link"/>
 </joint>
 
@@ -231,7 +260,7 @@
 
 <joint name="body_lidar_joint" type="fixed">
   <origin xyz="-0.35 -0.0 1.835" rpy="0 0 0"/>
-  <parent link="AGV_forklift_body_link_v1_1"/>
+  <parent link="forklift_body_link"/>
   <child link="top_lidar_link_1"/>
 </joint>
 
