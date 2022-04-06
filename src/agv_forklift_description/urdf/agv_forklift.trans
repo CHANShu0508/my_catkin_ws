@@ -1,45 +1,45 @@
 <?xml version="1.0" ?>
-<robot name="fusion_to_urdf_try" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+<robot name="agv_forklift" xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
-<transmission name="right_wheel_joint_tran">
+<transmission name="beam_fork_slide_joint_tran">
   <type>transmission_interface/SimpleTransmission</type>
-  <joint name="right_wheel_joint">
+  <joint name="beam_fork_slide_joint">
     <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
   </joint>
-  <actuator name="right_wheel_joint_actr">
+  <actuator name="beam_fork_slide_joint_actr">
     <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     <mechanicalReduction>1</mechanicalReduction>
   </actuator>
 </transmission>
 
-<transmission name="left_whel_joint_tran">
+<transmission name="right_rotate_joint_tran">
   <type>transmission_interface/SimpleTransmission</type>
-  <joint name="left_whel_joint">
+  <joint name="right_rotate_joint">
     <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
   </joint>
-  <actuator name="left_whel_joint_actr">
+  <actuator name="right_rotate_joint_actr">
     <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     <mechanicalReduction>1</mechanicalReduction>
   </actuator>
 </transmission>
 
-<transmission name="lidar_joint_tran">
+<transmission name="left_rotate_joint_tran">
   <type>transmission_interface/SimpleTransmission</type>
-  <joint name="lidar_joint">
+  <joint name="left_rotate_joint">
     <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
   </joint>
-  <actuator name="lidar_joint_actr">
+  <actuator name="left_rotate_joint_actr">
     <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     <mechanicalReduction>1</mechanicalReduction>
   </actuator>
 </transmission>
 
-<transmission name="rgbd_joint_tran">
+<transmission name="whole_rotate_joint_tran">
   <type>transmission_interface/SimpleTransmission</type>
-  <joint name="rgbd_joint">
+  <joint name="whole_rotate_joint">
     <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
   </joint>
-  <actuator name="rgbd_joint_actr">
+  <actuator name="whole_rotate_joint_actr">
     <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     <mechanicalReduction>1</mechanicalReduction>
   </actuator>

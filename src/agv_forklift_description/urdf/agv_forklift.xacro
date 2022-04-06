@@ -1,0 +1,357 @@
+<?xml version="1.0" ?>
+<robot name="agv_forklift" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find agv_forklift_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find agv_forklift_description)/urdf/agv_forklift.trans" />
+<xacro:include filename="$(find agv_forklift_description)/urdf/agv_forklift.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-1.113481469298291 -6.437606003828477e-13 0.05983225879940115" rpy="0 0 0"/>
+    <mass value="491.1554933023608"/>
+    <inertia ixx="72.474974" iyy="237.962734" izz="309.767489" ixy="-0.0" iyz="0.0" ixz="0.212334"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://agv_forklift_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://agv_forklift_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="down_lidar_link_1">
+  <inertial>
+    <origin xyz="1.717830333536341e-08 -1.7178007793994254e-08 0.027500000000000156" rpy="0 0 0"/>
+    <mass value="4.882977461474621"/>
+    <inertia ixx="0.005626" iyy="0.005626" izz="0.008789" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.043934 0.556066 -0.055" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://agv_forklift_description/meshes/down_lidar_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.043934 0.556066 -0.055" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://agv_forklift_description/meshes/down_lidar_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="battery_link_1">
+  <inertial>
+    <origin xyz="-0.1500000000001046 -1.6195933483231783e-13 0.15000000000000013" rpy="0 0 0"/>
+    <mass value="38.0508105855631"/>
+    <inertia ixx="0.790005" iyy="0.569267" izz="0.78851" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 -0.0 -0.105" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://agv_forklift_description/meshes/battery_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 -0.0 -0.105" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://agv_forklift_description/meshes/battery_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="AGV_forklift_body_link_v1_1">
+  <inertial>
+    <origin xyz="-0.3653016890644773 -3.642871057276427e-13 0.9701883309105319" rpy="0 0 0"/>
+    <mass value="423.98667881089364"/>
+    <inertia ixx="195.921423" iyy="145.204493" izz="100.919348" ixy="0.0" iyz="0.0" ixz="-4.760868"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 -0.0 -0.105" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://agv_forklift_description/meshes/AGV_forklift_body_link_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 -0.0 -0.105" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://agv_forklift_description/meshes/AGV_forklift_body_link_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="beam_link_v1_1">
+  <inertial>
+    <origin xyz="-0.0493621787991847 -0.5432838605116257 -0.24347605881501466" rpy="0 0 0"/>
+    <mass value="50.40618620332635"/>
+    <inertia ixx="24.864729" iyy="14.359728" izz="10.856123" ixy="0.074298" iyz="0.408483" ixz="-0.392199"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.65 -0.51 -1.325" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://agv_forklift_description/meshes/beam_link_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.65 -0.51 -1.325" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://agv_forklift_description/meshes/beam_link_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="AGV_forklift_fork_link_v1_1">
+  <inertial>
+    <origin xyz="-0.6484229539416837 0.4723008933333786 -1.6470003187088946" rpy="0 0 0"/>
+    <mass value="365.22311207175414"/>
+    <inertia ixx="63.839107" iyy="87.82671" izz="138.209861" ixy="-0.000165" iyz="-8.9e-05" ixz="-14.023649"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.575 0.4673 -1.885" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://agv_forklift_description/meshes/AGV_forklift_fork_link_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.575 0.4673 -1.885" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://agv_forklift_description/meshes/AGV_forklift_fork_link_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_right_tyre_link_1">
+  <inertial>
+    <origin xyz="3.333335224509071e-07 -0.018500000000241157 3.469446951953614e-17" rpy="0 0 0"/>
+    <mass value="0.1778455601197185"/>
+    <inertia ixx="0.000186" iyy="0.000331" izz="0.000186" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.416667 0.308 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://agv_forklift_description/meshes/wheel_right_tyre_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.416667 0.308 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://agv_forklift_description/meshes/wheel_right_tyre_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_right_side_link_1">
+  <inertial>
+    <origin xyz="0.00010675169060286871 0.02309161955413208 -3.6442381300544335e-06" rpy="0 0 0"/>
+    <mass value="1.1123570626253076"/>
+    <inertia ixx="0.000468" iyy="0.000678" izz="0.00047" ixy="-1e-06" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.416667 0.35 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://agv_forklift_description/meshes/wheel_right_side_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.416667 0.35 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://agv_forklift_description/meshes/wheel_right_side_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_left_tyre_link_1">
+  <inertial>
+    <origin xyz="3.333336075495019e-07 0.01849999999975882 -1.1102230246251565e-16" rpy="0 0 0"/>
+    <mass value="0.1778455601197185"/>
+    <inertia ixx="0.000186" iyy="0.000331" izz="0.000186" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.416667 0.492 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://agv_forklift_description/meshes/wheel_left_tyre_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.416667 0.492 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://agv_forklift_description/meshes/wheel_left_tyre_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_left_side_link_1">
+  <inertial>
+    <origin xyz="3.3333352045250564e-07 -0.0230305917755671 -1.1796119636642288e-16" rpy="0 0 0"/>
+    <mass value="1.1064383020659443"/>
+    <inertia ixx="0.000467" iyy="0.000676" izz="0.000467" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.416667 0.45 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://agv_forklift_description/meshes/wheel_left_side_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.416667 0.45 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://agv_forklift_description/meshes/wheel_left_side_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_body_link_v1_1">
+  <inertial>
+    <origin xyz="3.3333356391773705e-07 -2.4108492979735274e-13 -0.039424239790861335" rpy="0 0 0"/>
+    <mass value="4.576097233565504"/>
+    <inertia ixx="0.010041" iyy="0.019675" izz="0.02442" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.416667 0.4 -0.1" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://agv_forklift_description/meshes/wheel_body_link_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.416667 0.4 -0.1" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://agv_forklift_description/meshes/wheel_body_link_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_body_wheel_lid_link_v1_1">
+  <inertial>
+    <origin xyz="0.10200033333356417 0.046999999999758846 -0.0025000000000000334" rpy="0 0 0"/>
+    <mass value="0.9476936807458183"/>
+    <inertia ixx="0.000954" iyy="0.003808" izz="0.004757" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.518667 0.447 -0.02" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://agv_forklift_description/meshes/wheel_body_wheel_lid_link_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.518667 0.447 -0.02" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://agv_forklift_description/meshes/wheel_body_wheel_lid_link_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="top_lidar_link_1">
+  <inertial>
+    <origin xyz="-0.05524254507663745 9.861407182463684e-05 0.06748274346056338" rpy="0 0 0"/>
+    <mass value="9.196970574806967"/>
+    <inertia ixx="0.022443" iyy="0.022665" izz="0.012481" ixy="6.4e-05" iyz="6.1e-05" ixz="-0.0008"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.35 0.0 -1.94" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://agv_forklift_description/meshes/top_lidar_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.35 0.0 -1.94" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://agv_forklift_description/meshes/top_lidar_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="base_down_lidar_joint" type="fixed">
+  <origin xyz="-0.043934 -0.556066 0.055" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="down_lidar_link_1"/>
+</joint>
+
+<joint name="base_battery_joint" type="fixed">
+  <origin xyz="0.0 0.0 0.105" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="battery_link_1"/>
+</joint>
+
+<joint name="base_body_joint" type="fixed">
+  <origin xyz="0.0 0.0 0.105" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="AGV_forklift_body_link_v1_1"/>
+</joint>
+
+<joint name="body_beam_joint" type="fixed">
+  <origin xyz="-0.65 0.51 1.22" rpy="0 0 0"/>
+  <parent link="AGV_forklift_body_link_v1_1"/>
+  <child link="beam_link_v1_1"/>
+</joint>
+
+<joint name="beam_fork_slide_joint" type="prismatic">
+  <origin xyz="0.075 -0.9773 0.56" rpy="0 0 0"/>
+  <parent link="beam_link_v1_1"/>
+  <child link="AGV_forklift_fork_link_v1_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit upper="0.0" lower="0.0" effort="100" velocity="100"/>
+</joint>
+
+<joint name="right_tyre_joint" type="fixed">
+  <origin xyz="0.0 0.042 0.0" rpy="0 0 0"/>
+  <parent link="wheel_right_side_link_1"/>
+  <child link="wheel_right_tyre_link_1"/>
+</joint>
+
+<joint name="right_rotate_joint" type="continuous">
+  <origin xyz="0.0 0.05 -0.05" rpy="0 0 0"/>
+  <parent link="wheel_body_link_v1_1"/>
+  <child link="wheel_right_side_link_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+<joint name="left_tyre_joint" type="fixed">
+  <origin xyz="0.0 -0.042 0.0" rpy="0 0 0"/>
+  <parent link="wheel_left_side_link_1"/>
+  <child link="wheel_left_tyre_link_1"/>
+</joint>
+
+<joint name="left_rotate_joint" type="continuous">
+  <origin xyz="0.0 -0.05 -0.05" rpy="0 0 0"/>
+  <parent link="wheel_body_link_v1_1"/>
+  <child link="wheel_left_side_link_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+<joint name="whole_rotate_joint" type="continuous">
+  <origin xyz="-0.416667 -0.4 0.1" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_body_link_v1_1"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+</joint>
+
+<joint name="wheel_lid_joint" type="fixed">
+  <origin xyz="-0.102 -0.047 -0.08" rpy="0 0 0"/>
+  <parent link="wheel_body_link_v1_1"/>
+  <child link="wheel_body_wheel_lid_link_v1_1"/>
+</joint>
+
+<joint name="body_lidar_joint" type="fixed">
+  <origin xyz="-0.35 -0.0 1.835" rpy="0 0 0"/>
+  <parent link="AGV_forklift_body_link_v1_1"/>
+  <child link="top_lidar_link_1"/>
+</joint>
+
+</robot>

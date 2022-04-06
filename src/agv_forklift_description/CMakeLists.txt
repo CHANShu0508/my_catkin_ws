@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 3.16)
-project(fusion_to_urdf_try_description)
+cmake_minimum_required(VERSION 2.8.3)
+project(agv_forklift_description)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
