@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:property name="silver" value="Gazebo/Grey"/>
+  <xacro:property name="black" value="Gazebo/DarkGrey"/>
+  <xacro:property name="indigo" value="Gazebo/Indigo"/>
+  <xacro:property name="blue" value="Gazebo/Blue"/>
+  <xacro:property name="green" value="Gazebo/Green"/>
+  <xacro:property name="green_glow" value="Gazebo/GreenGlow"/>
+  <xacro:property name="yellow" value="Gazebo/Yellow"/>
+
+  <xacro:macro name="gazebo_common" params="link_name color mu_1 mu_2">
+    <gazebo reference="${link_name}_link">
+      <material>${color}</material>
+      <mu1>${mu_1}</mu1>
+      <mu2>${mu_2}</mu2>
+    </gazebo>
+  </xacro:macro>
+
+</robot>

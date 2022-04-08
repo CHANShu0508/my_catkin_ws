@@ -1,0 +1,10 @@
+<launch>
+
+  <include file="$(find agv_forklift_description)/launch/gazebo.launch"/>
+  <include file="$(find agv_forklift_description)/launch/display.launch"/>
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher"  name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="500.0" />
+  </node>
+
+</launch>

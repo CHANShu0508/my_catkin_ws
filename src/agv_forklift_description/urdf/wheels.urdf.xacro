@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+  <xacro:include filename="$(find agv_forklift_description)/urdf/agv_forklift.gazebo.xacro" />
+
   <xacro:macro name="wheel_macro" params="direction **content">
     <!-- Links in the wheel -->
     <link name="${direction}_wheel_left_tyre_link">
@@ -14,7 +16,6 @@
         <geometry>
           <mesh filename="package://agv_forklift_description/meshes/wheel_right_tyre_link_1.stl" scale="0.001 0.001 0.001"/>
         </geometry>
-        <material name="silver"/>
       </visual>
       <collision>
         <origin xyz="0.416667 0.308 -0.05" rpy="0 0 0"/>
@@ -35,7 +36,6 @@
         <geometry>
           <mesh filename="package://agv_forklift_description/meshes/wheel_right_side_link_1.stl" scale="0.001 0.001 0.001"/>
         </geometry>
-        <material name="silver"/>
       </visual>
       <collision>
         <origin xyz="0.416667 0.35 -0.05" rpy="0 0 0"/>
@@ -56,7 +56,6 @@
         <geometry>
           <mesh filename="package://agv_forklift_description/meshes/wheel_left_tyre_link_1.stl" scale="0.001 0.001 0.001"/>
         </geometry>
-        <material name="silver"/>
       </visual>
       <collision>
         <origin xyz="0.416667 0.492 -0.05" rpy="0 0 0"/>
@@ -77,7 +76,6 @@
         <geometry>
           <mesh filename="package://agv_forklift_description/meshes/wheel_left_side_link_1.stl" scale="0.001 0.001 0.001"/>
         </geometry>
-        <material name="silver"/>
       </visual>
       <collision>
         <origin xyz="0.416667 0.45 -0.05" rpy="0 0 0"/>
@@ -98,7 +96,6 @@
         <geometry>
           <mesh filename="package://agv_forklift_description/meshes/wheel_body_link_v1_1.stl" scale="0.001 0.001 0.001"/>
         </geometry>
-        <material name="silver"/>
       </visual>
       <collision>
         <origin xyz="0.416667 0.4 -0.1" rpy="0 0 0"/>
@@ -119,7 +116,6 @@
         <geometry>
           <mesh filename="package://agv_forklift_description/meshes/wheel_body_wheel_lid_link_v1_1.stl" scale="0.001 0.001 0.001"/>
         </geometry>
-        <material name="silver"/>
       </visual>
       <collision>
         <origin xyz="0.518667 0.447 -0.02" rpy="0 0 0"/>
@@ -163,6 +159,33 @@
     </joint>
 
     <xacro:insert_block name="content"/>
+
+    <!-- Gazebo -->
+    <xacro:gazebo_common link_name="${direction}_wheel_left_tyre"
+                         color="${black}"
+                         mu_1="0.8"
+                         mu_2="0.8"/>
+    <xacro:gazebo_common link_name="${direction}_wheel_right_tyre"
+                         color="${black}"
+                         mu_1="0.8"
+                         mu_2="0.8"/>
+    <xacro:gazebo_common link_name="${direction}_wheel_left_side"
+                         color="${silver}"
+                         mu_1="0"
+                         mu_2="0"/>
+    <xacro:gazebo_common link_name="${direction}_wheel_right_side"
+                         color="${silver}"
+                         mu_1="0"
+                         mu_2="0"/>   
+    <xacro:gazebo_common link_name="${direction}_wheel_body"
+                         color="${green}"
+                         mu_1="0"
+                         mu_2="0"/>
+    <xacro:gazebo_common link_name="{direction}_wheel_body_wheel_lid"
+                         color="${green}"
+                         mu_1="0"
+                         mu_2="0"/>                                                              
+
   </xacro:macro>
 
 </robot>
