@@ -17,7 +17,7 @@ find_package(catkin REQUIRED COMPONENTS
   robot_state_publisher
   roscpp
   rospy
-  rviz
+  ds4_driver
 )
 
 ## System dependencies are found with CMake's conventions
@@ -125,6 +125,16 @@ catkin_package(
 include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
+)
+
+add_executable(chassis_control src/chassis_control.cpp)
+target_link_libraries(chassis_control
+  ${catkin_LIBRARIES}
+)
+
+add_executable(manual_control src/manual_control.cpp)
+target_link_libraries(manual_control
+  ${catkin_LIBRARIES}
 )
 
 ## Declare a C++ library

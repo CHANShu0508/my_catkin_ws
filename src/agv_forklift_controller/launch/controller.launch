@@ -3,8 +3,33 @@
   <include file="$(find agv_forklift_description)/launch/gazebo.launch"/>
   <include file="$(find agv_forklift_description)/launch/display.launch"/>
 
-  <node pkg="robot_state_publisher" type="robot_state_publisher"  name="robot_state_publisher">
-    <param name="publish_frequency" type="double" value="500.0" />
-  </node>
+  <!-- Open gazebo -->
+  <rosparam command="load" file="$(find agv_forklift_controller)/config/control.yaml"/>
+
+  <node name="forklift_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" ns="/forklift_controllers"
+        args="joint_state_controller
+              front_left_left_wheel_controller
+              front_left_right_wheel_controller
+              front_right_left_wheel_controller
+              front_right_right_wheel_controller
+              back_left_left_wheel_controller
+              back_left_right_wheel_controller
+              back_right_left_wheel_controller
+              back_right_right_wheel_controller
+              front_left_whole_controller
+              front_right_whole_controller
+              back_left_whole_controller
+              back_right_whole_controller"/>
+  
+  <!-- Manual controller joystick -->
+  <arg name="addr" default="" />
+
+  <include file="$(find ds4_driver)/launch/ds4_driver.launch" >
+    <arg name="addr" value="$(arg addr)" />
+    <arg name="use_standard_msgs" value="false" />
+  </include>
+
+  <node name="ctrl_to_cmd_vel" pkg="agv_forklift_controller" type="manual_control" args="forklift 1.0 1.57"/>
+  <node name="chassis_control" pkg="agv_forklift_controller" type="chassis_control"/>
 
 </launch>

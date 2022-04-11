@@ -170,7 +170,7 @@
           <mechanicalReduction>1</mechanicalReduction>
         </actuator>
         <joint name="front_left_whole_rotate_joint">
-          <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+          <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
         </joint>
       </transmission>
     </trans_container>
@@ -192,7 +192,7 @@
           <mechanicalReduction>1</mechanicalReduction>
         </actuator>
         <joint name="front_right_whole_rotate_joint">
-          <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+          <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
         </joint>
       </transmission>
     </trans_container>
@@ -214,7 +214,7 @@
           <mechanicalReduction>1</mechanicalReduction>
         </actuator>
         <joint name="back_left_whole_rotate_joint">
-          <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+          <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
         </joint>
       </transmission>
     </trans_container>
@@ -236,7 +236,7 @@
           <mechanicalReduction>1</mechanicalReduction>
         </actuator>
         <joint name="back_right_whole_rotate_joint">
-          <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+          <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
         </joint>
       </transmission>
     </trans_container>
@@ -312,7 +312,7 @@
   <!-- The gazebo relevant -->
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      <robotNamespace>/</robotNamespace>
+      <robotNamespace>/forklift_controllers</robotNamespace>
     </plugin>
   </gazebo>
 

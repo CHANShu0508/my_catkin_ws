@@ -189,7 +189,7 @@
           <mechanicalReduction>1</mechanicalReduction>
       </actuator>
       <joint name="${direction}_left_rotate_joint">
-          <hardwareInterface>VelocityJointInterface</hardwareInterface>
+          <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       </joint>
     </transmission>
 
@@ -199,7 +199,7 @@
           <mechanicalReduction>1</mechanicalReduction>
       </actuator>
       <joint name="${direction}_right_rotate_joint">
-          <hardwareInterface>VelocityJointInterface</hardwareInterface>
+          <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       </joint>
     </transmission>
   </xacro:macro>

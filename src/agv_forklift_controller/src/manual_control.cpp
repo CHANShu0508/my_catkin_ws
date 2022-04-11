@@ -1,5 +1,5 @@
 #include "ros/ros.h"
-#include "geometry_msgs/Twist.h"
+#include "geometry_msgs/TwistStamped.h"
 #include "ds4_driver/Status.h"
 
 double translation_vel_factor, rotation_vel_factor;
@@ -14,7 +14,7 @@ public:
     void CtrlStatusCallback(const ds4_driver::Status::ConstPtr& msg);
 
     Controller2Cmd(std::string _prefix) {
-        pub_ = nh_.advertise<geometry_msgs::Twist>(_prefix + "/cmd_vel", 100);
+        pub_ = nh_.advertise<geometry_msgs::TwistStamped>(_prefix + "/cmd_vel", 100);
         sub_ = nh_.subscribe("status", 200, &Controller2Cmd::CtrlStatusCallback, this);
     }
 };
@@ -41,14 +41,20 @@ int main(int argc, char *argv[])
 
 void Controller2Cmd::CtrlStatusCallback(const ds4_driver::Status::ConstPtr& msg)
 {
-    geometry_msgs::Twist send_msg;
-    send_msg.linear.x = translation_vel_factor * msg->axis_left_y;
-    send_msg.linear.y = translation_vel_factor * msg->axis_left_x;
-    send_msg.linear.z = 0.0;
-    send_msg.angular.x = 0.0;
-    send_msg.angular.y = 0.0;
-    send_msg.angular.z = rotation_vel_factor * msg->axis_right_x;
+    static uint32_t counter = 0;
+    geometry_msgs::TwistStamped send_msg;
+
+    send_msg.header.seq = counter;
+    send_msg.header.stamp = ros::Time::now();
+    send_msg.twist.linear.x = translation_vel_factor * msg->axis_left_y;
+    send_msg.twist.linear.y = translation_vel_factor * msg->axis_left_x;
+    send_msg.twist.linear.z = 0.0;
+    send_msg.twist.angular.x = 0.0;
+    send_msg.twist.angular.y = 0.0;
+    send_msg.twist.angular.z = rotation_vel_factor * msg->axis_right_x;
 
     pub_.publish(send_msg);
+
+    counter++;
     ros::spinOnce();
 }
