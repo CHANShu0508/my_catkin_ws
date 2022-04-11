@@ -3,7 +3,7 @@
 
   <xacro:include filename="$(find agv_forklift_description)/urdf/agv_forklift.gazebo.xacro" />
 
-  <xacro:macro name="wheel_macro" params="direction **content">
+  <xacro:macro name="wheel_macro" params="direction **content **transmission">
     <!-- Links in the wheel -->
     <link name="${direction}_wheel_left_tyre_link">
       <inertial>
@@ -159,33 +159,49 @@
     </joint>
 
     <xacro:insert_block name="content"/>
+    <xacro:insert_block name="transmission"/>
 
     <!-- Gazebo -->
     <xacro:gazebo_common link_name="${direction}_wheel_left_tyre"
                          color="${black}"
-                         mu_1="0.8"
-                         mu_2="0.8"/>
+                         mu_1="800.0"
+                         mu_2="800.0"
+                         k_p="10000000.0"
+                         k_d="0.0"/>
     <xacro:gazebo_common link_name="${direction}_wheel_right_tyre"
                          color="${black}"
-                         mu_1="0.8"
-                         mu_2="0.8"/>
+                         mu_1="800.0"
+                         mu_2="800.0"
+                         k_p="10000000.0"
+                         k_d="0.0"/>
     <xacro:gazebo_common link_name="${direction}_wheel_left_side"
-                         color="${silver}"
-                         mu_1="0"
-                         mu_2="0"/>
+                         color="${silver}"/>
     <xacro:gazebo_common link_name="${direction}_wheel_right_side"
-                         color="${silver}"
-                         mu_1="0"
-                         mu_2="0"/>   
+                         color="${silver}"/>   
     <xacro:gazebo_common link_name="${direction}_wheel_body"
-                         color="${green}"
-                         mu_1="0"
-                         mu_2="0"/>
+                         color="${green}"/>
     <xacro:gazebo_common link_name="{direction}_wheel_body_wheel_lid"
-                         color="${green}"
-                         mu_1="0"
-                         mu_2="0"/>                                                              
+                         color="${green}"/>                                                              
+    <!-- Transmissions -->
+    <transmission name="${direction}_left_rotate_joint_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <actuator name="${direction}_left_rotate_joint_motor">
+          <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+      <joint name="${direction}_left_rotate_joint">
+          <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      </joint>
+    </transmission>
 
+    <transmission name="${direction}_right_rotate_joint_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <actuator name="${direction}_right_rotate_joint_motor">
+          <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+      <joint name="${direction}_right_rotate_joint">
+          <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      </joint>
+    </transmission>
   </xacro:macro>
 
 </robot>

@@ -2,9 +2,9 @@
 <robot name="agv_forklift" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <xacro:include filename="$(find agv_forklift_description)/urdf/materials.xacro" />
-  <xacro:include filename="$(find agv_forklift_description)/urdf/agv_forklift.trans" />
   <xacro:include filename="$(find agv_forklift_description)/urdf/agv_forklift.gazebo.xacro" />
   <xacro:include filename="$(find agv_forklift_description)/urdf/wheels.urdf.xacro" />
+  <xacro:include filename="$(find agv_forklift_description)/urdf/agv_forklift.transmission.xacro" />
 
   <!-- The links -->
   <link name="base_link">
@@ -163,6 +163,17 @@
         <axis xyz="0.0 0.0 -1.0"/>
       </joint>
     </container>
+    <trans_container>
+      <transmission name="front_left_whole_rotate_joint_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <actuator name="front_left_whole_rotate_joint_motor">
+          <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+        <joint name="front_left_whole_rotate_joint">
+          <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+      </transmission>
+    </trans_container>
   </xacro:wheel_macro>
 
   <xacro:wheel_macro direction="front_right">
@@ -174,6 +185,17 @@
         <axis xyz="0.0 0.0 -1.0"/>
       </joint>
     </container>
+    <trans_container>
+      <transmission name="front_right_whole_rotate_joint_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <actuator name="front_right_whole_rotate_joint_motor">
+          <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+        <joint name="front_right_whole_rotate_joint">
+          <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+      </transmission>
+    </trans_container>
   </xacro:wheel_macro>
 
   <xacro:wheel_macro direction="back_left">
@@ -185,6 +207,17 @@
         <axis xyz="0.0 0.0 -1.0"/>
       </joint>
     </container>
+    <trans_container>
+      <transmission name="back_left_whole_rotate_joint_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <actuator name="back_left_whole_rotate_joint_motor">
+          <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+        <joint name="back_left_whole_rotate_joint">
+          <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+      </transmission>
+    </trans_container>
   </xacro:wheel_macro>
 
   <xacro:wheel_macro direction="back_right">
@@ -196,6 +229,17 @@
         <axis xyz="0.0 0.0 -1.0"/>
       </joint>
     </container>
+    <trans_container>
+      <transmission name="back_right_whole_rotate_joint_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <actuator name="back_right_whole_rotate_joint_motor">
+          <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+        <joint name="back_right_whole_rotate_joint">
+          <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+      </transmission>
+    </trans_container>
   </xacro:wheel_macro>
 
   <link name="top_lidar_link">
@@ -266,37 +310,38 @@
   </joint>
 
   <!-- The gazebo relevant -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/</robotNamespace>
+    </plugin>
+  </gazebo>
+
   <xacro:gazebo_common link_name="base"
-                       color="${black}"
-                       mu_1="0"
-                       mu_2="0"/>
+                       color="${black}"/>
   <xacro:gazebo_common link_name="base_down_lidar_left"
-                       color="${indigo}"
-                       mu_1="0"
-                       mu_2="0"/>   
+                       color="${indigo}"/>   
   <xacro:gazebo_common link_name="base_down_lidar_right"
-                       color="${indigo}"
-                       mu_1="0"
-                       mu_2="0"/>
+                       color="${indigo}"/>
   <xacro:gazebo_common link_name="battery"
-                       color="${silver}"
-                       mu_1="0"
-                       mu_2="0"/> 
+                       color="${silver}"/> 
   <xacro:gazebo_common link_name="forklift_body"
-                       color="${blue}"
-                       mu_1="0"
-                       mu_2="0"/>
+                       color="${blue}"/>
   <xacro:gazebo_common link_name="beam"
-                       color="${silver}"
-                       mu_1="0"
-                       mu_2="0"/>  
+                       color="${silver}"/>  
   <xacro:gazebo_common link_name="fork"
                        color="${black}"
-                       mu_1="0.35"
-                       mu_2="0.35"/>  
+                       mu_1="350.0"
+                       mu_2="320.0"
+                       k_p="10000000.0"
+                       k_d="0.0"/>  
   <xacro:gazebo_common link_name="top_lidar"
                        color="${yellow}"
-                       mu_1="0.35"
-                       mu_2="0.35"/>                                                                                                                                             
+                       mu_1="350.0"
+                       mu_2="320.0"
+                       k_p="10000000.0"
+                       k_d="0.0"/>   
+
+  <!-- Transmissions -->
+  <xacro:forklift_transmission />                                                                                                                                                              
 
 </robot>

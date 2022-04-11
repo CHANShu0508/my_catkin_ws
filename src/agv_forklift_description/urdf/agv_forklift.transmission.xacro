@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="forklift_transmission">
+    <!-- The transmission of wheels is in its own file -->
+    <transmission name="beam_fork_slide_joint_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <actuator name="beam_fork_slide_joint_motor">
+          <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+      <joint name="beam_fork_slide_joint">
+          <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      </joint>
+    </transmission>
+  </xacro:macro>
+
+</robot>
