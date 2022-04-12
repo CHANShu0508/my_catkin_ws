@@ -29,7 +29,7 @@
     <arg name="use_standard_msgs" value="false" />
   </include>
 
-  <node name="ctrl_to_cmd_vel" pkg="agv_forklift_controller" type="manual_control" args="forklift 1.0 1.57"/>
-  <node name="chassis_control" pkg="agv_forklift_controller" type="chassis_control"/>
+  <node name="ctrl_to_cmd_vel" pkg="agv_forklift_controller" type="manual_control" args="forklift 1.0 3.14"/>
+  <node name="chassis_control" pkg="agv_forklift_controller" type="chassis_control" args="10.0 0.0 0.0 100"/>
 
 </launch>
