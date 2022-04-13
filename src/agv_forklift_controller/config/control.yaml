@@ -59,24 +59,32 @@ forklift_controllers:
   #   pid: { p: 10.0, i: 0.0, d: 0.0 }
 
   # Position Controller: Just use as ENCODERS!!
-  front_left_whole_controller:
-    type: effort_controllers/JointPositionController
-    joint: front_left_whole_rotate_joint
-    pid: { p: 0.0, i: 0.0, d: 0.0 } # Must be all 0!
+  zero_controller:
+    type: effort_controllers/JointGroupEffortController
+    joints:
+      - front_left_whole_rotate_joint
+      - front_right_whole_rotate_joint
+      - back_left_whole_rotate_joint
+      - back_right_whole_rotate_joint
 
-  front_right_whole_controller:
-    type: effort_controllers/JointPositionController
-    joint: front_right_whole_rotate_joint
-    pid: { p: 0.0, i: 0.0, d: 0.0 } # Must be all 0!
+  # front_left_whole_controller:
+  #   type: effort_controllers/JointPositionController
+  #   joint: front_left_whole_rotate_joint
+  #   pid: { p: 0.0, i: 0.0, d: 0.0 } # Must be all 0!
 
-  back_left_whole_controller:
-    type: effort_controllers/JointPositionController
-    joint: back_left_whole_rotate_joint
-    pid: { p: 0.0, i: 0.0, d: 0.0 } # Must be all 0!
+  # front_right_whole_controller:
+  #   type: effort_controllers/JointPositionController
+  #   joint: front_right_whole_rotate_joint
+  #   pid: { p: 0.0, i: 0.0, d: 0.0 } # Must be all 0!
+
+  # back_left_whole_controller:
+  #   type: effort_controllers/JointPositionController
+  #   joint: back_left_whole_rotate_joint
+  #   pid: { p: 0.0, i: 0.0, d: 0.0 } # Must be all 0!
   
-  back_right_whole_controller:
-    type: effort_controllers/JointPositionController
-    joint: back_right_whole_rotate_joint
-    pid: { p: 0.0, i: 0.0, d: 0.0 } # Must be all 0!
+  # back_right_whole_controller:
+  #   type: effort_controllers/JointPositionController
+  #   joint: back_right_whole_rotate_joint
+  #   pid: { p: 0.0, i: 0.0, d: 0.0 } # Must be all 0!
 
   # TODO: the controller of the fork

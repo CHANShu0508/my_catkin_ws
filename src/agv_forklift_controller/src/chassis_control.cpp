@@ -10,7 +10,7 @@
 
 #include <ros/ros.h>
 #include <eigen3/Eigen/Dense>
-#include "std_msgs/Float64.h"
+#include "std_msgs/Float64MultiArray.h"
 #include "geometry_msgs/TwistStamped.h"
 #include "control_msgs/JointControllerState.h"
 #include "message_filters/subscriber.h"
@@ -29,7 +29,7 @@ Matrix<double, 4, 2> rot_ori_mat; // Origin matrice for the rotate matrice
 class Chassis {
 private:
     ros::NodeHandle nh_;
-    ros::Publisher fll_pub_, flr_pub_, frl_pub_, frr_pub_, bll_pub_, blr_pub_, brl_pub_, brr_pub_;
+    ros::Publisher wheels_pub_;
     message_filters::Subscriber<ctrl_msgs> ctrl_sub_;
     message_filters::Subscriber<encoder_msgs> fl_sub_;
     message_filters::Subscriber<encoder_msgs> fr_sub_;
@@ -75,14 +75,7 @@ public:
         sync_->registerCallback(boost::bind(&Chassis::CtrlCallBack, this, _1, _2, _3, _4, _5));
 
         ros::Duration(0, 10000).sleep();
-        fll_pub_ = nh_.advertise<std_msgs::Float64>("forklift_controllers/front_left_left_wheel_controller/command", 10);    ros::Duration(0, 10000).sleep();
-        flr_pub_ = nh_.advertise<std_msgs::Float64>("forklift_controllers/front_left_right_wheel_controller/command", 10);   ros::Duration(0, 10000).sleep();
-        frl_pub_ = nh_.advertise<std_msgs::Float64>("forklift_controllers/front_right_left_wheel_controller/command", 10);   ros::Duration(0, 10000).sleep();
-        frr_pub_ = nh_.advertise<std_msgs::Float64>("forklift_controllers/front_right_right_wheel_controller/command", 10);  ros::Duration(0, 10000).sleep();
-        bll_pub_ = nh_.advertise<std_msgs::Float64>("forklift_controllers/back_left_left_wheel_controller/command", 10);     ros::Duration(0, 10000).sleep();
-        blr_pub_ = nh_.advertise<std_msgs::Float64>("forklift_controllers/back_left_right_wheel_controller/command", 10);    ros::Duration(0, 10000).sleep();
-        brl_pub_ = nh_.advertise<std_msgs::Float64>("forklift_controllers/back_right_left_wheel_controller/command", 10);    ros::Duration(0, 10000).sleep();
-        brr_pub_ = nh_.advertise<std_msgs::Float64>("forklift_controllers/back_right_right_wheel_controller/command", 10);
+        wheels_pub_ = nh_.advertise<std_msgs::Float64MultiArray>("forklift_controllers/chassis_controller/command", 10);
     }
 
     ~Chassis() {
@@ -105,7 +98,7 @@ void Chassis::CtrlCallBack(const ctrl_msgs::ConstPtr& _ctrl_msg,
                            const encoder_msgs::ConstPtr bl_msg,
                            const encoder_msgs::ConstPtr br_msg)
 {
-    std::vector<std_msgs::Float64> send_msg (8);
+    std_msgs::Float64MultiArray send_msg;
     Matrix<double, 4, 3> tar_now_mat;
     RowVector2d x_uint(1.0, 0.0);
     Matrix<double, 4, 2> velo_norm;
@@ -142,23 +135,26 @@ void Chassis::CtrlCallBack(const ctrl_msgs::ConstPtr& _ctrl_msg,
 
     pid_mat_ptr_->impl->result_mat = pid_mat_ptr_->impl->result_mat + velo_norm;
 
-    send_msg[0].data = pid_mat_ptr_->impl->result_mat(0, 0);
-    send_msg[1].data = pid_mat_ptr_->impl->result_mat(0, 1);
-    send_msg[2].data = pid_mat_ptr_->impl->result_mat(1, 0);
-    send_msg[3].data = pid_mat_ptr_->impl->result_mat(1, 1);
-    send_msg[4].data = pid_mat_ptr_->impl->result_mat(2, 0);
-    send_msg[5].data = pid_mat_ptr_->impl->result_mat(2, 1);
-    send_msg[6].data = pid_mat_ptr_->impl->result_mat(3, 0);
-    send_msg[7].data = pid_mat_ptr_->impl->result_mat(3, 1);
+    // send_msg.data.push_back(pid_mat_ptr_->impl->result_mat(0, 0));
+    // send_msg.data.push_back(pid_mat_ptr_->impl->result_mat(0, 1));
+    // send_msg.data.push_back(pid_mat_ptr_->impl->result_mat(1, 0));
+    // send_msg.data.push_back(pid_mat_ptr_->impl->result_mat(1, 1));
+    // send_msg.data.push_back(pid_mat_ptr_->impl->result_mat(2, 0));
+    // send_msg.data.push_back(pid_mat_ptr_->impl->result_mat(2, 1));
+    // send_msg.data.push_back(pid_mat_ptr_->impl->result_mat(3, 0));
+    // send_msg.data.push_back(pid_mat_ptr_->impl->result_mat(3, 1));
 
-    fll_pub_.publish(send_msg[0]);
-    flr_pub_.publish(send_msg[1]);
-    frl_pub_.publish(send_msg[2]);
-    frr_pub_.publish(send_msg[3]);
-    bll_pub_.publish(send_msg[4]);
-    blr_pub_.publish(send_msg[5]);
-    brl_pub_.publish(send_msg[6]);
-    brr_pub_.publish(send_msg[7]);
+    send_msg.data.push_back(20.0);
+    send_msg.data.push_back(20.0);
+    send_msg.data.push_back(20.0);
+    send_msg.data.push_back(20.0);
+    send_msg.data.push_back(20.0);
+    send_msg.data.push_back(20.0);
+    send_msg.data.push_back(20.0);
+    send_msg.data.push_back(20.0);
+
+    printf("%.2f %.2f\n", pid_mat_ptr_->impl->result_mat(0, 0), pid_mat_ptr_->impl->result_mat(3, 1));
+    // wheels_pub_.publish(send_msg);
 
     sum_mat_ = ones_mat;
     rot_mat_ = rot_ori_mat;

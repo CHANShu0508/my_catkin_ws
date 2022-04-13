@@ -9,10 +9,7 @@
   <node name="forklift_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" ns="/forklift_controllers"
         args="joint_state_controller
               chassis_controller
-              front_left_whole_controller
-              front_right_whole_controller
-              back_left_whole_controller
-              back_right_whole_controller"/>
+              zero_controller"/>
   
   <!-- Manual controller joystick -->
   <arg name="addr" default="" />
@@ -23,6 +20,6 @@
   </include>
 
   <node name="ctrl_to_cmd_vel" pkg="agv_forklift_controller" type="manual_control" args="forklift 1.0 3.14"/>
-  <node name="chassis_control" pkg="agv_forklift_controller" type="chassis_control" args="10.0 0.0 0.0 100"/>
+  <!-- <node name="chassis_control" pkg="agv_forklift_controller" type="chassis_control" args="10.0 0.0 0.0 100"/> -->
 
 </launch>
