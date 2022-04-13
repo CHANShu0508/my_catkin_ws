@@ -8,14 +8,7 @@
 
   <node name="forklift_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" ns="/forklift_controllers"
         args="joint_state_controller
-              front_left_left_wheel_controller
-              front_left_right_wheel_controller
-              front_right_left_wheel_controller
-              front_right_right_wheel_controller
-              back_left_left_wheel_controller
-              back_left_right_wheel_controller
-              back_right_left_wheel_controller
-              back_right_right_wheel_controller
+              chassis_controller
               front_left_whole_controller
               front_right_whole_controller
               back_left_whole_controller
