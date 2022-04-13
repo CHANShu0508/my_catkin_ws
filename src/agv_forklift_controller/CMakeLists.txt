@@ -134,7 +134,7 @@ target_link_libraries(chassis_control
 )
 target_include_directories(chassis_control
   PRIVATE
-    ${PROJECT_SOURCE_DIR}/include/agv_forklift_controller
+    ${PROJECT_SOURCE_DIR}/include
 )
 
 add_executable(manual_control src/manual_control.cpp)
