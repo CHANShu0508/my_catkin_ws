@@ -1,0 +1,12 @@
+pid_param:
+  Velo2Effort:
+    p: 0.0
+    i: 0.0
+    d: 0.0
+    max: 0.0
+
+  Angle2Velo:
+    p: 10.0
+    i: 0.0
+    d: 0.0
+    max: 1.0

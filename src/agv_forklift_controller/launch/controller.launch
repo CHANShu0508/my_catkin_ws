@@ -2,14 +2,18 @@
 
   <include file="$(find agv_forklift_description)/launch/gazebo.launch"/>
   <include file="$(find agv_forklift_description)/launch/display.launch"/>
+  <rosparam command="load" file="$(find agv_forklift_controller)/config/pid_param.yaml"/>
 
   <!-- Open gazebo -->
   <rosparam command="load" file="$(find agv_forklift_controller)/config/control.yaml"/>
-
   <node name="forklift_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" ns="/forklift_controllers"
         args="joint_state_controller
               chassis_controller
               zero_controller"/>
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+    <remap from="/joint_states" to="/forklift_controllers/joint_states" />
+  </node>
   
   <!-- Manual controller joystick -->
   <arg name="addr" default="" />
@@ -19,7 +23,11 @@
     <arg name="use_standard_msgs" value="false" />
   </include>
 
+  <node name="pub_whole_rotate_zero" pkg="agv_forklift_controller" type="continous_pub" args="forklift_controllers/zero_controller/command 100 true 0" />
+
   <node name="ctrl_to_cmd_vel" pkg="agv_forklift_controller" type="manual_control" args="forklift 1.0 3.14"/>
-  <!-- <node name="chassis_control" pkg="agv_forklift_controller" type="chassis_control" args="10.0 0.0 0.0 100"/> -->
+  <node name="chassis_control" pkg="agv_forklift_controller" type="chassis_control" args="1"/>
+  
+  <!-- ###### For debug ###### -->
 
 </launch>

@@ -14,10 +14,15 @@ Chassis_PID::PIDImpl::PIDImpl(double kp, double ki, double kd, double _max_out)
 
 void Chassis_PID::PIDImpl::Calculate(Vector4d& error)
 {
+    // Process of the parameter matrix
     param_mat_.col(1) = param_mat_.col(1) + error;
     param_mat_.col(2) = error - param_mat_.col(0);
     param_mat_.col(0) = error;
 
+    /* Limit the max value:  
+     *   - First calculate the sum of absolute values of this result column
+     *   - If one number is greater than max value, all times smaller factor
+    */
     result_mat.col(0) = param_mat_ * factor_vec_;
     if (result_mat.col(0).lpNorm<1>() > max_out * 4) {
         result_mat.col(0) = result_mat.col(0) * (max_out / result_mat.col(0).cwiseAbs().maxCoeff());
@@ -37,6 +42,55 @@ void Chassis_PID::PID::Calculate(Vector4d& error)
 }
 
 Chassis_PID::PID::~PID()
+{
+    delete impl;
+}
+
+//--------------------------------------------------------------------------
+Chassis_PID::PIDImpl_2::PIDImpl_2(double kp, double ki, double kd, double _max_out)
+{
+    param_mat_ << 0.0, 0.0, 0.0,
+                  0.0, 0.0, 0.0,
+                  0.0, 0.0, 0.0,
+                  0.0, 0.0, 0.0,
+                  0.0, 0.0, 0.0,
+                  0.0, 0.0, 0.0,
+                  0.0, 0.0, 0.0,
+                  0.0, 0.0, 0.0;
+    factor_vec_(0) = kp;
+    factor_vec_(1) = ki;
+    factor_vec_(2) = kd;
+    max_out = _max_out;
+}
+
+void Chassis_PID::PIDImpl_2::Calculate(Matrix<double, 8, 1>& error)
+{
+    // Process of the parameter matrix
+    param_mat_.col(1) = param_mat_.col(1) + error;
+    param_mat_.col(2) = error - param_mat_.col(0);
+    param_mat_.col(0) = error;
+
+    /* Limit the max value:  
+     *   - First calculate the sum of absolute values of this result column
+     *   - If one number is greater than max value, all times smaller factor
+    */
+    result_mat.col(0) = param_mat_ * factor_vec_;
+    if (result_mat.col(0).lpNorm<1>() > max_out * 8) {
+        result_mat.col(0) = result_mat.col(0) * (max_out / result_mat.col(0).cwiseAbs().maxCoeff());
+    }
+}
+
+Chassis_PID::PID_2::PID_2(double kp, double ki, double kd, double max_out)
+{
+    impl = new PIDImpl_2(kp, ki, kd, max_out);
+}
+
+void Chassis_PID::PID_2::Calculate(Matrix<double, 8, 1>& error)
+{
+    impl->Calculate(error);
+}
+
+Chassis_PID::PID_2::~PID_2()
 {
     delete impl;
 }
