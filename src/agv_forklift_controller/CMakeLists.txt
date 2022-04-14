@@ -7,6 +7,7 @@ project(agv_forklift_controller)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
+
 include_directories(${EIGEN3_INCLUDE_DIR})
 find_package(catkin REQUIRED COMPONENTS
   controller_manager
@@ -139,6 +140,11 @@ target_include_directories(chassis_control
 
 add_executable(manual_control src/manual_control.cpp)
 target_link_libraries(manual_control
+  ${catkin_LIBRARIES}
+)
+
+add_executable(continous_pub src/continous_pub.cpp)
+target_link_libraries(continous_pub
   ${catkin_LIBRARIES}
 )
 

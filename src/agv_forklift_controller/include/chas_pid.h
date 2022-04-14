@@ -6,7 +6,7 @@ using namespace Eigen;
 namespace Chassis_PID {
     class PIDImpl { // Real implement of PID class
     private:
-        Vector3d factor_vec_;
+        Vector3d factor_vec_;  // PID factor vector
         Matrix<double, 4, 3> param_mat_;
         double max_out;
 
@@ -23,6 +23,27 @@ namespace Chassis_PID {
         PID(double kp, double ki, double kd, double max_out);
         ~PID();
         void Calculate(Vector4d& error);
+    };
+
+    class PIDImpl_2 { // Real implement of PID class
+    private:
+        Vector3d factor_vec_;  // PID factor vector
+        Matrix<double, 8, 3> param_mat_;
+        double max_out;
+
+    public:
+        Matrix<double, 8, 1> result_mat;
+
+        PIDImpl_2(double kp, double ki, double kd, double _max_out);
+        void Calculate(Matrix<double, 8, 1>& error);
+    };
+
+    class PID_2 {
+    public:
+        PIDImpl_2 *impl;
+        PID_2(double kp, double ki, double kd, double max_out);
+        ~PID_2();
+        void Calculate(Matrix<double, 8, 1>& error);
     };
 }
 #endif /* __CHAS_PID_H__ */
