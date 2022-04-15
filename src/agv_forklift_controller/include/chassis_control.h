@@ -40,11 +40,10 @@ public:
     Chassis_PID::PID_2 *velo2effort_pid_mat_ptr_; // PID matrix for velocity to effort
     void CtrlCallBack(const ctrl_msgs::ConstPtr& _ctrl_msg, 
                       const joint_msgs::ConstPtr& _joint_msgs);
+    void PublishCmd();
 
     Chassis(double _max_linear_spd);
-    ~Chassis() {
-        delete angle2velo_pid_mat_ptr_;
-    }
+    ~Chassis();
 };
 
 #endif /* __CHASSIS_CONTROL_H__ */

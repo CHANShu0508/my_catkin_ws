@@ -164,14 +164,14 @@
     <!-- Gazebo -->
     <xacro:gazebo_common link_name="${direction}_wheel_left_tyre"
                          color="${black}"
-                         mu_1="0.8"
-                         mu_2="0.8"
+                         mu_1="800"
+                         mu_2="800"
                          k_p="10000000.0"
                          k_d="0.0"/>
     <xacro:gazebo_common link_name="${direction}_wheel_right_tyre"
                          color="${black}"
-                         mu_1="0.8"
-                         mu_2="0.8"
+                         mu_1="800"
+                         mu_2="800"
                          k_p="10000000.0"
                          k_d="0.0"/>
     <xacro:gazebo_common link_name="${direction}_wheel_left_side"

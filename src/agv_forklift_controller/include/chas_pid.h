@@ -11,6 +11,7 @@ namespace Chassis_PID {
         double max_out;
 
     public:
+        EIGEN_MAKE_ALIGNED_OPERATOR_NEW 
         Matrix<double, 4, 2> result_mat;
 
         PIDImpl(double kp, double ki, double kd, double _max_out);
@@ -32,6 +33,7 @@ namespace Chassis_PID {
         double max_out;
 
     public:
+        EIGEN_MAKE_ALIGNED_OPERATOR_NEW 
         Matrix<double, 8, 1> result_mat;
 
         PIDImpl_2(double kp, double ki, double kd, double _max_out);

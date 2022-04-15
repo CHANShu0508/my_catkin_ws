@@ -9,9 +9,8 @@
  */
 
 #include "chassis_control.h"
-#include <cmath>
 
-Matrix<double, 4, 2> ones_mat = MatrixXd::Constant(4, 2, 1.0);
+Matrix<double, 4, 2> ones_mat = Matrix<double, 4, 2>::Constant(1.0);
 Matrix<double, 4, 2> rot_ori_mat; // Origin matrice for the rotate matrice
 
 
@@ -46,9 +45,17 @@ int main(int argc, char* argv[])
     forklift_chassis.velo2effort_pid_mat_ptr_ = new Chassis_PID::PID_2(velo2effort_pid[0], 
                                                                        velo2effort_pid[1], 
                                                                        velo2effort_pid[2], 
-                                                                       velo2effort_pid[3]);                                                                    
+                                                                       velo2effort_pid[3]);
     
-    ros::spin();
+    ros::Duration(0, 10000).sleep();
+    ros::Rate loop_rate(1000);
+    while (ros::ok()) {
+        forklift_chassis.PublishCmd();
+
+        ros::spinOnce();
+        loop_rate.sleep();
+    }
+    
     return 0;
 }
 // ---------------------------------------------
@@ -57,7 +64,6 @@ Chassis::Chassis(double _max_linear_spd)
                 :max_linear_spd_(_max_linear_spd)
 {
     wheel2center = 0.9243616416;
-
     xy_vec_ << 0.0, 0.0;
     sum_mat_ = ones_mat;
     rot_ori_mat << 0.4327310676, -0.9015230575,
@@ -71,21 +77,12 @@ Chassis::Chassis(double _max_linear_spd)
     sync_.reset(new sync_nizer_(my_sync_policy_(10), ctrl_sub_, joint_state_sub_));
     sync_->registerCallback(boost::bind(&Chassis::CtrlCallBack, this, _1, _2));
 
-    ros::Duration(0, 10000).sleep();
     wheels_pub_ = nh_.advertise<std_msgs::Float64MultiArray>("forklift_controllers/chassis_controller/command", 10);
 }
 
 void Chassis::CtrlCallBack(const ctrl_msgs::ConstPtr& _ctrl_msg, 
                            const joint_msgs::ConstPtr& _joint_msgs)
 {
-    std_msgs::Float64MultiArray send_msg;
-    Vector4d tar_ang_mat; // First column is target angle
-    RowVector2d x_unit(1.0, 0.0);
-    Matrix<double, 4, 2> velo_norm; // Storing the sum velocity's norm. Second column is for add the result for two wheel in one unit
-    Vector4d error_vec; Matrix<double, 8, 1> velo_error_vec; // 0~3 is all left side of each unit; 4~8 is all right side of each unit
-    Matrix<double, 4, 4> is_reverse_spd_mat = MatrixXd::Identity(4, 4); // By steering algorithm, does steer need reverse speed
-    bool is_shield_cmd = false;
-
     // Record wheel speeds (angle speed)
     wheel_spd_mat_(0, 0) = _joint_msgs->velocity[7];
     wheel_spd_mat_(0, 1) = _joint_msgs->velocity[8];
@@ -113,7 +110,19 @@ void Chassis::CtrlCallBack(const ctrl_msgs::ConstPtr& _ctrl_msg,
     rot_mat_ = rot_mat_ * (_ctrl_msg->twist.angular.z * wheel2center);
     sum_mat_ = sum_mat_ + rot_mat_;
     // ROS_INFO("(%.2f, %.2f) (%.2f, %.2f) (%.2f, %.2f) (%.2f, %.2f)", sum_mat_(0, 0), sum_mat_(0, 1), sum_mat_(1, 0), sum_mat_(1, 1), sum_mat_(2, 0), sum_mat_(2, 1), sum_mat_(3, 0), sum_mat_(3, 1));
-    
+}
+
+void Chassis::PublishCmd()
+{
+    RowVector2d x_unit(1.0, 0.0);
+    Vector4d tar_ang_mat = Vector4d::Constant(0); // First column is target angle
+    bool is_shield_cmd = false;
+    Matrix<double, 4, 2> velo_norm = Matrix<double, 4, 2>::Constant(0); // Storing the sum velocity's norm. Second column is for add the result for two wheel in one unit
+    std_msgs::Float64MultiArray send_msg;
+    Vector4d error_vec = Vector4d::Constant(0); 
+    Matrix<double, 8, 1> velo_error_vec = Matrix<double, 8, 1>::Constant(0); // 0~3 is all left side of each unit; 4~8 is all right side of each unit
+    Matrix<double, 4, 4> is_reverse_spd_mat = Matrix<double, 4, 4>::Identity(); // By steering algorithm, does steer need reverse speed
+
     // Calculate the angle between the target speed direction
     if (sum_mat_.norm() < 0.057) {  // If the cmd value is too small, block it to avoid NaN
         tar_ang_mat = Vector4d::Constant(0);
@@ -152,7 +161,7 @@ void Chassis::CtrlCallBack(const ctrl_msgs::ConstPtr& _ctrl_msg,
     }
 
     angle2velo_pid_mat_ptr_->Calculate(error_vec);
-    // angle2velo_pid_mat_ptr_->impl->result_mat = angle2velo_pid_mat_ptr_->impl->result_mat + velo_norm;
+    angle2velo_pid_mat_ptr_->impl->result_mat = angle2velo_pid_mat_ptr_->impl->result_mat + velo_norm;
     angle2velo_pid_mat_ptr_->impl->result_mat = is_reverse_spd_mat * angle2velo_pid_mat_ptr_->impl->result_mat;
     angle2velo_pid_mat_ptr_->impl->result_mat = angle2velo_pid_mat_ptr_->impl->result_mat / 0.05; // turn into angle speed
     if (is_shield_cmd) { angle2velo_pid_mat_ptr_->impl->result_mat = Matrix<double, 4, 2>::Constant(0); } // Cmd value is too small, avoid NaN
@@ -172,8 +181,14 @@ void Chassis::CtrlCallBack(const ctrl_msgs::ConstPtr& _ctrl_msg,
     send_msg.data.push_back(velo2effort_pid_mat_ptr_->impl->result_mat(3));
     send_msg.data.push_back(velo2effort_pid_mat_ptr_->impl->result_mat(7));
     wheels_pub_.publish(send_msg);
-    ROS_INFO("%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f", send_msg.data[0], send_msg.data[1], send_msg.data[2], send_msg.data[3], send_msg.data[4], send_msg.data[5], send_msg.data[6], send_msg.data[7]);
+    // ROS_INFO("%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f", send_msg.data[0], send_msg.data[1], send_msg.data[2], send_msg.data[3], send_msg.data[4], send_msg.data[5], send_msg.data[6], send_msg.data[7]);
 
     sum_mat_ = ones_mat;
     rot_mat_ = rot_ori_mat;
+}
+
+Chassis::~Chassis()
+{
+    delete angle2velo_pid_mat_ptr_;
+    delete velo2effort_pid_mat_ptr_;
 }
