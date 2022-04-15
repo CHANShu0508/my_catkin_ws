@@ -31,6 +31,7 @@ private:
     Vector2d xy_vec_;  // The command speed direction vector
     Matrix<double, 4, 2> sum_mat_; // The matrix to store the result of linear speed + rotate vector of four wheels
     Matrix<double, 4, 2> rot_mat_;
+    Matrix<double, 4, 2> wheel_spd_mat_;  // Matrix storing eight wheels' angle speed
     Vector4d steer_mat_;  // The matrix storing steering angle; First column is now, second column is last time
     double wheel2center;  // Distance between body center and wheel center
 

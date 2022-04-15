@@ -2,7 +2,7 @@ forklift_controllers:
   # Publish all joint states
   joint_state_controller:
     type: "joint_state_controller/JointStateController"
-    publish_rate: 200
+    publish_rate: 1000
 
   # Wheel torch controllers
   chassis_controller:
