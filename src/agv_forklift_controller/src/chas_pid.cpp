@@ -1,4 +1,5 @@
 #include "chas_pid.h"
+#include <vector>
 
 Chassis_PID::PIDImpl::PIDImpl(double kp, double ki, double kd, double _max_out)
 {
@@ -14,10 +15,19 @@ Chassis_PID::PIDImpl::PIDImpl(double kp, double ki, double kd, double _max_out)
 
 void Chassis_PID::PIDImpl::Calculate(Vector4d& error)
 {
+    static std::vector<int> counter (4, 0);
     // Process of the parameter matrix
     param_mat_.col(1) = param_mat_.col(1) + error;
     param_mat_.col(2) = error - param_mat_.col(0);
     param_mat_.col(0) = error;
+    for (int i = 0; i < 4; i++) {
+        if (fabs(error(i)) > 0.06) {
+            counter[i] = 0;
+        } else {
+            ++counter[i];
+            if (counter[i] > 64)    { param_mat_(i, 1) = 0; counter[i] = 0; }
+        }
+    }
 
     /* Limit the max value:  
      *   - First calculate the sum of absolute values of this result column
@@ -65,10 +75,19 @@ Chassis_PID::PIDImpl_2::PIDImpl_2(double kp, double ki, double kd, double _max_o
 
 void Chassis_PID::PIDImpl_2::Calculate(Matrix<double, 8, 1>& error)
 {
+    static std::vector<int> counter (8, 0);
     // Process of the parameter matrix
     param_mat_.col(1) = param_mat_.col(1) + error;
     param_mat_.col(2) = error - param_mat_.col(0);
     param_mat_.col(0) = error;
+    for (int i = 0; i < 8; i++) {
+        if (fabs(error(i)) > 0.1) {
+            counter[i] = 0;
+        } else {
+            ++counter[i];
+            if (counter[i] > 64)    { param_mat_(i, 1) = 0; counter[i] = 0; }
+        }
+    }
 
     /* Limit the max value:  
      *   - First calculate the sum of absolute values of this result column
