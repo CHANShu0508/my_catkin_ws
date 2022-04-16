@@ -14,7 +14,7 @@ Matrix<double, 4, 2> ones_mat = Matrix<double, 4, 2>::Constant(1.0);
 Matrix<double, 4, 2> rot_ori_mat; // Origin matrices for the rotates matrice
 
 
-// ---------------- MAIN FUNCTON ---------------
+// --------------------------------------------- MAIN FUNCTON ---------------------------------------------
 int main(int argc, char* argv[])
 {
     std::vector<double> angle2velo_pid (4), velo2effort_pid (4);
@@ -58,7 +58,7 @@ int main(int argc, char* argv[])
     
     return 0;
 }
-// ---------------------------------------------
+// --------------------------------------------------------------------------------------------------------
 
 Chassis::Chassis(double _max_linear_spd, double _max_angle_spd)
                 :max_linear_spd_(_max_linear_spd), max_angle_spd_(_max_angle_spd)
@@ -72,6 +72,7 @@ Chassis::Chassis(double _max_linear_spd, double _max_angle_spd)
                    -0.4327310676, 0.9015230575;
     rot_mat_ = rot_ori_mat;
 
+    pid_update_sub_ = nh_.subscribe("pid_update", 10, &Chassis::PidUpdateCallback, this);
     ctrl_sub_.subscribe(nh_, "forklift/cmd_vel", 10);
     joint_state_sub_.subscribe(nh_, "forklift_controllers/joint_states", 10);
     sync_.reset(new sync_nizer_(my_sync_policy_(10), ctrl_sub_, joint_state_sub_));
@@ -110,6 +111,14 @@ void Chassis::CtrlCallBack(const ctrl_msgs::ConstPtr& _ctrl_msg,
     rot_mat_ = rot_mat_ * (_ctrl_msg->twist.angular.z * wheel2center);
     sum_mat_ = sum_mat_ + rot_mat_;
     // ROS_INFO("(%.2f, %.2f) (%.2f, %.2f) (%.2f, %.2f) (%.2f, %.2f)", sum_mat_(0, 0), sum_mat_(0, 1), sum_mat_(1, 0), sum_mat_(1, 1), sum_mat_(2, 0), sum_mat_(2, 1), sum_mat_(3, 0), sum_mat_(3, 1));
+}
+
+void Chassis::PidUpdateCallback(const std_msgs::Float64MultiArray::ConstPtr &_pid_msg)
+{
+    angle2velo_pid_mat_ptr_->impl->UpdatePID(_pid_msg->data[0], _pid_msg->data[1], _pid_msg->data[2], _pid_msg->data[3]);
+    velo2effort_pid_mat_ptr_->impl->UpdatePID(_pid_msg->data[4], _pid_msg->data[5], _pid_msg->data[6], _pid_msg->data[7]);
+
+    ROS_INFO("PID Updated!");
 }
 
 void Chassis::PublishCmd()

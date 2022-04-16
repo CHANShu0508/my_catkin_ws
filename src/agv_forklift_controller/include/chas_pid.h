@@ -16,6 +16,7 @@ namespace Chassis_PID {
 
         PIDImpl(double kp, double ki, double kd, double _max_out);
         void Calculate(Vector4d& error);
+        void UpdatePID(double _p, double _i, double _d, double _max);
     };
 
     class PID {
@@ -38,6 +39,7 @@ namespace Chassis_PID {
 
         PIDImpl_2(double kp, double ki, double kd, double _max_out);
         void Calculate(Matrix<double, 8, 1>& error);
+        void UpdatePID(double _p, double _i, double _d, double _max);
     };
 
     class PID_2 {

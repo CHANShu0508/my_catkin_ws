@@ -41,6 +41,12 @@ void Chassis_PID::PIDImpl::Calculate(Vector4d& error)
     result_mat.col(1) = -1 * result_mat.col(0);
 }
 
+void Chassis_PID::PIDImpl::UpdatePID(double _p, double _i, double _d, double _max)
+{
+    factor_vec_ << _p, _i, _d;
+    max_out = _max;
+}
+
 Chassis_PID::PID::PID(double kp, double ki, double kd, double max_out)
 {
     impl = new PIDImpl(kp, ki, kd, max_out);
@@ -97,6 +103,12 @@ void Chassis_PID::PIDImpl_2::Calculate(Matrix<double, 8, 1>& error)
     if (result_mat.col(0).lpNorm<1>() > max_out * 8) {
         result_mat.col(0) = result_mat.col(0) * (max_out / result_mat.col(0).cwiseAbs().maxCoeff());
     }
+}
+
+void Chassis_PID::PIDImpl_2::UpdatePID(double _p, double _i, double _d, double _max)
+{
+    factor_vec_ << _p, _i, _d;
+    max_out = _max;
 }
 
 Chassis_PID::PID_2::PID_2(double kp, double ki, double kd, double max_out)

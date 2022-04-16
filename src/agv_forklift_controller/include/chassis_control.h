@@ -20,6 +20,7 @@ private:
     // ROS node settings
     ros::NodeHandle nh_;
     ros::Publisher wheels_pub_;
+    ros::Subscriber pid_update_sub_;
     message_filters::Subscriber<ctrl_msgs> ctrl_sub_;
     message_filters::Subscriber<joint_msgs> joint_state_sub_;
     typedef sync_policies::ApproximateTime<ctrl_msgs, joint_msgs> my_sync_policy_;
@@ -40,6 +41,7 @@ public:
     Chassis_PID::PID_2 *velo2effort_pid_mat_ptr_; // PID matrix for velocity to effort
     void CtrlCallBack(const ctrl_msgs::ConstPtr& _ctrl_msg, 
                       const joint_msgs::ConstPtr& _joint_msgs);
+    void PidUpdateCallback(const std_msgs::Float64MultiArray::ConstPtr& _pid_msg);
     void PublishCmd();
 
     Chassis(double _max_linear_spd, double _max_angle_spd);

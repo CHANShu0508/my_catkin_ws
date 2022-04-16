@@ -27,6 +27,8 @@
 
   <node name="ctrl_to_cmd_vel" pkg="agv_forklift_controller" type="manual_control" args="forklift 1.0 3.14"/>
   <node name="chassis_control" pkg="agv_forklift_controller" type="chassis_control" args="1 3.1415926"/>
+  <!-- For control PID parameters dynamically -->
+  <node name="dynamic_ctrl_pid" pkg="dynamic_pid" type="dynamic_pid_server"/>
 
   <!-- ###### For debug ###### -->
 
