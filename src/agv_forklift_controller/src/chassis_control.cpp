@@ -11,7 +11,7 @@
 #include "chassis_control.h"
 
 Matrix<double, 4, 2> ones_mat = Matrix<double, 4, 2>::Constant(1.0);
-Matrix<double, 4, 2> rot_ori_mat; // Origin matrice for the rotate matrice
+Matrix<double, 4, 2> rot_ori_mat; // Origin matrices for the rotates matrice
 
 
 // ---------------- MAIN FUNCTON ---------------
@@ -37,7 +37,7 @@ int main(int argc, char* argv[])
         return 1;
     }
 
-    Chassis forklift_chassis(atof(argv[1]));
+    Chassis forklift_chassis(atof(argv[1]), atof(argv[2]));
     forklift_chassis.angle2velo_pid_mat_ptr_ = new Chassis_PID::PID(angle2velo_pid[0], 
                                                                     angle2velo_pid[1], 
                                                                     angle2velo_pid[2], 
@@ -60,8 +60,8 @@ int main(int argc, char* argv[])
 }
 // ---------------------------------------------
 
-Chassis::Chassis(double _max_linear_spd) 
-                :max_linear_spd_(_max_linear_spd)
+Chassis::Chassis(double _max_linear_spd, double _max_angle_spd)
+                :max_linear_spd_(_max_linear_spd), max_angle_spd_(_max_angle_spd)
 {
     wheel2center = 0.9243616416;
     xy_vec_ << 0.0, 0.0;
@@ -106,7 +106,7 @@ void Chassis::CtrlCallBack(const ctrl_msgs::ConstPtr& _ctrl_msg,
     sum_mat_.col(0) = sum_mat_.col(0) * xy_vec_(0);
     sum_mat_.col(1) = sum_mat_.col(1) * xy_vec_(1);
 
-    // Then add the rotate speed to the sum
+    // Then add the rotates speed to the sum
     rot_mat_ = rot_mat_ * (_ctrl_msg->twist.angular.z * wheel2center);
     sum_mat_ = sum_mat_ + rot_mat_;
     // ROS_INFO("(%.2f, %.2f) (%.2f, %.2f) (%.2f, %.2f) (%.2f, %.2f)", sum_mat_(0, 0), sum_mat_(0, 1), sum_mat_(1, 0), sum_mat_(1, 1), sum_mat_(2, 0), sum_mat_(2, 1), sum_mat_(3, 0), sum_mat_(3, 1));
@@ -134,7 +134,7 @@ void Chassis::PublishCmd()
             tar_ang_mat(i) = sum_mat_.row(i).dot(x_unit) / velo_norm(i, 0);
             tar_ang_mat(i) = acosf64(tar_ang_mat(i));
 
-            // If toward the counter clockwise, made it negative <important>
+            // If toward the counterclockwise, made it negative <important>
             if (sum_mat_(i, 1) > 0) { tar_ang_mat(i) = -tar_ang_mat(i); }
         }
     }
@@ -161,7 +161,7 @@ void Chassis::PublishCmd()
     }
 
     angle2velo_pid_mat_ptr_->Calculate(error_vec);
-    angle2velo_pid_mat_ptr_->impl->result_mat = angle2velo_pid_mat_ptr_->impl->result_mat + velo_norm;
+    // angle2velo_pid_mat_ptr_->impl->result_mat = angle2velo_pid_mat_ptr_->impl->result_mat + velo_norm;
     angle2velo_pid_mat_ptr_->impl->result_mat = is_reverse_spd_mat * angle2velo_pid_mat_ptr_->impl->result_mat;
     angle2velo_pid_mat_ptr_->impl->result_mat = angle2velo_pid_mat_ptr_->impl->result_mat / 0.05; // turn into angle speed
     if (is_shield_cmd) { angle2velo_pid_mat_ptr_->impl->result_mat = Matrix<double, 4, 2>::Constant(0); } // Cmd value is too small, avoid NaN

@@ -25,7 +25,7 @@ void Chassis_PID::PIDImpl::Calculate(Vector4d& error)
             counter[i] = 0;
         } else {
             ++counter[i];
-            if (counter[i] > 64)    { param_mat_(i, 1) = 0; counter[i] = 0; }
+            if (counter[i] > 500)    { param_mat_(i, 1) = 0; counter[i] = 0; }
         }
     }
 
@@ -85,7 +85,7 @@ void Chassis_PID::PIDImpl_2::Calculate(Matrix<double, 8, 1>& error)
             counter[i] = 0;
         } else {
             ++counter[i];
-            if (counter[i] > 64)    { param_mat_(i, 1) = 0; counter[i] = 0; }
+            if (counter[i] > 500)    { param_mat_(i, 1) = 0; counter[i] = 0; }
         }
     }
 

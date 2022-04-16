@@ -26,8 +26,8 @@
   <node name="pub_whole_rotate_zero" pkg="agv_forklift_controller" type="continous_pub" args="forklift_controllers/zero_controller/command 100 true 0" />
 
   <node name="ctrl_to_cmd_vel" pkg="agv_forklift_controller" type="manual_control" args="forklift 1.0 3.14"/>
-  <node name="chassis_control" pkg="agv_forklift_controller" type="chassis_control" args="1"/>
-  
+  <node name="chassis_control" pkg="agv_forklift_controller" type="chassis_control" args="1 3.1415926"/>
+
   <!-- ###### For debug ###### -->
 
 </launch>
