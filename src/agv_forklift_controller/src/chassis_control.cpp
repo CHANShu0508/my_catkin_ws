@@ -104,11 +104,11 @@ void Chassis::CtrlCallBack(const ctrl_msgs::ConstPtr& _ctrl_msg,
     xy_vec_(0) = _ctrl_msg->twist.linear.x;
     xy_vec_(1) = _ctrl_msg->twist.linear.y;
     if (xy_vec_.norm() > max_linear_spd_) { xy_vec_.normalize(); }
-    sum_mat_.col(0) = sum_mat_.col(0) * xy_vec_(0);
-    sum_mat_.col(1) = sum_mat_.col(1) * xy_vec_(1);
+    sum_mat_.col(0) = ones_mat.col(0) * xy_vec_(0);
+    sum_mat_.col(1) = ones_mat.col(1) * xy_vec_(1);
 
     // Then add the rotates speed to the sum
-    rot_mat_ = rot_mat_ * (_ctrl_msg->twist.angular.z * wheel2center);
+    rot_mat_ = rot_ori_mat * (_ctrl_msg->twist.angular.z * wheel2center);
     sum_mat_ = sum_mat_ + rot_mat_;
     // ROS_INFO("(%.2f, %.2f) (%.2f, %.2f) (%.2f, %.2f) (%.2f, %.2f)", sum_mat_(0, 0), sum_mat_(0, 1), sum_mat_(1, 0), sum_mat_(1, 1), sum_mat_(2, 0), sum_mat_(2, 1), sum_mat_(3, 0), sum_mat_(3, 1));
 }
@@ -123,6 +123,7 @@ void Chassis::PidUpdateCallback(const std_msgs::Float64MultiArray::ConstPtr &_pi
 
 void Chassis::PublishCmd()
 {
+    static int debug_counter;
     RowVector2d x_unit(1.0, 0.0);
     Vector4d tar_ang_mat = Vector4d::Constant(0); // First column is target angle
     bool is_shield_cmd = false;
@@ -147,7 +148,11 @@ void Chassis::PublishCmd()
             if (sum_mat_(i, 1) > 0) { tar_ang_mat(i) = -tar_ang_mat(i); }
         }
     }
-    // ROS_INFO("%.2f  %.2f  %.2f  %.2f", tar_ang_mat(0)/M_PI*180, tar_ang_mat(1)/M_PI*180, tar_ang_mat(2)/M_PI*180, tar_ang_mat(3)/M_PI*180);
+//    debug_counter++;
+//    if (debug_counter >= 100) {
+//        ROS_INFO("%.2f  %.2f  %.2f  %.2f", tar_ang_mat(0)/M_PI*180, tar_ang_mat(1)/M_PI*180, tar_ang_mat(2)/M_PI*180, tar_ang_mat(3)/M_PI*180);        debug_counter = 0;
+//        debug_counter = 0;
+//    }
 
     /* For the steering:
      *   - Target angle is in the `target_ang_mat` matrix
@@ -179,8 +184,11 @@ void Chassis::PublishCmd()
     velo_error_vec.head(4) = angle2velo_pid_mat_ptr_->impl->result_mat.col(0) - wheel_spd_mat_.col(0);
     velo_error_vec.tail(4) = angle2velo_pid_mat_ptr_->impl->result_mat.col(1) - wheel_spd_mat_.col(1);
     velo2effort_pid_mat_ptr_->Calculate(velo_error_vec);
-    // ROS_INFO("%.2f %.2f", velo2effort_pid_mat_ptr_->impl->result_mat(0, 0), velo2effort_pid_mat_ptr_->impl->result_mat(1, 0));
-    
+//    debug_counter++;
+//    if (debug_counter >= 100) {
+//        ROS_INFO("%.2f %.2f", velo2effort_pid_mat_ptr_->impl->result_mat(0, 0), velo2effort_pid_mat_ptr_->impl->result_mat(1, 0));
+//        debug_counter = 0;
+//    }
     send_msg.data.push_back(velo2effort_pid_mat_ptr_->impl->result_mat(0));
     send_msg.data.push_back(velo2effort_pid_mat_ptr_->impl->result_mat(4));
     send_msg.data.push_back(velo2effort_pid_mat_ptr_->impl->result_mat(1));
@@ -190,10 +198,7 @@ void Chassis::PublishCmd()
     send_msg.data.push_back(velo2effort_pid_mat_ptr_->impl->result_mat(3));
     send_msg.data.push_back(velo2effort_pid_mat_ptr_->impl->result_mat(7));
     wheels_pub_.publish(send_msg);
-    // ROS_INFO("%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f", send_msg.data[0], send_msg.data[1], send_msg.data[2], send_msg.data[3], send_msg.data[4], send_msg.data[5], send_msg.data[6], send_msg.data[7]);
-
-    sum_mat_ = ones_mat;
-    rot_mat_ = rot_ori_mat;
+//    ROS_INFO("%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f", send_msg.data[0], send_msg.data[1], send_msg.data[2], send_msg.data[3], send_msg.data[4], send_msg.data[5], send_msg.data[6], send_msg.data[7]);
 }
 
 Chassis::~Chassis()
