@@ -42,7 +42,7 @@ public:
                       const joint_msgs::ConstPtr& _joint_msgs);
     void PublishCmd();
 
-    Chassis(double _max_linear_spd);
+    Chassis(double _max_linear_spd, double _max_angle_spd);
     ~Chassis();
 };
 

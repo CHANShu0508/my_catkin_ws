@@ -16,6 +16,7 @@ msg/_*.py
 build_isolated/
 devel_isolated/
 .vscode/
+cmake-build-debug/
 
 apidocs
 *.kdev4
