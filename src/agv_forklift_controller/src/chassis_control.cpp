@@ -78,7 +78,7 @@ Chassis::Chassis(double _max_linear_spd, double _max_angle_spd)
     sync_.reset(new sync_nizer_(my_sync_policy_(10), ctrl_sub_, joint_state_sub_));
     sync_->registerCallback(boost::bind(&Chassis::CtrlCallBack, this, _1, _2));
 
-    wheels_pub_ = nh_.advertise<std_msgs::Float64MultiArray>("forklift_controllers/chassis_controller/command", 10);
+    wheels_pub_ = nh_.advertise<std_msgs::Float64MultiArray>("forklift_controllers/chassis_controller/command", 1);
 }
 
 void Chassis::CtrlCallBack(const ctrl_msgs::ConstPtr& _ctrl_msg, 
@@ -95,10 +95,10 @@ void Chassis::CtrlCallBack(const ctrl_msgs::ConstPtr& _ctrl_msg,
     wheel_spd_mat_(3, 1) = _joint_msgs->velocity[4];
 
     // Process the encoder of steering
-    steer_mat_(0) = fmod(_joint_msgs->position[9], 2*M_PI);   // Front Left
-    steer_mat_(1) = fmod(_joint_msgs->position[12], 2*M_PI);  // Front Right
-    steer_mat_(2) = fmod(_joint_msgs->position[2], 2*M_PI);   // Back Left
-    steer_mat_(3) = fmod(_joint_msgs->position[5], 2*M_PI);   // Back Right
+    ContinueProcessSteer(_joint_msgs->position[9], steer_mat_, 0);   // Front Left
+    ContinueProcessSteer(_joint_msgs->position[12], steer_mat_, 1);  // Front Right
+    ContinueProcessSteer(_joint_msgs->position[2], steer_mat_, 2);   // Back Left
+    ContinueProcessSteer(_joint_msgs->position[5], steer_mat_, 3);   // Back Right
 
     // First add the pure linear speed to sum
     xy_vec_(0) = _ctrl_msg->twist.linear.x;
@@ -144,13 +144,19 @@ void Chassis::PublishCmd()
             tar_ang_mat(i) = sum_mat_.row(i).dot(x_unit) / velo_norm(i, 0);
             tar_ang_mat(i) = acosf64(tar_ang_mat(i));
 
-            // If toward the counterclockwise, made it negative <important>
-            if (sum_mat_(i, 1) > 0) { tar_ang_mat(i) = -tar_ang_mat(i); }
+            // If toward the counterclockwise, made it continous <important>
+            if (sum_mat_(i, 1) > 0) { tar_ang_mat(i) = 2*M_PI - tar_ang_mat(i); }
         }
     }
+    for (int i = 0; i < 4; i++)  { GetRealTarget(tar_steer_mat_, tar_ang_mat(i), int(steer_mat_(i, 2)), i); }
 //    debug_counter++;
 //    if (debug_counter >= 100) {
-//        ROS_INFO("%.2f  %.2f  %.2f  %.2f", tar_ang_mat(0)/M_PI*180, tar_ang_mat(1)/M_PI*180, tar_ang_mat(2)/M_PI*180, tar_ang_mat(3)/M_PI*180);        debug_counter = 0;
+//        ROS_INFO("%.2f  %.2f  %.2f  %.2f", tar_ang_mat(0)/M_PI*180, tar_ang_mat(1)/M_PI*180, tar_ang_mat(2)/M_PI*180, tar_ang_mat(3)/M_PI*180);
+//        debug_counter = 0;
+//    }
+//    debug_counter++;
+//    if (debug_counter >= 100) {
+//        ROS_INFO("%.2f  %.2f  %.2f  %.2f", steer_mat_(0, 1)/M_PI*180, steer_mat_(1, 1)/M_PI*180, steer_mat_(2, 1)/M_PI*180, steer_mat_(3, 1)/M_PI*180);
 //        debug_counter = 0;
 //    }
 
@@ -163,22 +169,33 @@ void Chassis::PublishCmd()
      *   - Two areas we will rotate a small angle, and reverse the speed
      *   - Detailed in the paper
     */
-    error_vec = tar_ang_mat - steer_mat_;
+    error_vec = tar_steer_mat_.col(1) - steer_mat_.col(1);
     for (int i = 0; i < 4; i++) {
-        if (error_vec(i) > M_PI/2 && error_vec(i) < M_PI) {            // 90~180
-            error_vec(i) = error_vec(i) - M_PI;
+        if (error_vec(i) > M_PI/2 && error_vec(i) < M_PI*3/2) {// 90~180
+            virtual_tar_steer_mat_(i, 0) = tar_steer_mat_(i, 0) - M_PI;
             is_reverse_spd_mat(i, i) = -1;
-        } else if (error_vec(i) < -(M_PI/2) && error_vec(i) > -M_PI) { // -90~-180
-            error_vec(i) = error_vec(i) + M_PI;
+        } else if (error_vec(i) > M_PI*3/2) {
+            virtual_tar_steer_mat_(i, 0) = tar_steer_mat_(i, 0) - 2 * M_PI;
+        } else if (error_vec(i) < -(M_PI / 2) && error_vec(i) > -(M_PI * 3 / 2)) {// -90~-180
+            virtual_tar_steer_mat_(i, 0) = tar_steer_mat_(i, 0) + M_PI;
             is_reverse_spd_mat(i, i) = -1;
+        } else if (error_vec(i) < -(M_PI * 3 / 2)) {
+            virtual_tar_steer_mat_(i, 0) = tar_steer_mat_(i, 0) + 2 * M_PI;
+        } else {
+            virtual_tar_steer_mat_(i, 0) = tar_steer_mat_(i, 0);
         }
+    }
+    error_vec = virtual_tar_steer_mat_.col(0) - steer_mat_.col(0);
+    debug_counter++;
+    if (debug_counter >= 100) {
+        ROS_INFO("%.2f  %.2f  %.2f  %.2f", error_vec(0)/M_PI*180, error_vec(1)/M_PI*180, error_vec(2)/M_PI*180, error_vec(3)/M_PI*180);
+        debug_counter = 0;
     }
 
     angle2velo_pid_mat_ptr_->Calculate(error_vec);
     // angle2velo_pid_mat_ptr_->impl->result_mat = angle2velo_pid_mat_ptr_->impl->result_mat + velo_norm;
     angle2velo_pid_mat_ptr_->impl->result_mat = is_reverse_spd_mat * angle2velo_pid_mat_ptr_->impl->result_mat;
     angle2velo_pid_mat_ptr_->impl->result_mat = angle2velo_pid_mat_ptr_->impl->result_mat / 0.05; // turn into angle speed
-    if (is_shield_cmd) { angle2velo_pid_mat_ptr_->impl->result_mat = Matrix<double, 4, 2>::Constant(0); } // Cmd value is too small, avoid NaN
     // Until now, we get the speed of every wheel we want
 
     velo_error_vec.head(4) = angle2velo_pid_mat_ptr_->impl->result_mat.col(0) - wheel_spd_mat_.col(0);
@@ -205,4 +222,22 @@ Chassis::~Chassis()
 {
     delete angle2velo_pid_mat_ptr_;
     delete velo2effort_pid_mat_ptr_;
+}
+
+void Chassis::ContinueProcessSteer(double _angle, Matrix<double, 4, 3>& _mat, int _num)
+{
+    double mid_result = _angle / (2*M_PI);
+    int mid_int = int(mid_result);
+    double rest = _angle - 2 * M_PI * double(mid_int);
+
+    _mat(_num, 0) = _angle;
+    _mat(_num, 1)  = rest;
+    _mat(_num, 2) = double(mid_int);
+}
+
+void Chassis::GetRealTarget(Matrix<double, 4, 3>& _mat, double _angle, int _circle, int _num)
+{
+    _mat(_num, 0) = _angle + double(_circle)*M_PI*2;
+    _mat(_num, 1) = _angle;
+    _mat(_num, 2) = double(_circle);
 }

@@ -33,7 +33,9 @@ private:
     Matrix<double, 4, 2> sum_mat_; // The matrix to store the result of linear speed + rotate vector of four wheels
     Matrix<double, 4, 2> rot_mat_;
     Matrix<double, 4, 2> wheel_spd_mat_;  // Matrix storing eight wheels' angle speed
-    Vector4d steer_mat_;  // The matrix storing steering angle; First column is now, second column is last time
+    Matrix<double, 4, 3> tar_steer_mat_;  // The target steer position; First column is total, second column is in one circle, third is number of circle
+    Matrix<double, 4, 3> virtual_tar_steer_mat_;  // The virtual target steer position; First column is total, second column is in one circle, third is number of circle
+    Matrix<double, 4, 3> steer_mat_;  // The matrix storing steering angle; First column is total, second column is in one circle, third is number of circle
     double wheel2center;  // Distance between body center and wheel center
 
 public:
@@ -43,6 +45,8 @@ public:
                       const joint_msgs::ConstPtr& _joint_msgs);
     void PidUpdateCallback(const std_msgs::Float64MultiArray::ConstPtr& _pid_msg);
     void PublishCmd();
+    void ContinueProcessSteer(double _angle, Matrix<double, 4, 3>& _mat, int _num);
+    void GetRealTarget(Matrix<double, 4, 3>& _mat, double _angle, int _circle, int _num);
 
     Chassis(double _max_linear_spd, double _max_angle_spd);
     ~Chassis();
