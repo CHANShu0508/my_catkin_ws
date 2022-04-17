@@ -299,7 +299,7 @@
     <parent link="beam_link"/>
     <child link="fork_link"/>
     <axis xyz="0.0 0.0 1.0"/>
-    <!-- TODO: effort fill -->>
+    <!-- TODO: effort fill -->
     <limit upper="1.4" lower="0.0" effort="100" velocity="0.1"/>
   </joint>
 
@@ -317,17 +317,29 @@
   </gazebo>
 
   <xacro:gazebo_common link_name="base"
-                       color="${black}"/>
+                       color="${black}"
+                       k_p="10000000.0"
+                       k_d="100.0"/>
   <xacro:gazebo_common link_name="base_down_lidar_left"
-                       color="${indigo}"/>   
+                       color="${indigo}"
+                       k_p="10000000.0"
+                       k_d="100.0"/>
   <xacro:gazebo_common link_name="base_down_lidar_right"
-                       color="${indigo}"/>
+                       color="${indigo}"
+                       k_p="10000000.0"
+                       k_d="100.0"/>
   <xacro:gazebo_common link_name="battery"
-                       color="${silver}"/> 
+                       color="${silver}"
+                       k_p="10000000.0"
+                       k_d="100.0"/>
   <xacro:gazebo_common link_name="forklift_body"
-                       color="${blue}"/>
+                       color="${blue}"
+                       k_p="10000000.0"
+                       k_d="100.0"/>
   <xacro:gazebo_common link_name="beam"
-                       color="${silver}"/>  
+                       color="${silver}"
+                       k_p="10000000.0"
+                       k_d="100.0"/>
   <xacro:gazebo_common link_name="fork"
                        color="${black}"
                        mu_1="350.0"

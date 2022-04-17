@@ -1,12 +1,12 @@
 chassis_control:
   Velo2Effort:
-    p: 0.8
+    p: 0.0
     i: 0.0
     d: 0.0
-    max: 10
+    max: 0.0
 
   Angle2Velo:
-    p: 0.2
-    i: 3
-    d: 0
-    max: 20
+    p: 0.0
+    i: 0.0
+    d: 0.0
+    max: 0.0
