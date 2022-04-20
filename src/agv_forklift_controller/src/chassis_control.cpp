@@ -193,7 +193,7 @@ void Chassis::PublishCmd()
     }
 
     angle2velo_pid_mat_ptr_->Calculate(error_vec);
-    // angle2velo_pid_mat_ptr_->impl->result_mat = angle2velo_pid_mat_ptr_->impl->result_mat + velo_norm;
+    angle2velo_pid_mat_ptr_->impl->result_mat = angle2velo_pid_mat_ptr_->impl->result_mat + velo_norm;
     angle2velo_pid_mat_ptr_->impl->result_mat = is_reverse_spd_mat * angle2velo_pid_mat_ptr_->impl->result_mat;
     angle2velo_pid_mat_ptr_->impl->result_mat = angle2velo_pid_mat_ptr_->impl->result_mat / 0.05; // turn into angle speed
     // Until now, we get the speed of every wheel we want
