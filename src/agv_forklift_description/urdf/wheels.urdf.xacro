@@ -164,32 +164,32 @@
     <!-- Gazebo -->
     <xacro:gazebo_common link_name="${direction}_wheel_left_tyre"
                          color="${black}"
-                         mu_1="800"
-                         mu_2="800"
+                         mu_1="0.3"
+                         mu_2="0.8"
                          k_p="10000000.0"
-                         k_d="100.0"/>
+                         k_d="1.0"/>
     <xacro:gazebo_common link_name="${direction}_wheel_right_tyre"
                          color="${black}"
-                         mu_1="800"
-                         mu_2="800"
+                         mu_1="0.3"
+                         mu_2="0.8"
                          k_p="10000000.0"
-                         k_d="100.0"/>
+                         k_d="1.0"/>
     <xacro:gazebo_common link_name="${direction}_wheel_left_side"
                          color="${silver}"
                          k_p="10000000.0"
-                         k_d="100.0"/>
+                         k_d="1.0"/>
     <xacro:gazebo_common link_name="${direction}_wheel_right_side"
                          color="${silver}"
                          k_p="10000000.0"
-                         k_d="100.0"/>
+                         k_d="1.0"/>
     <xacro:gazebo_common link_name="${direction}_wheel_body"
                          color="${green}"
                          k_p="10000000.0"
-                         k_d="100.0"/>
+                         k_d="1.0"/>
     <xacro:gazebo_common link_name="{direction}_wheel_body_wheel_lid"
                          color="${green}"
                          k_p="10000000.0"
-                         k_d="100.0"/>
+                         k_d="1.0"/>
     <!-- Transmissions -->
     <transmission name="${direction}_left_rotate_joint_trans">
       <type>transmission_interface/SimpleTransmission</type>

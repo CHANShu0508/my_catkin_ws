@@ -9,21 +9,21 @@
   <!-- The links -->
   <link name="base_link">
     <inertial>
-      <origin xyz="-1.113481469298291 -6.437606003828477e-13 0.05983225879940115" rpy="0 0 0"/>
+      <origin xyz="-1.113481469298291 0.0 0.05983225879940115" rpy="0 0 0"/>
       <mass value="491.1554933023608"/>
       <inertia ixx="72.474974" iyy="237.962734" izz="309.767489" ixy="-0.0" iyz="0.0" ixz="0.212334"/>
     </inertial>
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://agv_forklift_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://agv_forklift_description/meshes/base_link_larger.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="silver"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://agv_forklift_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://agv_forklift_description/meshes/base_link_larger.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -318,6 +318,8 @@
 
   <xacro:gazebo_common link_name="base"
                        color="${black}"
+                       mu_1="300"
+                       mu_2="300"
                        k_p="10000000.0"
                        k_d="100.0"/>
   <xacro:gazebo_common link_name="base_down_lidar_left"
