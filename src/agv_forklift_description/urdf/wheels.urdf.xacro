@@ -136,7 +136,7 @@
       <origin xyz="0.0 0.055 -0.05" rpy="0 0 0"/>
       <parent link="${direction}_wheel_body_link"/>
       <child link="${direction}_wheel_left_side_link"/>
-      <axis xyz="-0.0 1.0 0.0"/>
+      <axis xyz="0.0 1.0 0.0"/>
     </joint>
 
     <joint name="${direction}_right_tyre_joint" type="fixed">
@@ -149,7 +149,7 @@
       <origin xyz="0.0 -0.055 -0.05" rpy="0 0 0"/>
       <parent link="${direction}_wheel_body_link"/>
       <child link="${direction}_wheel_right_side_link"/>
-      <axis xyz="-0.0 1.0 0.0"/>
+      <axis xyz="0.0 1.0 0.0"/>
     </joint>
 
     <joint name="${direction}_wheel_lid_joint" type="fixed">
