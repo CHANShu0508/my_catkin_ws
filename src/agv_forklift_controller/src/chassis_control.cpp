@@ -13,39 +13,24 @@
 Matrix<double, 4, 2> ones_mat = Matrix<double, 4, 2>::Constant(1.0);
 Matrix<double, 4, 2> rot_ori_mat; // Origin matrices for the rotates matrice
 
+static bool FetchPidParam(ros::NodeHandle& _nh, Matrix<double, 4, 4>& _front, Matrix<double, 4, 4>& _back);
 
 // --------------------------------------------- MAIN FUNCTON ---------------------------------------------
 int main(int argc, char* argv[])
 {
     std::vector<double> angle2velo_pid (4), velo2effort_pid (4);
+    Matrix<double, 4, 4> front, back; //Temp storing
     ros::init(argc, argv, "forklift_chassis_control");
 
     // Get PID parameters
     ros::NodeHandle param_nh;
-    bool is_fetch_pid_1 = param_nh.getParam("chassis_control/Velo2Effort/p", velo2effort_pid[0]);
-    param_nh.getParam("chassis_control/Velo2Effort/i", velo2effort_pid[1]);
-    param_nh.getParam("chassis_control/Velo2Effort/d", velo2effort_pid[2]);
-    param_nh.getParam("chassis_control/Velo2Effort/max", velo2effort_pid[3]);
-
-    param_nh.getParam("chassis_control/Angle2Velo/p", angle2velo_pid[0]);
-    param_nh.getParam("chassis_control/Angle2Velo/i", angle2velo_pid[1]);
-    param_nh.getParam("chassis_control/Angle2Velo/d", angle2velo_pid[2]);
-    bool is_fetch_pid_2 = param_nh.getParam("chassis_control/Angle2Velo/max", angle2velo_pid[3]);
-
-    if (!(is_fetch_pid_1 && is_fetch_pid_2)) {
+    bool is_fetch_succeed = FetchPidParam(param_nh, front, back);
+    if (!is_fetch_succeed) {
         ROS_ERROR("No param fetch!");
         return 1;
     }
 
-    Chassis forklift_chassis(atof(argv[1]), atof(argv[2]));
-    forklift_chassis.angle2velo_pid_mat_ptr_ = new Chassis_PID::PID(angle2velo_pid[0], 
-                                                                    angle2velo_pid[1], 
-                                                                    angle2velo_pid[2], 
-                                                                    angle2velo_pid[3]);
-    forklift_chassis.velo2effort_pid_mat_ptr_ = new Chassis_PID::PID_2(velo2effort_pid[0], 
-                                                                       velo2effort_pid[1], 
-                                                                       velo2effort_pid[2], 
-                                                                       velo2effort_pid[3]);
+    Chassis forklift_chassis(atof(argv[1]), atof(argv[2]), front, back);
     
     ros::Duration(0, 10000).sleep();
     ros::Rate loop_rate(1000);
@@ -60,7 +45,8 @@ int main(int argc, char* argv[])
 }
 // --------------------------------------------------------------------------------------------------------
 
-Chassis::Chassis(double _max_linear_spd, double _max_angle_spd)
+Chassis::Chassis(double _max_linear_spd, double _max_angle_spd,
+                 Matrix<double, 4, 4>& _front, Matrix<double, 4, 4>& _back)
                 :max_linear_spd_(_max_linear_spd), max_angle_spd_(_max_angle_spd)
 {
     wheel2center = 0.9243616416;
@@ -71,6 +57,26 @@ Chassis::Chassis(double _max_linear_spd, double _max_angle_spd)
                    0.4327310676, 0.9015230575,
                    -0.4327310676, 0.9015230575;
     rot_mat_ = rot_ori_mat;
+
+    front_pid_ = _front;
+    back_pid_ = _back;
+
+    front_a2v_pid_ptr_ = new Chassis_PID::PID(front_pid_(0, 0),
+                                              front_pid_(0, 1),
+                                              front_pid_(0, 2),
+                                              front_pid_(0, 3));
+    back_a2v_pid_ptr_ = new Chassis_PID::PID(back_pid_(0, 0),
+                                             back_pid_(0, 1),
+                                             back_pid_(0, 2),
+                                             back_pid_(0, 3));
+    front_v2e_pid_ptr_ = new Chassis_PID::PID_2(front_pid_(1, 0),
+                                                front_pid_(1, 1),
+                                                front_pid_(1, 2),
+                                                front_pid_(1, 3));
+    back_v2e_pid_ptr_ = new Chassis_PID::PID_2(back_pid_(1, 0),
+                                               back_pid_(1, 1),
+                                               back_pid_(1, 2),
+                                               back_pid_(1, 3));
 
     pid_update_sub_ = nh_.subscribe("pid_update", 10, &Chassis::PidUpdateCallback, this);
     ctrl_sub_.subscribe(nh_, "forklift/cmd_vel", 10);
@@ -115,8 +121,11 @@ void Chassis::CtrlCallBack(const ctrl_msgs::ConstPtr& _ctrl_msg,
 
 void Chassis::PidUpdateCallback(const std_msgs::Float64MultiArray::ConstPtr &_pid_msg)
 {
-    angle2velo_pid_mat_ptr_->impl->UpdatePID(_pid_msg->data[0], _pid_msg->data[1], _pid_msg->data[2], _pid_msg->data[3]);
-    velo2effort_pid_mat_ptr_->impl->UpdatePID(_pid_msg->data[4], _pid_msg->data[5], _pid_msg->data[6], _pid_msg->data[7]);
+    front_a2v_pid_ptr_->impl->UpdatePID(_pid_msg->data[0], _pid_msg->data[1], _pid_msg->data[2], _pid_msg->data[3]);
+    front_v2e_pid_ptr_->impl->UpdatePID(_pid_msg->data[4], _pid_msg->data[5], _pid_msg->data[6], _pid_msg->data[7]);
+
+    back_a2v_pid_ptr_->impl->UpdatePID(_pid_msg->data[8], _pid_msg->data[9], _pid_msg->data[10], _pid_msg->data[11]);
+    back_v2e_pid_ptr_->impl->UpdatePID(_pid_msg->data[12], _pid_msg->data[13], _pid_msg->data[14], _pid_msg->data[15]);
 
     ROS_INFO("PID Updated!");
 }
@@ -126,17 +135,17 @@ void Chassis::PublishCmd()
     static int debug_counter;
     RowVector2d x_unit(1.0, 0.0);
     Vector4d tar_ang_mat = Vector4d::Constant(0); // First column is target angle
-    bool is_shield_cmd = false;
     Matrix<double, 4, 2> velo_norm = Matrix<double, 4, 2>::Constant(0); // Storing the sum velocity's norm. Second column is for add the result for two wheel in one unit
     std_msgs::Float64MultiArray send_msg;
-    Vector4d error_vec = Vector4d::Constant(0); 
-    Matrix<double, 8, 1> velo_error_vec = Matrix<double, 8, 1>::Constant(0); // 0~3 is all left side of each unit; 4~8 is all right side of each unit
+    Vector4d error_vec = Vector4d::Constant(0); // Total vector for angle error
+    Vector2d error_front, error_back; // Separated vector for angle error
+    Matrix<double, 4, 2> a2v_result;
+    Vector4d velo_error_front, velo_error_back; // Velocity error
     Matrix<double, 4, 4> is_reverse_spd_mat = Matrix<double, 4, 4>::Identity(); // By steering algorithm, does steer need reverse speed
 
     // Calculate the angle between the target speed direction
     if (sum_mat_.norm() < 0.057) {  // If the cmd value is too small, block it to avoid NaN
         tar_ang_mat = Vector4d::Constant(0);
-        is_shield_cmd = true;
     } else {
         for (int i = 0; i < 4; i++) { 
             velo_norm(i, 0) = sum_mat_.row(i).norm();
@@ -186,42 +195,54 @@ void Chassis::PublishCmd()
         }
     }
     error_vec = virtual_tar_steer_mat_.col(0) - steer_mat_.col(0);
-    debug_counter++;
-    if (debug_counter >= 100) {
-        ROS_INFO("%.2f  %.2f  %.2f  %.2f", error_vec(0)/M_PI*180, error_vec(1)/M_PI*180, error_vec(2)/M_PI*180, error_vec(3)/M_PI*180);
-        debug_counter = 0;
-    }
+//    debug_counter++;
+//    if (debug_counter >= 100) {
+//        ROS_INFO("%.2f  %.2f  %.2f  %.2f", error_vec(0)/M_PI*180, error_vec(1)/M_PI*180, error_vec(2)/M_PI*180, error_vec(3)/M_PI*180);
+//        debug_counter = 0;
+//    }
 
-    angle2velo_pid_mat_ptr_->Calculate(error_vec);
-    angle2velo_pid_mat_ptr_->impl->result_mat = angle2velo_pid_mat_ptr_->impl->result_mat + velo_norm;
-    angle2velo_pid_mat_ptr_->impl->result_mat = is_reverse_spd_mat * angle2velo_pid_mat_ptr_->impl->result_mat;
-    angle2velo_pid_mat_ptr_->impl->result_mat = angle2velo_pid_mat_ptr_->impl->result_mat / 0.05; // turn into angle speed
+    error_front = error_vec.head(2);
+    error_back = error_vec.tail(2);
+
+    front_a2v_pid_ptr_->Calculate(error_front);
+    back_a2v_pid_ptr_->Calculate(error_back);
+    a2v_result.block<2, 2>(0, 0) = front_a2v_pid_ptr_->impl->result_mat;
+    a2v_result.block<2, 2>(2, 0) = back_a2v_pid_ptr_->impl->result_mat;
+    a2v_result = a2v_result + velo_norm;
+    a2v_result = is_reverse_spd_mat * a2v_result;
+    a2v_result = a2v_result / 0.05; // turn into angle speed
     // Until now, we get the speed of every wheel we want
 
-    velo_error_vec.head(4) = angle2velo_pid_mat_ptr_->impl->result_mat.col(0) - wheel_spd_mat_.col(0);
-    velo_error_vec.tail(4) = angle2velo_pid_mat_ptr_->impl->result_mat.col(1) - wheel_spd_mat_.col(1);
-    velo2effort_pid_mat_ptr_->Calculate(velo_error_vec);
+    a2v_result -= wheel_spd_mat_;
+    velo_error_front.head(2) = a2v_result.row(0).transpose();
+    velo_error_front.tail(2) = a2v_result.row(1).transpose();
+    velo_error_back.head(2) = a2v_result.row(2).transpose();
+    velo_error_back.tail(2) = a2v_result.row(3).transpose();
+    front_v2e_pid_ptr_->Calculate(velo_error_front);
+    back_v2e_pid_ptr_->Calculate(velo_error_back);
 //    debug_counter++;
 //    if (debug_counter >= 100) {
 //        ROS_INFO("%.2f %.2f", velo2effort_pid_mat_ptr_->impl->result_mat(0, 0), velo2effort_pid_mat_ptr_->impl->result_mat(1, 0));
 //        debug_counter = 0;
 //    }
-    send_msg.data.push_back(velo2effort_pid_mat_ptr_->impl->result_mat(0));
-    send_msg.data.push_back(velo2effort_pid_mat_ptr_->impl->result_mat(4));
-    send_msg.data.push_back(velo2effort_pid_mat_ptr_->impl->result_mat(1));
-    send_msg.data.push_back(velo2effort_pid_mat_ptr_->impl->result_mat(5));
-    send_msg.data.push_back(velo2effort_pid_mat_ptr_->impl->result_mat(2));
-    send_msg.data.push_back(velo2effort_pid_mat_ptr_->impl->result_mat(6));
-    send_msg.data.push_back(velo2effort_pid_mat_ptr_->impl->result_mat(3));
-    send_msg.data.push_back(velo2effort_pid_mat_ptr_->impl->result_mat(7));
+    send_msg.data.push_back(front_v2e_pid_ptr_->impl->result_mat(0));
+    send_msg.data.push_back(front_v2e_pid_ptr_->impl->result_mat(1));
+    send_msg.data.push_back(front_v2e_pid_ptr_->impl->result_mat(2));
+    send_msg.data.push_back(front_v2e_pid_ptr_->impl->result_mat(3));
+    send_msg.data.push_back(back_v2e_pid_ptr_->impl->result_mat(0));
+    send_msg.data.push_back(back_v2e_pid_ptr_->impl->result_mat(1));
+    send_msg.data.push_back(back_v2e_pid_ptr_->impl->result_mat(2));
+    send_msg.data.push_back(back_v2e_pid_ptr_->impl->result_mat(3));
     wheels_pub_.publish(send_msg);
 //    ROS_INFO("%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f", send_msg.data[0], send_msg.data[1], send_msg.data[2], send_msg.data[3], send_msg.data[4], send_msg.data[5], send_msg.data[6], send_msg.data[7]);
 }
 
 Chassis::~Chassis()
 {
-    delete angle2velo_pid_mat_ptr_;
-    delete velo2effort_pid_mat_ptr_;
+    delete front_v2e_pid_ptr_;
+    delete front_a2v_pid_ptr_;
+    delete back_v2e_pid_ptr_;
+    delete back_a2v_pid_ptr_;
 }
 
 void Chassis::ContinueProcessSteer(double _angle, Matrix<double, 4, 3>& _mat, int _num)
@@ -240,4 +261,43 @@ void Chassis::GetRealTarget(Matrix<double, 4, 3>& _mat, double _angle, int _circ
     _mat(_num, 0) = _angle + double(_circle)*M_PI*2;
     _mat(_num, 1) = _angle;
     _mat(_num, 2) = double(_circle);
+}
+
+static bool FetchPidParam(ros::NodeHandle& _nh, Matrix<double, 4, 4>& _front, Matrix<double, 4, 4>& _back)
+{
+    bool is_succeed1 = _nh.getParam("chassis_control/before/front/Angle2Velo/p", _front(0, 0));
+    _nh.getParam("chassis_control/before/front/Angle2Velo/i", _front(0, 1));
+    _nh.getParam("chassis_control/before/front/Angle2Velo/d", _front(0, 2));
+    _nh.getParam("chassis_control/before/front/Angle2Velo/max", _front(0, 3));
+    _nh.getParam("chassis_control/before/front/Velo2Effort/p", _front(1, 0));
+    _nh.getParam("chassis_control/before/front/Velo2Effort/i", _front(1, 1));
+    _nh.getParam("chassis_control/before/front/Velo2Effort/d", _front(1, 2));
+    _nh.getParam("chassis_control/before/front/Velo2Effort/max", _front(1, 3));
+    _nh.getParam("chassis_control/after/front/Angle2Velo/p", _front(2, 0));
+    _nh.getParam("chassis_control/after/front/Angle2Velo/i", _front(2, 1));
+    _nh.getParam("chassis_control/after/front/Angle2Velo/d", _front(2, 2));
+    _nh.getParam("chassis_control/after/front/Angle2Velo/max", _front(2, 3));
+    _nh.getParam("chassis_control/after/front/Velo2Effort/p", _front(3, 0));
+    _nh.getParam("chassis_control/after/front/Velo2Effort/i", _front(3, 1));
+    _nh.getParam("chassis_control/after/front/Velo2Effort/d", _front(3, 2));
+    _nh.getParam("chassis_control/after/front/Velo2Effort/max", _front(3, 3));
+
+    _nh.getParam("chassis_control/before/back/Angle2Velo/p", _back(0, 0));
+    _nh.getParam("chassis_control/before/back/Angle2Velo/i", _back(0, 1));
+    _nh.getParam("chassis_control/before/back/Angle2Velo/d", _back(0, 2));
+    _nh.getParam("chassis_control/before/back/Angle2Velo/max", _back(0, 3));
+    _nh.getParam("chassis_control/before/back/Velo2Effort/p", _back(1, 0));
+    _nh.getParam("chassis_control/before/back/Velo2Effort/i", _back(1, 1));
+    _nh.getParam("chassis_control/before/back/Velo2Effort/d", _back(1, 2));
+    _nh.getParam("chassis_control/before/back/Velo2Effort/max", _back(1, 3));
+    _nh.getParam("chassis_control/after/back/Angle2Velo/p", _back(2, 0));
+    _nh.getParam("chassis_control/after/back/Angle2Velo/i", _back(2, 1));
+    _nh.getParam("chassis_control/after/back/Angle2Velo/d", _back(2, 2));
+    _nh.getParam("chassis_control/after/back/Angle2Velo/max", _back(2, 3));
+    _nh.getParam("chassis_control/after/back/Velo2Effort/p", _back(3, 0));
+    _nh.getParam("chassis_control/after/back/Velo2Effort/i", _back(3, 1));
+    _nh.getParam("chassis_control/after/back/Velo2Effort/d", _back(3, 2));
+    bool is_succeed2 = _nh.getParam("chassis_control/after/back/Velo2Effort/max", _back(3, 3));
+
+    return (is_succeed1 && is_succeed2);
 }

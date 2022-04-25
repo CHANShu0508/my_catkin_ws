@@ -67,24 +67,9 @@ forklift_controllers:
       - back_left_whole_rotate_joint
       - back_right_whole_rotate_joint
 
-  # front_left_whole_controller:
-  #   type: effort_controllers/JointPositionController
-  #   joint: front_left_whole_rotate_joint
-  #   pid: { p: 80.0, i: 0.5, d: 1.0 } # Must be all 0!
-
-  # front_right_whole_controller:
-  #   type: effort_controllers/JointPositionController
-  #   joint: front_right_whole_rotate_joint
-  #   pid: { p: 80.0, i: 0.5, d: 1.0 } # Must be all 0!
-
-  # back_left_whole_controller:
-  #   type: effort_controllers/JointPositionController
-  #   joint: back_left_whole_rotate_joint
-  #   pid: { p: 80.0, i: 0.5, d: 1.0 } # Must be all 0!
-  
-  # back_right_whole_controller:
-  #   type: effort_controllers/JointPositionController
-  #   joint: back_right_whole_rotate_joint
-  #   pid: { p: 80.0, i: 0.5, d: 1.0 } # Must be all 0!
+  fork_controller:
+    type: effort_controllers/JointPositionController
+    joint: beam_fork_slide_joint
+    pid: { p: 0.0, i: 0.0, d: 0.0 }
 
   # TODO: the controller of the fork
