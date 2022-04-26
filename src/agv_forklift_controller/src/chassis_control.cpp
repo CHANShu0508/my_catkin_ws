@@ -180,10 +180,15 @@ void Chassis::PublishCmd()
     */
     error_vec = tar_steer_mat_.col(1) - steer_mat_.col(1);
     for (int i = 0; i < 4; i++) {
-        if (error_vec(i) > M_PI/2 && error_vec(i) < M_PI*3/2) {// 90~180
+        if (error_vec(i) > 2 * M_PI)
+            error_vec(i) = 2 * M_PI - 0.01;
+        else if (error_vec(i) < -2 * M_PI)
+            error_vec(i) = -2 * M_PI + 0.01;// Clean the gap
+
+        if (error_vec(i) > M_PI / 2 && error_vec(i) < M_PI * 3 / 2) {// 90~180
             virtual_tar_steer_mat_(i, 0) = tar_steer_mat_(i, 0) - M_PI;
             is_reverse_spd_mat(i, i) = -1;
-        } else if (error_vec(i) > M_PI*3/2) {
+        } else if (error_vec(i) > M_PI * 3 / 2) {
             virtual_tar_steer_mat_(i, 0) = tar_steer_mat_(i, 0) - 2 * M_PI;
         } else if (error_vec(i) < -(M_PI / 2) && error_vec(i) > -(M_PI * 3 / 2)) {// -90~-180
             virtual_tar_steer_mat_(i, 0) = tar_steer_mat_(i, 0) + M_PI;
