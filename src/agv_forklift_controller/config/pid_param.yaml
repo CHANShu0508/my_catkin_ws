@@ -2,54 +2,56 @@ chassis_control:
   before:
     front:
       Velo2Effort:
-        p: 7.5
-        i: 0.0
-        d: 0.2
-        max: 8.0
-
-      Angle2Velo:
         p: 0.6
         i: 0.0
         d: 0.2
         max: 30.0
-    back:
-      Velo2Effort:
-        p: 4.0
-        i: 0.0
-        d: 0.5
-        max: 8.0
 
       Angle2Velo:
-        p: 0.19
-        i: 0.0
-        d: 1.0
-        max: 30.0
-
-  after:
-    front:
-      Velo2Effort:
         p: 7.5
         i: 0.0
         d: 0.2
         max: 8.0
 
-        Angle2Velo:
-          p: 0.6
-          i: 0.0
-          d: 0.2
-          max: 30.0
     back:
       Velo2Effort:
+        p: 0.19
+        i: 0.0
+        d: 1.0
+        max: 30.0
+
+      Angle2Velo:
         p: 4.0
         i: 0.0
         d: 0.5
         max: 8.0
 
+  after:
+    front:
+      Velo2Effort:
+        p: 0.6
+        i: 0.0
+        d: 0.2
+        max: 30.0
+
       Angle2Velo:
+        p: 7.5
+        i: 0.0
+        d: 0.2
+        max: 8.0
+
+    back:
+      Velo2Effort:
         p: 0.19
         i: 0.0
         d: 1.0
         max: 30.0
+
+      Angle2Velo:
+        p: 4.0
+        i: 0.0
+        d: 0.5
+        max: 8.0
 
 #  before:
 #    front:
