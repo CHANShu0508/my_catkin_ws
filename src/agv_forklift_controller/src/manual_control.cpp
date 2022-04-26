@@ -67,7 +67,7 @@ void Controller2Cmd::PublishData()
     send_msg.twist.linear.z = 0.0;
     send_msg.twist.angular.x = 0.0;
     send_msg.twist.angular.y = 0.0;
-    send_msg.twist.angular.z = status_.axis_right_x;
+    send_msg.twist.angular.z = -status_.axis_right_x;
 
     pub_.publish(send_msg);
 }
