@@ -17,47 +17,6 @@ forklift_controllers:
       - back_right_left_rotate_joint
       - back_right_right_rotate_joint
 
-  # Velocity controllers
-  ## Front Left
-  # front_left_left_wheel_controller:
-  #   type: effort_controllers/JointVelocityController
-  #   joint: front_left_left_rotate_joint
-  #   pid: { p: 50.0, i: 0.0, d: 0.0 }
-  # front_left_right_wheel_controller:
-  #   type: effort_controllers/JointVelocityController
-  #   joint: front_left_right_rotate_joint
-  #   pid: { p: 50.0, i: 0.0, d: 0.0 }
-
-  # ## Front Right
-  # front_right_left_wheel_controller:
-  #   type: effort_controllers/JointVelocityController
-  #   joint: front_right_left_rotate_joint
-  #   pid: { p: 10.0, i: 0.0, d: 0.0 }
-  # front_right_right_wheel_controller:
-  #   type: effort_controllers/JointVelocityController
-  #   joint: front_right_right_rotate_joint
-  #   pid: { p: 10.0, i: 0.0, d: 0.0 }
-
-  # ## Back Left
-  # back_left_left_wheel_controller:
-  #   type: effort_controllers/JointVelocityController
-  #   joint: back_left_left_rotate_joint
-  #   pid: { p: 10.0, i: 0.0, d: 0.0 }
-  # back_left_right_wheel_controller:
-  #   type: effort_controllers/JointVelocityController
-  #   joint: back_left_right_rotate_joint
-  #   pid: { p: 10.0, i: 0.0, d: 0.0 }
-
-  # ## Back Right
-  # back_right_left_wheel_controller:
-  #   type: effort_controllers/JointVelocityController
-  #   joint: back_right_left_rotate_joint
-  #   pid: { p: 10.0, i: 0.0, d: 0.0 }
-  # back_right_right_wheel_controller:
-  #   type: effort_controllers/JointVelocityController
-  #   joint: back_right_right_rotate_joint
-  #   pid: { p: 10.0, i: 0.0, d: 0.0 }
-
   # Position Controller: Just use as ENCODERS!!
   zero_controller:
     type: effort_controllers/JointGroupEffortController
@@ -68,8 +27,7 @@ forklift_controllers:
       - back_right_whole_rotate_joint
 
   fork_controller:
-    type: effort_controllers/JointPositionController
+    type: position_controllers/JointPositionController
     joint: beam_fork_slide_joint
-    pid: { p: 0.0, i: 0.0, d: 0.0 }
 
   # TODO: the controller of the fork

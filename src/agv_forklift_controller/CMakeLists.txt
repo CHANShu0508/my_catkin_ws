@@ -131,22 +131,25 @@ include_directories(
 
 add_executable(chassis_control src/chassis_control.cpp src/chas_pid.cpp)
 target_link_libraries(chassis_control
-  ${catkin_LIBRARIES}
-)
+        ${catkin_LIBRARIES})
 target_include_directories(chassis_control
-  PRIVATE
-    ${PROJECT_SOURCE_DIR}/include
-)
+        PRIVATE
+        ${PROJECT_SOURCE_DIR}/include)
 
 add_executable(manual_control src/manual_control.cpp)
 target_link_libraries(manual_control
-  ${catkin_LIBRARIES}
-)
+        ${catkin_LIBRARIES})
 
 add_executable(continous_pub src/continous_pub.cpp)
 target_link_libraries(continous_pub
-  ${catkin_LIBRARIES}
-)
+        ${catkin_LIBRARIES})
+
+add_executable(fork_control src/fork_control.cpp)
+target_link_libraries(fork_control
+        ${catkin_LIBRARIES})
+target_include_directories(fork_control
+        PRIVATE
+        ${PROJECT_SOURCE_DIR}/include)
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}

@@ -6,27 +6,31 @@
 
   <!-- Open gazebo -->
   <rosparam command="load" file="$(find agv_forklift_controller)/config/control.yaml"/>
-  <node name="forklift_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" ns="/forklift_controllers"
+  <node name="forklift_controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+        ns="/forklift_controllers"
         args="joint_state_controller
               chassis_controller
-              zero_controller"/>
+              zero_controller
+              fork_controller"/>
 
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
-    <remap from="/joint_states" to="/forklift_controllers/joint_states" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false"
+        output="screen">
+    <remap from="/joint_states" to="/forklift_controllers/joint_states"/>
   </node>
 
   <!-- Manual controller joystick -->
-  <arg name="addr" default="" />
+  <arg name="addr" default=""/>
 
-  <include file="$(find ds4_driver)/launch/ds4_driver.launch" >
-    <arg name="addr" value="$(arg addr)" />
-    <arg name="use_standard_msgs" value="false" />
+  <include file="$(find ds4_driver)/launch/ds4_driver.launch">
+    <arg name="addr" value="$(arg addr)"/>
+    <arg name="use_standard_msgs" value="false"/>
   </include>
 
   <node name="pub_whole_rotate_zero" pkg="agv_forklift_controller" type="continous_pub" args="forklift_controllers/zero_controller/command 100 true 0" />
 
   <node name="ctrl_to_cmd_vel" pkg="agv_forklift_controller" type="manual_control" args="forklift 1.0 3.14"/>
   <node name="chassis_control" pkg="agv_forklift_controller" type="chassis_control" args="1 3.1415926"/>
+  <node name="fork_control" pkg="agv_forklift_controller" type="fork_control"/>
   <!-- For control PID parameters dynamically -->
   <node name="dynamic_ctrl_pid" pkg="dynamic_pid" type="dynamic_pid_server"/>
 
