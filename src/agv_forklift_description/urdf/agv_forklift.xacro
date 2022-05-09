@@ -7,7 +7,9 @@
   <xacro:include filename="$(find agv_forklift_description)/urdf/agv_forklift.transmission.xacro"/>
 
   <!-- The links -->
-  <link name="base_link">
+  <link name="base_link"/>
+
+  <link name="chassis_link">
     <inertial>
       <origin xyz="-1.113481469298291 0.0 0.05983225879940115" rpy="0 0 0"/>
       <mass value="491.1554933023608"/>
@@ -136,7 +138,7 @@
   <link name="fork_link">
     <inertial>
       <origin xyz="-0.6484229539416837 0.4723008933333786 -1.6470003187088946" rpy="0 0 0"/>
-      <mass value="365.22311207175414"/>
+      <mass value="36.22311207175414"/>
       <inertia ixx="63.839107" iyy="87.82671" izz="138.209861" ixy="-0.000165" iyz="-8.9e-05" ixz="-14.023649"/>
     </inertial>
     <visual>
@@ -158,7 +160,7 @@
     <container>
       <joint name="front_left_whole_rotate_joint" type="continuous">
         <origin xyz="-0.416667 0.4 0.1" rpy="0 0 0"/>
-        <parent link="base_link"/>
+        <parent link="chassis_link"/>
         <child link="front_left_wheel_body_link"/>
         <axis xyz="0.0 0.0 -1.0"/>
       </joint>
@@ -180,7 +182,7 @@
     <container>
       <joint name="front_right_whole_rotate_joint" type="continuous">
         <origin xyz="-0.416667 -0.4 0.1" rpy="0 0 0"/>
-        <parent link="base_link"/>
+        <parent link="chassis_link"/>
         <child link="front_right_wheel_body_link"/>
         <axis xyz="0.0 0.0 -1.0"/>
       </joint>
@@ -202,7 +204,7 @@
     <container>
       <joint name="back_left_whole_rotate_joint" type="continuous">
         <origin xyz="-2.0833337 0.4 0.1" rpy="0 0 0"/>
-        <parent link="base_link"/>
+        <parent link="chassis_link"/>
         <child link="back_left_wheel_body_link"/>
         <axis xyz="0.0 0.0 -1.0"/>
       </joint>
@@ -224,7 +226,7 @@
     <container>
       <joint name="back_right_whole_rotate_joint" type="continuous">
         <origin xyz="-2.0833337 -0.4 0.1" rpy="0 0 0"/>
-        <parent link="base_link"/>
+        <parent link="chassis_link"/>
         <child link="back_right_wheel_body_link"/>
         <axis xyz="0.0 0.0 -1.0"/>
       </joint>
@@ -264,27 +266,33 @@
   </link>
 
   <!-- The joints -->
+  <joint name="base_chassis_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="chassis_link"/>
+  </joint>
+
   <joint name="base_down_lidar_right_joint" type="fixed">
     <origin xyz="-0.055934 -0.456066 0.055" rpy="0 0 0"/>
-    <parent link="base_link"/>
+    <parent link="chassis_link"/>
     <child link="down_lidar_link_right"/>
   </joint>
 
   <joint name="base_down_lidar_left_joint" type="fixed">
     <origin xyz="-0.055934 0.456066 0.055" rpy="0 0 0"/>
-    <parent link="base_link"/>
+    <parent link="chassis_link"/>
     <child link="down_lidar_link_left"/>
   </joint>
 
   <joint name="base_battery_joint" type="fixed">
     <origin xyz="-0.05 0.0 0.105" rpy="0 0 0"/>
-    <parent link="base_link"/>
+    <parent link="chassis_link"/>
     <child link="battery_link"/>
   </joint>
 
   <joint name="base_body_joint" type="fixed">
     <origin xyz="0.0 0.0 0.105" rpy="0 0 0"/>
-    <parent link="base_link"/>
+    <parent link="chassis_link"/>
     <child link="forklift_body_link"/>
   </joint>
 
@@ -295,8 +303,8 @@
   </joint>
 
   <joint name="beam_fork_slide_joint" type="prismatic">
-    <origin xyz="0.075 -0.9823 0.56" rpy="0 0 0"/>
-    <parent link="beam_link"/>
+    <origin xyz="-0.575 -0.4732 1.895" rpy="0 0 0"/>
+    <parent link="base_link"/>
     <child link="fork_link"/>
     <axis xyz="0.0 0.0 1.0"/>
     <!-- TODO: effort fill -->
@@ -316,46 +324,46 @@
     </plugin>
   </gazebo>
 
-  <xacro:gazebo_common link_name="base"
+  <xacro:gazebo_common link_name="chassis"
                        color="${black}"
                        mu_1="0.35"
                        mu_2="0.35"
-                       k_p="100.0"
-                       k_d="1.0"/>
+                       k_p="0.0"
+                       k_d="0.0"/>
   <xacro:gazebo_common link_name="base_down_lidar_left"
                        color="${indigo}"
-                       k_p="100.0"
-                       k_d="1.0"/>
+                       k_p="0.0"
+                       k_d="0.0"/>
   <xacro:gazebo_common link_name="base_down_lidar_right"
                        color="${indigo}"
-                       k_p="100.0"
-                       k_d="1.0"/>
+                       k_p="0.0"
+                       k_d="0.0"/>
   <xacro:gazebo_common link_name="battery"
                        color="${silver}"
-                       k_p="100.0"
-                       k_d="1.0"/>
+                       k_p="0.0"
+                       k_d="0.0"/>
   <xacro:gazebo_common link_name="forklift_body"
                        color="${blue}"
-                       k_p="100.0"
-                       k_d="1.0"/>
+                       k_p="0.0"
+                       k_d="0.0"/>
   <xacro:gazebo_common link_name="beam"
                        color="${silver}"
                        mu_1="0.35"
                        mu_2="0.35"
-                       k_p="10000000.0"
-                       k_d="100.0"/>
+                       k_p="0.0"
+                       k_d="0.0"/>
   <xacro:gazebo_common link_name="fork"
                        color="${black}"
                        mu_1="0.35"
                        mu_2="0.35"
-                       k_p="100.0"
-                       k_d="1.0"/>
+                       k_p="0.0"
+                       k_d="0.0"/>
   <xacro:gazebo_common link_name="top_lidar"
                        color="${yellow}"
                        mu_1="0.35"
                        mu_2="0.35"
-                       k_p="100.0"
-                       k_d="1.0"/>
+                       k_p="0.0"
+                       k_d="0.0"/>
 
   <!-- Transmissions -->
   <xacro:forklift_transmission/>

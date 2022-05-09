@@ -194,20 +194,20 @@
     <transmission name="${direction}_left_rotate_joint_trans">
       <type>transmission_interface/SimpleTransmission</type>
       <actuator name="${direction}_left_rotate_joint_motor">
-          <mechanicalReduction>1</mechanicalReduction>
+        <mechanicalReduction>1</mechanicalReduction>
       </actuator>
       <joint name="${direction}_left_rotate_joint">
-          <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       </joint>
     </transmission>
 
     <transmission name="${direction}_right_rotate_joint_trans">
       <type>transmission_interface/SimpleTransmission</type>
       <actuator name="${direction}_right_rotate_joint_motor">
-          <mechanicalReduction>1</mechanicalReduction>
+        <mechanicalReduction>1</mechanicalReduction>
       </actuator>
       <joint name="${direction}_right_rotate_joint">
-          <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       </joint>
     </transmission>
   </xacro:macro>
