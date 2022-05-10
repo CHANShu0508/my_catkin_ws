@@ -1,7 +1,6 @@
 <launch>
 
   <include file="$(find agv_forklift_description)/launch/test_world_gazebo.launch"/>
-  <include file="$(find agv_forklift_description)/launch/display.launch"/>
   <rosparam command="load" file="$(find agv_forklift_controller)/config/pid_param.yaml"/>
 
   <!-- Open gazebo -->

@@ -5,7 +5,7 @@
   <xacro:include filename="$(find agv_forklift_description)/urdf/agv_forklift.gazebo.xacro"/>
   <xacro:include filename="$(find agv_forklift_description)/urdf/wheels.urdf.xacro"/>
   <xacro:include filename="$(find agv_forklift_description)/urdf/agv_forklift.transmission.xacro"/>
-
+  <xacro:include filename="$(find agv_forklift_description)/urdf/lidar.urdf.xacro"/>
   <!-- The links -->
   <link name="base_link"/>
 
@@ -367,5 +367,8 @@
 
   <!-- Transmissions -->
   <xacro:forklift_transmission/>
+
+  <!-- Lidar sensor -->
+  <xacro:lidar_top/>
 
 </robot>
