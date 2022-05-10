@@ -151,6 +151,9 @@ target_include_directories(fork_control
         PRIVATE
         ${PROJECT_SOURCE_DIR}/include)
 
+catkin_install_python(PROGRAMS scripts/odom_publisher.py
+        DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
 #   src/${PROJECT_NAME}/agv_forklift_controller.cpp
