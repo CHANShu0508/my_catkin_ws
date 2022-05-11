@@ -1,0 +1,10 @@
+<launch>
+  <!-- 设置地图的配置文件 -->
+  <arg name="map" default="test_room.yaml"/>
+  <!-- 运行地图服务器，并且加载设置的地图-->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find agv_forklift_description)/maps/$(arg map)"/>
+  <!-- 启动 AMCL 节点 -->
+  <include file="$(find agv_forklift_controller)/launch/amcl.launch"/>
+  <!-- 运行 rviz -->
+  <node pkg="rviz" type="rviz" name="rviz"/>
+</launch>
