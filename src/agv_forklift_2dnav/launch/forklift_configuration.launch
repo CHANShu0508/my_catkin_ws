@@ -1,3 +1,4 @@
 <launch>
   <include file="$(find agv_forklift_controller)/launch/controller.launch"/>
+  <include file="$(find agv_forklift_2dnav)/launch/move_base.launch"/>
 </launch>
