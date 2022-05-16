@@ -1,4 +1,11 @@
 <launch>
+  <arg name="open_rviz" default="true"/>
+
   <include file="$(find agv_forklift_controller)/launch/controller.launch"/>
   <include file="$(find agv_forklift_2dnav)/launch/move_base.launch"/>
+
+  <group if="$(arg open_rviz)">
+    <node pkg="rviz" type="rviz" name="rviz" required="true"
+          args="-d $(find agv_forklift_2dnav)/config/nav.rviz"/>
+  </group>
 </launch>
