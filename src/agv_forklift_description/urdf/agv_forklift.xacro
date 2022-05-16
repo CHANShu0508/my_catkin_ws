@@ -267,7 +267,7 @@
 
   <!-- The joints -->
   <joint name="base_chassis_joint" type="fixed">
-    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <origin xyz="1.25 0 0" rpy="0 0 0"/>
     <parent link="base_link"/>
     <child link="chassis_link"/>
   </joint>
@@ -303,7 +303,7 @@
   </joint>
 
   <joint name="beam_fork_slide_joint" type="prismatic">
-    <origin xyz="-0.575 -0.4732 1.895" rpy="0 0 0"/>
+    <origin xyz="0.675 -0.4732 1.895" rpy="0 0 0"/>
     <parent link="base_link"/>
     <child link="fork_link"/>
     <axis xyz="0.0 0.0 1.0"/>
@@ -312,7 +312,7 @@
   </joint>
 
   <joint name="body_lidar_joint" type="fixed">
-    <origin xyz="-0.35 -0.0 1.835" rpy="0 0 0"/>
+    <origin xyz="-0.35 -0.0 1.845" rpy="0 0 0"/>
     <parent link="forklift_body_link"/>
     <child link="top_lidar_link"/>
   </joint>

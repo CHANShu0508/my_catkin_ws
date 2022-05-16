@@ -25,7 +25,8 @@
     <arg name="use_standard_msgs" value="false"/>
   </include>
 
-  <node name="pub_whole_rotate_zero" pkg="agv_forklift_controller" type="continous_pub" args="forklift_controllers/zero_controller/command 100 true 0" />
+  <node name="pub_whole_rotate_zero" pkg="agv_forklift_controller" type="continous_pub"
+        args="forklift_controllers/zero_controller/command 100 true 0"/>
 
   <node name="odom_publisher" pkg="agv_forklift_controller" type="odom_publisher.py"/>
   <node name="ctrl_to_cmd_vel" pkg="agv_forklift_controller" type="manual_control" args="forklift 1.0 3.14"/>
