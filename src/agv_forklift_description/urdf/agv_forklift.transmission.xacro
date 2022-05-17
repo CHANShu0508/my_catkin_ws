@@ -6,10 +6,11 @@
     <transmission name="beam_fork_slide_joint_trans">
       <type>transmission_interface/SimpleTransmission</type>
       <actuator name="beam_fork_slide_joint_motor">
-          <mechanicalReduction>1</mechanicalReduction>
+        <mechanicalReduction>1</mechanicalReduction>
       </actuator>
       <joint name="beam_fork_slide_joint">
-          <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        <!--        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>-->
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       </joint>
     </transmission>
   </xacro:macro>

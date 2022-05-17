@@ -139,7 +139,7 @@
     <inertial>
       <origin xyz="-0.6484229539416837 0.4723008933333786 -1.6470003187088946" rpy="0 0 0"/>
       <mass value="36.22311207175414"/>
-      <inertia ixx="63.839107" iyy="87.82671" izz="138.209861" ixy="-0.000165" iyz="-8.9e-05" ixz="-14.023649"/>
+      <inertia ixx="6.3839107" iyy="8.782671" izz="13.8209861" ixy="-0.0000165" iyz="-8.9e-06" ixz="-1.4023649"/>
     </inertial>
     <visual>
       <origin xyz="0.575 0.4673 -1.885" rpy="0 0 0"/>
@@ -303,7 +303,7 @@
   </joint>
 
   <joint name="beam_fork_slide_joint" type="prismatic">
-    <origin xyz="0.675 -0.4732 1.895" rpy="0 0 0"/>
+    <origin xyz="0.675 -0.4732 1.890" rpy="0 0 0"/>
     <parent link="base_link"/>
     <child link="fork_link"/>
     <axis xyz="0.0 0.0 1.0"/>
@@ -352,12 +352,12 @@
                        mu_2="0.35"
                        k_p="0.0"
                        k_d="0.0"/>
-  <xacro:gazebo_common link_name="fork"
-                       color="${black}"
-                       mu_1="0.35"
-                       mu_2="0.35"
-                       k_p="0.0"
-                       k_d="0.0"/>
+  <!--  <xacro:gazebo_common link_name="fork"-->
+  <!--                       color="${black}"-->
+  <!--                       mu_1="0.35"-->
+  <!--                       mu_2="0.35"-->
+  <!--                       k_p="0.0"-->
+  <!--                       k_d="0.0"/>-->
   <xacro:gazebo_common link_name="top_lidar"
                        color="${yellow}"
                        mu_1="0.35"

@@ -1,7 +1,7 @@
 <launch>
 
   <!-- Run the map server -->
-  <arg name="map" default="test_room.yaml"/>
+  <arg name="map" default="warehouse.yaml"/>
   <node name="map_server" pkg="map_server" type="map_server" args="$(find agv_forklift_description)/maps/$(arg map)"/>
 
   <!--- Run AMCL -->
