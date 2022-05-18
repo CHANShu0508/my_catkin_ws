@@ -1581,10 +1581,10 @@
       <pose>107.7 25.72 0 0 0 -1.55645</pose>
     </model>
     <state world_name='default'>
-      <sim_time>599 490000000</sim_time>
-      <real_time>162 860554975</real_time>
-      <wall_time>1652791969 998531360</wall_time>
-      <iterations>151081</iterations>
+      <sim_time>883 671000000</sim_time>
+      <real_time>496 95917516</real_time>
+      <wall_time>1652841344 940187240</wall_time>
+      <iterations>284181</iterations>
       <model name='forklift_chest'>
         <pose>24.7355 31.2653 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -1796,291 +1796,243 @@
         </link>
       </model>
       <model name='load_box'>
-        <pose>8.1889 24.5911 -0 -0 -0 -0</pose>
+        <pose>8.1889 24.5911 1.62773 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>8.1889 24.5911 -0 -0 -0 -0</pose>
+          <pose>8.1889 24.5911 1.62773 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0 0 0.772247 2.10827 -0.042059 -2e-06</acceleration>
-          <wrench>-0.000941 0.00158 3395.42 0 -0 0</wrench>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
       <model name='load_box_clone'>
-        <pose>10.7525 24.5618 -0 -0 -0 -0</pose>
+        <pose>10.9226 24.6284 1.63484 -7e-06 3e-06 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>10.7525 24.5618 -0 -0 -0 -0</pose>
+          <pose>10.9226 24.6284 1.63484 -7e-06 3e-06 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0 0 0.772247 2.10827 -0.042059 -2e-06</acceleration>
-          <wrench>-0.000941 0.00158 3395.42 0 -0 0</wrench>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='load_box_clone_0'>
-        <pose>8.16518 15.3964 -0 -0 -0 -0</pose>
+      <model name='load_box_clone_clone'>
+        <pose>13.7742 24.5958 1.63486 -7e-06 3e-06 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>8.16518 15.3964 -0 -0 -0 -0</pose>
+          <pose>13.7742 24.5958 1.63486 -7e-06 3e-06 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0 0 0.772247 2.10827 -0.042059 -2e-06</acceleration>
-          <wrench>-0.000941 0.00158 3395.42 0 -0 0</wrench>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='load_box_clone_1'>
-        <pose>10.9712 15.4286 -0 -0 -0 -0</pose>
+      <model name='load_box_clone_clone_clone'>
+        <pose>15.8283 24.6001 1.63486 -7e-06 3e-06 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>10.9712 15.4286 -0 -0 -0 -0</pose>
+          <pose>15.8283 24.6001 1.63486 -7e-06 3e-06 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0 0 0.772247 2.10827 -0.042059 -2e-06</acceleration>
-          <wrench>-0.000941 0.00158 3395.42 0 -0 0</wrench>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='load_box_clone_10'>
-        <pose>79.6057 24.5442 -0 -0 -0 -0</pose>
+      <model name='load_box_clone_clone_clone_clone'>
+        <pose>18.6111 24.664 1.63486 -7e-06 3e-06 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>79.6057 24.5442 -0 -0 -0 -0</pose>
+          <pose>18.6111 24.664 1.63486 -7e-06 3e-06 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0 0 0.772247 2.10827 -0.042059 -2e-06</acceleration>
-          <wrench>-0.000941 0.00158 3395.42 0 -0 0</wrench>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='load_box_clone_11'>
-        <pose>79.559 27.0088 -0 -0 -0 -0</pose>
+      <model name='load_box_clone_clone_clone_clone_0'>
+        <pose>20.9426 24.6403 1.63486 -7e-06 3e-06 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>79.559 27.0088 -0 -0 -0 -0</pose>
+          <pose>20.9426 24.6403 1.63486 -7e-06 3e-06 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0 0 0.772247 2.10827 -0.042059 -2e-06</acceleration>
-          <wrench>-0.000941 0.00158 3395.42 0 -0 0</wrench>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='load_box_clone_12'>
-        <pose>89.5707 24.1546 -0 -0 -0 -0</pose>
+      <model name='load_box_clone_clone_clone_clone_1'>
+        <pose>23.53 24.6418 1.63486 -7e-06 3e-06 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>89.5707 24.1546 -0 -0 -0 -0</pose>
+          <pose>23.53 24.6418 1.63486 -7e-06 3e-06 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0 0 0.772247 2.10827 -0.042059 -2e-06</acceleration>
-          <wrench>-0.000941 0.00158 3395.42 0 -0 0</wrench>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='load_box_clone_13'>
-        <pose>89.5362 27.0722 -0 -0 -0 -0</pose>
+      <model name='load_box_clone_clone_clone_clone_10'>
+        <pose>107.719 26.8627 1.63486 -7e-06 3e-06 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>89.5362 27.0722 -0 -0 -0 -0</pose>
+          <pose>107.719 26.8627 1.63486 -7e-06 3e-06 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0 0 0.772247 2.10827 -0.042059 -2e-06</acceleration>
-          <wrench>-0.000941 0.00158 3395.42 0 -0 0</wrench>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='load_box_clone_14'>
-        <pose>107.519 26.7864 -0 -0 -0 -0</pose>
+      <model name='load_box_clone_clone_clone_clone_11'>
+        <pose>89.6676 24.9047 1.63486 -7e-06 3e-06 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>107.519 26.7864 -0 -0 -0 -0</pose>
+          <pose>89.6676 24.9047 1.63486 -7e-06 3e-06 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0 0 0.772247 2.10827 -0.042059 -2e-06</acceleration>
-          <wrench>-0.000941 0.00158 3395.42 0 -0 0</wrench>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='load_box_clone_15'>
-        <pose>107.486 24.3331 -0 -0 -0 -0</pose>
+      <model name='load_box_clone_clone_clone_clone_12'>
+        <pose>89.6396 27.1693 1.63486 -7e-06 3e-06 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>107.486 24.3331 -0 -0 -0 -0</pose>
+          <pose>89.6396 27.1693 1.63486 -7e-06 3e-06 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0 0 0.772247 2.10827 -0.042059 -2e-06</acceleration>
-          <wrench>-0.000941 0.00158 3395.42 0 -0 0</wrench>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='load_box_clone_16'>
-        <pose>107.618 19.2213 -0 -0 -0 -0</pose>
+      <model name='load_box_clone_clone_clone_clone_13'>
+        <pose>89.5198 31.9635 1.63486 -7e-06 3e-06 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>107.618 19.2213 -0 -0 -0 -0</pose>
+          <pose>89.5198 31.9635 1.63486 -7e-06 3e-06 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0 0 0.772242 2.1083 -0.042059 -2e-06</acceleration>
-          <wrench>-0.000941 0.00158 3395.39 0 -0 0</wrench>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='load_box_clone_17'>
-        <pose>107.59 21.6844 -0 -0 -0 -0</pose>
+      <model name='load_box_clone_clone_clone_clone_14'>
+        <pose>79.6282 24.766 1.63486 -7e-06 3e-06 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>107.59 21.6844 -0 -0 -0 -0</pose>
+          <pose>79.6282 24.766 1.63486 -7e-06 3e-06 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0 1e-06 1.04169 0.690072 -0.042063 -3e-06</acceleration>
-          <wrench>-0.001692 0.002827 4580.11 0 -0 0</wrench>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='load_box_clone_2'>
-        <pose>14.6834 15.4541 -0 -0 -0 -0</pose>
+      <model name='load_box_clone_clone_clone_clone_15'>
+        <pose>79.5592 29.7441 1.63486 -7e-06 3e-06 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>14.6834 15.4541 -0 -0 -0 -0</pose>
+          <pose>79.5592 29.7441 1.63486 -7e-06 3e-06 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0 0 0.772247 2.10827 -0.042059 -2e-06</acceleration>
-          <wrench>-0.000941 0.00158 3395.42 0 -0 0</wrench>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='load_box_clone_3'>
-        <pose>18.106 15.4314 -0 -0 -0 -0</pose>
+      <model name='load_box_clone_clone_clone_clone_16'>
+        <pose>71.1054 24.9147 1.63486 -7e-06 3e-06 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>18.106 15.4314 -0 -0 -0 -0</pose>
+          <pose>71.1054 24.9147 1.63486 -7e-06 3e-06 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0 0 0.772247 2.10827 -0.042059 -2e-06</acceleration>
-          <wrench>-0.000941 0.00158 3395.42 0 -0 0</wrench>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='load_box_clone_4'>
-        <pose>25.9874 15.4433 -0 -0 -0 -0</pose>
+      <model name='load_box_clone_clone_clone_clone_17'>
+        <pose>71.008 26.7862 1.63486 -7e-06 3e-06 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>25.9874 15.4433 -0 -0 -0 -0</pose>
+          <pose>71.008 26.7862 1.63486 -7e-06 3e-06 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0 0 0.772247 2.10827 -0.042059 -2e-06</acceleration>
-          <wrench>-0.000941 0.00158 3395.42 0 -0 0</wrench>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='load_box_clone_5'>
-        <pose>23.5408 15.4108 -0 -0 -0 -0</pose>
+      <model name='load_box_clone_clone_clone_clone_18'>
+        <pose>71.0149 29.8279 1.63486 -7e-06 3e-06 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>23.5408 15.4108 -0 -0 -0 -0</pose>
+          <pose>71.0149 29.8279 1.63486 -7e-06 3e-06 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0 0 0.772247 2.10827 -0.042059 -2e-06</acceleration>
-          <wrench>-0.000941 0.00158 3395.42 0 -0 0</wrench>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='load_box_clone_6'>
-        <pose>71.037 24.2386 -0 -0 -0 -0</pose>
+      <model name='load_box_clone_clone_clone_clone_2'>
+        <pose>25.6719 24.6564 1.63486 -7e-06 3e-06 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>71.037 24.2386 -0 -0 -0 -0</pose>
+          <pose>25.6719 24.6564 1.63486 -7e-06 3e-06 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0 0 0.772247 2.10827 -0.042059 -2e-06</acceleration>
-          <wrench>-0.000941 0.00158 3395.42 0 -0 0</wrench>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='load_box_clone_7'>
-        <pose>70.9913 26.8416 -0 -0 -0 -0</pose>
+      <model name='load_box_clone_clone_clone_clone_3'>
+        <pose>8.49751 15.4372 1.63486 -7e-06 3e-06 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>70.9913 26.8416 -0 -0 -0 -0</pose>
+          <pose>8.49751 15.4372 1.63486 -7e-06 3e-06 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0 0 0.772247 2.10827 -0.042059 -2e-06</acceleration>
-          <wrench>-0.000941 0.00158 3395.42 0 -0 0</wrench>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='load_box_clone_8'>
-        <pose>70.972 29.3811 -0 -0 -0 -0</pose>
+      <model name='load_box_clone_clone_clone_clone_4'>
+        <pose>10.7956 15.4889 1.63486 -7e-06 3e-06 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>70.972 29.3811 -0 -0 -0 -0</pose>
+          <pose>10.7956 15.4889 1.63486 -7e-06 3e-06 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0 0 0.772247 2.10827 -0.042059 -2e-06</acceleration>
-          <wrench>-0.000941 0.00158 3395.42 0 -0 0</wrench>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='load_box_clone_9'>
-        <pose>70.9442 31.9456 -0 -0 -0 -0</pose>
+      <model name='load_box_clone_clone_clone_clone_5'>
+        <pose>13.5104 15.4513 1.63486 -7e-06 3e-06 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>70.9442 31.9456 -0 -0 -0 -0</pose>
+          <pose>13.5104 15.4513 1.63486 -7e-06 3e-06 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0 0 0.772247 2.10827 -0.042059 -2e-06</acceleration>
-          <wrench>-0.000941 0.00158 3395.42 0 -0 0</wrench>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='robot'>
-        <pose>1.61752 -0.000255 -0.000156 -3.5e-05 0.000106 -0.000837</pose>
+      <model name='load_box_clone_clone_clone_clone_6'>
+        <pose>15.7791 15.4377 1.63486 -7e-06 3e-06 0</pose>
         <scale>1 1 1</scale>
-        <link name='back_left_wheel_body_link'>
-          <pose>0.784535 0.400444 0.099923 1e-06 0.000105 0.000298</pose>
-          <velocity>-0.000139 5.6e-05 -0.000448 0.000352 0.000689 -0.000333</velocity>
-          <acceleration>-0.029437 -0.025327 -0.012256 -0.033539 0.007691 0.026496</acceleration>
-          <wrench>-0.162605 -0.1399 -0.067698 0 -0 0</wrench>
+        <link name='link'>
+          <pose>15.7791 15.4377 1.63486 -7e-06 3e-06 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
-        <link name='back_left_wheel_left_side_link'>
-          <pose>0.784513 0.45544 0.049941 -0.000143 0.952843 0.000231</pose>
-          <velocity>-0.000138 4.6e-05 5.3e-05 -0.000929 -0.002744 -3.6e-05</velocity>
-          <acceleration>-0.029573 -0.020438 0.00289 0.409309 -0.593145 0.000334</acceleration>
-          <wrench>-0.038155 -0.026369 0.003729 0 -0 0</wrench>
+      </model>
+      <model name='load_box_clone_clone_clone_clone_7'>
+        <pose>25.0014 15.5139 1.63486 -7e-06 3e-06 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>25.0014 15.5139 1.63486 -7e-06 3e-06 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
-        <link name='back_left_wheel_right_side_link'>
-          <pose>0.784545 0.345443 0.049939 -1.6e-05 0.953157 0.00034</pose>
-          <velocity>-0.000188 6.4e-05 -4.1e-05 -0.001293 -0.003789 -3.5e-05</velocity>
-          <acceleration>-0.026407 -0.022435 0.003497 0.449141 -0.528686 0.000126</acceleration>
-          <wrench>-0.033914 -0.028813 0.004491 0 -0 0</wrench>
+      </model>
+      <model name='load_box_clone_clone_clone_clone_8'>
+        <pose>19.7553 15.4706 1.63486 -7e-06 3e-06 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>19.7553 15.4706 1.63486 -7e-06 3e-06 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
-        <link name='back_right_wheel_body_link'>
-          <pose>0.783866 -0.399553 0.099951 -0.000159 0.000105 -0.007427</pose>
-          <velocity>-0.00036 0.000132 -0.000128 -0.000235 0.000669 0.00494</velocity>
-          <acceleration>-0.047739 -0.140734 -0.040783 -1.74606 0.023119 0.776263</acceleration>
-          <wrench>-0.263701 -0.777386 -0.225277 0 -0 0</wrench>
-        </link>
-        <link name='back_right_wheel_left_side_link'>
-          <pose>0.784269 -0.344562 0.049942 3e-06 0.951445 -0.007426</pose>
-          <velocity>-0.000788 0.000243 0.000103 -0.004871 -0.015781 1.2e-05</velocity>
-          <acceleration>-0.089388 -0.207684 -0.423237 1.02324 -1.33773 -3.13833</acceleration>
-          <wrench>-0.115328 -0.267955 -0.54606 0 -0 0</wrench>
-        </link>
-        <link name='back_right_wheel_right_side_link'>
-          <pose>0.783453 -0.454557 0.04999 0.000393 0.924901 -0.007123</pose>
-          <velocity>-3.2e-05 6.1e-05 5.6e-05 -0.001212 -0.000618 2.5e-05</velocity>
-          <acceleration>0.011624 -0.106981 0.006338 2.13928 0.22798 0.011425</acceleration>
-          <wrench>0.014928 -0.137393 0.00814 0 -0 0</wrench>
-        </link>
-        <link name='base_link'>
-          <pose>1.61752 -0.000255 -0.000156 -3.5e-05 0.000106 -0.000837</pose>
-          <velocity>-0.000317 -0.00019 -0.000926 -0.000476 0.000668 -0.000259</velocity>
-          <acceleration>-0.036626 -0.051039 -0.014954 -0.025815 0.007033 -0.025371</acceleration>
-          <wrench>-37.4524 -52.1903 -15.2914 0 -0 0</wrench>
-        </link>
-        <link name='fork_link'>
-          <pose>2.29233 -0.473953 1.88979 -3.5e-05 0.000106 -0.000837</pose>
-          <velocity>0.000827 0.000526 -0.001144 -0.00047 0.000668 -0.000257</velocity>
-          <acceleration>-0.038903 -0.046698 -0.011019 -0.02607 0.007913 -0.02572</acceleration>
-          <wrench>-1.40918 -1.69156 -0.399151 0 -0 0</wrench>
-        </link>
-        <link name='front_left_wheel_body_link'>
-          <pose>2.4512 0.399042 0.099788 0.000186 0.000101 -0.005268</pose>
-          <velocity>-2.8e-05 -0.000127 -0.003709 -0.062127 0.001054 -0.102531</velocity>
-          <acceleration>-0.028713 0.007688 -0.034917 0.594928 0.013375 -0.223612</acceleration>
-          <wrench>-0.158605 0.042468 -0.192876 0 -0 0</wrench>
-        </link>
-        <link name='front_left_wheel_left_side_link'>
-          <pose>2.45147 0.454005 0.049999 -0.003426 0.962666 -0.008111</pose>
-          <velocity>0.006142 -0.000586 -0.021295 0.015989 0.20932 -0.10345</velocity>
-          <acceleration>1.4703 -0.007991 0.063854 0.765837 -1.09617 -0.250683</acceleration>
-          <wrench>1.89698 -0.01031 0.082385 0 -0 0</wrench>
-        </link>
-        <link name='front_left_wheel_right_side_link'>
-          <pose>2.4509 0.344078 0.04996 0.00124 0.957839 -0.004263</pose>
-          <velocity>-0.007512 -0.004918 -0.003616 0.098425 -0.15061 -0.000539</velocity>
-          <acceleration>-1.39628 0.115656 -0.102349 0.914482 -0.312567 3.00009</acceleration>
-          <wrench>-1.79322 0.148535 -0.131444 0 -0 0</wrench>
-        </link>
-        <link name='front_right_wheel_body_link'>
-          <pose>2.45053 -0.400947 0.099805 9.5e-05 0.0001 0.149676</pose>
-          <velocity>-0.000516 9.9e-05 -0.001673 0.003229 0.000306 -0.023388</velocity>
-          <acceleration>-0.051111 -0.065752 -0.003515 -0.057534 -0.008017 0.144455</acceleration>
-          <wrench>-0.282326 -0.363201 -0.019418 0 -0 0</wrench>
-        </link>
-        <link name='front_right_wheel_left_side_link'>
-          <pose>2.44233 -0.346569 0.049939 -0.000333 0.759922 0.149454</pose>
-          <velocity>0.00082 0.001116 -0.002138 -0.022344 0.016447 -9.3e-05</velocity>
-          <acceleration>-0.063897 -0.057537 0.010869 1.04107 -1.23728 0.001715</acceleration>
-          <wrench>-0.08244 -0.074234 0.014023 0 -0 0</wrench>
-        </link>
-        <link name='front_right_wheel_right_side_link'>
-          <pose>2.45873 -0.455316 0.049944 0.001251 1.23187 0.150846</pose>
-          <velocity>-0.002885 4.1e-05 -0.004142 -0.000804 -0.057901 -0.000252</velocity>
-          <acceleration>-0.041869 -0.058351 0.007704 1.09196 -0.787078 0.002746</acceleration>
-          <wrench>-0.053771 -0.074939 0.009895 0 -0 0</wrench>
+      </model>
+      <model name='load_box_clone_clone_clone_clone_9'>
+        <pose>107.751 19.7496 1.63486 -7e-06 3e-06 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>107.751 19.7496 1.63486 -7e-06 3e-06 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
       <model name='warehouse_2'>
@@ -2153,1808 +2105,13 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose>65.3575 12.4823 49.5651 0 0.981796 0.180192</pose>
+        <pose>90.7264 78.7729 41.9472 0 0.465797 -1.67583</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
     </gui>
-    <model name='robot'>
-      <link name='base_link'>
-        <inertial>
-          <pose>0.517613 -0.00164 0.55628 0 -0 0</pose>
-          <mass>1022.56</mass>
-          <inertia>
-            <ixx>570.573</ixx>
-            <ixy>0.129472</ixy>
-            <ixz>-174.665</ixz>
-            <iyy>817.292</iyy>
-            <iyz>1.28843</iyz>
-            <izz>569.204</izz>
-          </inertia>
-        </inertial>
-        <collision name='base_link_fixed_joint_lump__chassis_link_collision'>
-          <pose>1.25 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/base_link_larger.stl</uri>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode>
-                <kp>0</kp>
-                <kd>0</kd>
-              </ode>
-            </contact>
-            <friction>
-              <ode>
-                <mu>0.35</mu>
-                <mu2>0.35</mu2>
-              </ode>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='base_link_fixed_joint_lump__battery_link_collision_1'>
-          <pose>1.2 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/battery_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode>
-                <kp>0</kp>
-                <kd>0</kd>
-              </ode>
-            </contact>
-            <friction>
-              <ode>
-                <mu>0</mu>
-                <mu2>0</mu2>
-              </ode>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='base_link_fixed_joint_lump__forklift_body_link_collision_2'>
-          <pose>1.25 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/AGV_forklift_body_link_v1_1.stl</uri>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode>
-                <kp>0</kp>
-                <kd>0</kd>
-              </ode>
-            </contact>
-            <friction>
-              <ode>
-                <mu>0</mu>
-                <mu2>0</mu2>
-              </ode>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='base_link_fixed_joint_lump__beam_link_collision_3'>
-          <pose>1.25 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/beam_link_v1_1.stl</uri>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode>
-                <kp>0</kp>
-                <kd>0</kd>
-              </ode>
-            </contact>
-            <friction>
-              <ode>
-                <mu>0.35</mu>
-                <mu2>0.35</mu2>
-              </ode>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='base_link_fixed_joint_lump__top_lidar_link_collision_4'>
-          <pose>1.25 0 0.01 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/top_lidar_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode>
-                <kp>0</kp>
-                <kd>0</kd>
-              </ode>
-            </contact>
-            <friction>
-              <ode>
-                <mu>0.35</mu>
-                <mu2>0.35</mu2>
-              </ode>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='base_link_fixed_joint_lump__down_lidar_link_left_collision_5'>
-          <pose>1.238 1.01213 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/down_lidar_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <collision name='base_link_fixed_joint_lump__down_lidar_link_right_collision_6'>
-          <pose>1.238 0.1 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/down_lidar_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='base_link_fixed_joint_lump__chassis_link_visual'>
-          <pose>1.25 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/base_link_larger.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/DarkGrey</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <visual name='base_link_fixed_joint_lump__battery_link_visual_1'>
-          <pose>1.2 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/battery_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/Grey</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <visual name='base_link_fixed_joint_lump__forklift_body_link_visual_2'>
-          <pose>1.25 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/AGV_forklift_body_link_v1_1.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/Blue</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <visual name='base_link_fixed_joint_lump__beam_link_visual_3'>
-          <pose>1.25 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/beam_link_v1_1.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/Grey</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <visual name='base_link_fixed_joint_lump__top_lidar_link_visual_4'>
-          <pose>1.25 0 0.01 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/top_lidar_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/Yellow</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <visual name='base_link_fixed_joint_lump__down_lidar_link_left_visual_5'>
-          <pose>1.238 1.01213 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/down_lidar_link_1.stl</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <visual name='base_link_fixed_joint_lump__down_lidar_link_right_visual_6'>
-          <pose>1.238 0.1 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/down_lidar_link_1.stl</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <sensor name='head_hokuyo_sensor' type='ray'>
-          <visualize>0</visualize>
-          <update_rate>40</update_rate>
-          <ray>
-            <scan>
-              <horizontal>
-                <samples>720</samples>
-                <resolution>1</resolution>
-                <min_angle>-1.5708</min_angle>
-                <max_angle>1.5708</max_angle>
-              </horizontal>
-              <vertical>
-                <samples>1</samples>
-                <min_angle>0</min_angle>
-                <max_angle>0</max_angle>
-              </vertical>
-            </scan>
-            <range>
-              <min>0.1</min>
-              <max>30</max>
-              <resolution>0.01</resolution>
-            </range>
-            <noise>
-              <type>gaussian</type>
-              <mean>0</mean>
-              <stddev>0.01</stddev>
-            </noise>
-          </ray>
-          <plugin name='gazebo_ros_head_hokuyo_controller' filename='libgazebo_ros_laser.so'>
-            <topicName>/laser/scan</topicName>
-            <frameName>top_lidar_link</frameName>
-            <robotNamespace>/</robotNamespace>
-          </plugin>
-          <pose>0.9 0 1.95 0 -0 0</pose>
-        </sensor>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <joint name='back_left_whole_rotate_joint' type='revolute'>
-        <pose relative_to='base_link'>-0.833334 0.4 0.1 0 -0 0</pose>
-        <parent>base_link</parent>
-        <child>back_left_wheel_body_link</child>
-        <axis>
-          <xyz>0 0 -1</xyz>
-          <limit>
-            <lower>-1e+16</lower>
-            <upper>1e+16</upper>
-          </limit>
-          <dynamics>
-            <spring_reference>0</spring_reference>
-            <spring_stiffness>0</spring_stiffness>
-          </dynamics>
-        </axis>
-      </joint>
-      <link name='back_left_wheel_body_link'>
-        <pose relative_to='back_left_whole_rotate_joint'>0 0 0 0 -0 0</pose>
-        <inertial>
-          <pose>0 -0 -0.046815 0 -0 0</pose>
-          <mass>5.52379</mass>
-          <inertia>
-            <ixx>0.0124518</ixx>
-            <ixy>-7.61802e-20</ixy>
-            <ixz>8.93256e-18</ixz>
-            <iyy>0.0249398</iyy>
-            <iyz>-2.33561e-18</iyz>
-            <izz>0.029177</izz>
-          </inertia>
-        </inertial>
-        <collision name='back_left_wheel_body_link_collision'>
-          <pose>0.416667 0.4 -0.1 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_body_link_v1_1.stl</uri>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode>
-                <kp>1e+07</kp>
-                <kd>1</kd>
-              </ode>
-            </contact>
-            <friction>
-              <ode>
-                <mu>0</mu>
-                <mu2>0</mu2>
-              </ode>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='back_left_wheel_body_link_fixed_joint_lump__back_left_wheel_body_wheel_lid_link_collision_1'>
-          <pose>0.416667 0.4 -0.1 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_body_wheel_lid_link_v1_1.stl</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='back_left_wheel_body_link_visual'>
-          <pose>0.416667 0.4 -0.1 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_body_link_v1_1.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/Green</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <visual name='back_left_wheel_body_link_fixed_joint_lump__back_left_wheel_body_wheel_lid_link_visual_1'>
-          <pose>0.416667 0.4 -0.1 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_body_wheel_lid_link_v1_1.stl</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <joint name='back_left_left_rotate_joint' type='revolute'>
-        <pose relative_to='back_left_wheel_body_link'>0 0.055 -0.05 0 -0 0</pose>
-        <parent>back_left_wheel_body_link</parent>
-        <child>back_left_wheel_left_side_link</child>
-        <axis>
-          <xyz>0 1 0</xyz>
-          <limit>
-            <lower>-1e+16</lower>
-            <upper>1e+16</upper>
-          </limit>
-          <dynamics>
-            <spring_reference>0</spring_reference>
-            <spring_stiffness>0</spring_stiffness>
-          </dynamics>
-        </axis>
-      </joint>
-      <link name='back_left_wheel_left_side_link'>
-        <pose relative_to='back_left_left_rotate_joint'>0 0 0 0 -0 0</pose>
-        <inertial>
-          <pose>9.2e-05 0.023148 -3e-06 0 -0 0</pose>
-          <mass>1.2902</mass>
-          <inertia>
-            <ixx>0.000654026</ixx>
-            <ixy>-9.93336e-07</ixy>
-            <ixz>5.94638e-11</ixz>
-            <iyy>0.001009</iyy>
-            <iyz>-2.28192e-10</iyz>
-            <izz>0.000656027</izz>
-          </inertia>
-        </inertial>
-        <collision name='back_left_wheel_left_side_link_collision'>
-          <pose>0.416667 0.35 -0.05 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_right_side_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode>
-                <kp>1e+07</kp>
-                <kd>1</kd>
-              </ode>
-            </contact>
-            <friction>
-              <ode>
-                <mu>0</mu>
-                <mu2>0</mu2>
-              </ode>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='back_left_wheel_left_side_link_fixed_joint_lump__back_left_wheel_left_tyre_link_collision_1'>
-          <pose>0.416667 0.35 -0.05 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_right_tyre_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode>
-                <kp>1e+07</kp>
-                <kd>1</kd>
-              </ode>
-            </contact>
-            <friction>
-              <ode>
-                <mu>0.3</mu>
-                <mu2>0.3</mu2>
-              </ode>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <visual name='back_left_wheel_left_side_link_visual'>
-          <pose>0.416667 0.35 -0.05 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_right_side_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/Grey</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <visual name='back_left_wheel_left_side_link_fixed_joint_lump__back_left_wheel_left_tyre_link_visual_1'>
-          <pose>0.416667 0.35 -0.05 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_right_tyre_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/DarkGrey</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <joint name='back_left_right_rotate_joint' type='revolute'>
-        <pose relative_to='back_left_wheel_body_link'>0 -0.055 -0.05 0 -0 0</pose>
-        <parent>back_left_wheel_body_link</parent>
-        <child>back_left_wheel_right_side_link</child>
-        <axis>
-          <xyz>0 1 0</xyz>
-          <limit>
-            <lower>-1e+16</lower>
-            <upper>1e+16</upper>
-          </limit>
-          <dynamics>
-            <spring_reference>0</spring_reference>
-            <spring_stiffness>0</spring_stiffness>
-          </dynamics>
-        </axis>
-      </joint>
-      <link name='back_left_wheel_right_side_link'>
-        <pose relative_to='back_left_right_rotate_joint'>0 0 0 0 -0 0</pose>
-        <inertial>
-          <pose>0 -0.023096 -0 0 -0 0</pose>
-          <mass>1.28428</mass>
-          <inertia>
-            <ixx>0.000653034</ixx>
-            <ixy>6.26416e-18</ixy>
-            <ixz>-9.25982e-32</ixz>
-            <iyy>0.001007</iyy>
-            <iyz>4.99057e-22</iyz>
-            <izz>0.000653034</izz>
-          </inertia>
-        </inertial>
-        <collision name='back_left_wheel_right_side_link_collision'>
-          <pose>0.416667 0.45 -0.05 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_left_side_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode>
-                <kp>1e+07</kp>
-                <kd>1</kd>
-              </ode>
-            </contact>
-            <friction>
-              <ode>
-                <mu>0</mu>
-                <mu2>0</mu2>
-              </ode>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='back_left_wheel_right_side_link_fixed_joint_lump__back_left_wheel_right_tyre_link_collision_1'>
-          <pose>0.416667 0.45 -0.05 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_left_tyre_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode>
-                <kp>1e+07</kp>
-                <kd>1</kd>
-              </ode>
-            </contact>
-            <friction>
-              <ode>
-                <mu>0.3</mu>
-                <mu2>0.3</mu2>
-              </ode>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <visual name='back_left_wheel_right_side_link_visual'>
-          <pose>0.416667 0.45 -0.05 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_left_side_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/Grey</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <visual name='back_left_wheel_right_side_link_fixed_joint_lump__back_left_wheel_right_tyre_link_visual_1'>
-          <pose>0.416667 0.45 -0.05 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_left_tyre_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/DarkGrey</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <joint name='back_right_whole_rotate_joint' type='revolute'>
-        <pose relative_to='base_link'>-0.833334 -0.4 0.1 0 -0 0</pose>
-        <parent>base_link</parent>
-        <child>back_right_wheel_body_link</child>
-        <axis>
-          <xyz>0 0 -1</xyz>
-          <limit>
-            <lower>-1e+16</lower>
-            <upper>1e+16</upper>
-          </limit>
-          <dynamics>
-            <spring_reference>0</spring_reference>
-            <spring_stiffness>0</spring_stiffness>
-          </dynamics>
-        </axis>
-      </joint>
-      <link name='back_right_wheel_body_link'>
-        <pose relative_to='back_right_whole_rotate_joint'>0 0 0 0 -0 0</pose>
-        <inertial>
-          <pose>0 -0 -0.046815 0 -0 0</pose>
-          <mass>5.52379</mass>
-          <inertia>
-            <ixx>0.0124518</ixx>
-            <ixy>-7.61802e-20</ixy>
-            <ixz>8.93256e-18</ixz>
-            <iyy>0.0249398</iyy>
-            <iyz>-2.33561e-18</iyz>
-            <izz>0.029177</izz>
-          </inertia>
-        </inertial>
-        <collision name='back_right_wheel_body_link_collision'>
-          <pose>0.416667 0.4 -0.1 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_body_link_v1_1.stl</uri>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode>
-                <kp>1e+07</kp>
-                <kd>1</kd>
-              </ode>
-            </contact>
-            <friction>
-              <ode>
-                <mu>0</mu>
-                <mu2>0</mu2>
-              </ode>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='back_right_wheel_body_link_fixed_joint_lump__back_right_wheel_body_wheel_lid_link_collision_1'>
-          <pose>0.416667 0.4 -0.1 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_body_wheel_lid_link_v1_1.stl</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='back_right_wheel_body_link_visual'>
-          <pose>0.416667 0.4 -0.1 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_body_link_v1_1.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/Green</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <visual name='back_right_wheel_body_link_fixed_joint_lump__back_right_wheel_body_wheel_lid_link_visual_1'>
-          <pose>0.416667 0.4 -0.1 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_body_wheel_lid_link_v1_1.stl</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <joint name='back_right_left_rotate_joint' type='revolute'>
-        <pose relative_to='back_right_wheel_body_link'>0 0.055 -0.05 0 -0 0</pose>
-        <parent>back_right_wheel_body_link</parent>
-        <child>back_right_wheel_left_side_link</child>
-        <axis>
-          <xyz>0 1 0</xyz>
-          <limit>
-            <lower>-1e+16</lower>
-            <upper>1e+16</upper>
-          </limit>
-          <dynamics>
-            <spring_reference>0</spring_reference>
-            <spring_stiffness>0</spring_stiffness>
-          </dynamics>
-        </axis>
-      </joint>
-      <link name='back_right_wheel_left_side_link'>
-        <pose relative_to='back_right_left_rotate_joint'>0 0 0 0 -0 0</pose>
-        <inertial>
-          <pose>9.2e-05 0.023148 -3e-06 0 -0 0</pose>
-          <mass>1.2902</mass>
-          <inertia>
-            <ixx>0.000654026</ixx>
-            <ixy>-9.93336e-07</ixy>
-            <ixz>5.94638e-11</ixz>
-            <iyy>0.001009</iyy>
-            <iyz>-2.28192e-10</iyz>
-            <izz>0.000656027</izz>
-          </inertia>
-        </inertial>
-        <collision name='back_right_wheel_left_side_link_collision'>
-          <pose>0.416667 0.35 -0.05 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_right_side_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode>
-                <kp>1e+07</kp>
-                <kd>1</kd>
-              </ode>
-            </contact>
-            <friction>
-              <ode>
-                <mu>0</mu>
-                <mu2>0</mu2>
-              </ode>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='back_right_wheel_left_side_link_fixed_joint_lump__back_right_wheel_left_tyre_link_collision_1'>
-          <pose>0.416667 0.35 -0.05 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_right_tyre_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode>
-                <kp>1e+07</kp>
-                <kd>1</kd>
-              </ode>
-            </contact>
-            <friction>
-              <ode>
-                <mu>0.3</mu>
-                <mu2>0.3</mu2>
-              </ode>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <visual name='back_right_wheel_left_side_link_visual'>
-          <pose>0.416667 0.35 -0.05 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_right_side_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/Grey</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <visual name='back_right_wheel_left_side_link_fixed_joint_lump__back_right_wheel_left_tyre_link_visual_1'>
-          <pose>0.416667 0.35 -0.05 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_right_tyre_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/DarkGrey</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <joint name='back_right_right_rotate_joint' type='revolute'>
-        <pose relative_to='back_right_wheel_body_link'>0 -0.055 -0.05 0 -0 0</pose>
-        <parent>back_right_wheel_body_link</parent>
-        <child>back_right_wheel_right_side_link</child>
-        <axis>
-          <xyz>0 1 0</xyz>
-          <limit>
-            <lower>-1e+16</lower>
-            <upper>1e+16</upper>
-          </limit>
-          <dynamics>
-            <spring_reference>0</spring_reference>
-            <spring_stiffness>0</spring_stiffness>
-          </dynamics>
-        </axis>
-      </joint>
-      <link name='back_right_wheel_right_side_link'>
-        <pose relative_to='back_right_right_rotate_joint'>0 0 0 0 -0 0</pose>
-        <inertial>
-          <pose>0 -0.023096 -0 0 -0 0</pose>
-          <mass>1.28428</mass>
-          <inertia>
-            <ixx>0.000653034</ixx>
-            <ixy>6.26416e-18</ixy>
-            <ixz>-9.25982e-32</ixz>
-            <iyy>0.001007</iyy>
-            <iyz>4.99057e-22</iyz>
-            <izz>0.000653034</izz>
-          </inertia>
-        </inertial>
-        <collision name='back_right_wheel_right_side_link_collision'>
-          <pose>0.416667 0.45 -0.05 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_left_side_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode>
-                <kp>1e+07</kp>
-                <kd>1</kd>
-              </ode>
-            </contact>
-            <friction>
-              <ode>
-                <mu>0</mu>
-                <mu2>0</mu2>
-              </ode>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='back_right_wheel_right_side_link_fixed_joint_lump__back_right_wheel_right_tyre_link_collision_1'>
-          <pose>0.416667 0.45 -0.05 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_left_tyre_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode>
-                <kp>1e+07</kp>
-                <kd>1</kd>
-              </ode>
-            </contact>
-            <friction>
-              <ode>
-                <mu>0.3</mu>
-                <mu2>0.3</mu2>
-              </ode>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <visual name='back_right_wheel_right_side_link_visual'>
-          <pose>0.416667 0.45 -0.05 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_left_side_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/Grey</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <visual name='back_right_wheel_right_side_link_fixed_joint_lump__back_right_wheel_right_tyre_link_visual_1'>
-          <pose>0.416667 0.45 -0.05 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_left_tyre_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/DarkGrey</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <joint name='front_left_whole_rotate_joint' type='revolute'>
-        <pose relative_to='base_link'>0.833333 0.4 0.1 0 -0 0</pose>
-        <parent>base_link</parent>
-        <child>front_left_wheel_body_link</child>
-        <axis>
-          <xyz>0 0 -1</xyz>
-          <limit>
-            <lower>-1e+16</lower>
-            <upper>1e+16</upper>
-          </limit>
-          <dynamics>
-            <spring_reference>0</spring_reference>
-            <spring_stiffness>0</spring_stiffness>
-          </dynamics>
-        </axis>
-      </joint>
-      <link name='front_left_wheel_body_link'>
-        <pose relative_to='front_left_whole_rotate_joint'>0 0 0 0 -0 0</pose>
-        <inertial>
-          <pose>0 -0 -0.046815 0 -0 0</pose>
-          <mass>5.52379</mass>
-          <inertia>
-            <ixx>0.0124518</ixx>
-            <ixy>-7.61802e-20</ixy>
-            <ixz>8.93256e-18</ixz>
-            <iyy>0.0249398</iyy>
-            <iyz>-2.33561e-18</iyz>
-            <izz>0.029177</izz>
-          </inertia>
-        </inertial>
-        <collision name='front_left_wheel_body_link_collision'>
-          <pose>0.416667 0.4 -0.1 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_body_link_v1_1.stl</uri>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode>
-                <kp>1e+07</kp>
-                <kd>1</kd>
-              </ode>
-            </contact>
-            <friction>
-              <ode>
-                <mu>0</mu>
-                <mu2>0</mu2>
-              </ode>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='front_left_wheel_body_link_fixed_joint_lump__front_left_wheel_body_wheel_lid_link_collision_1'>
-          <pose>0.416667 0.4 -0.1 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_body_wheel_lid_link_v1_1.stl</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='front_left_wheel_body_link_visual'>
-          <pose>0.416667 0.4 -0.1 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_body_link_v1_1.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/Green</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <visual name='front_left_wheel_body_link_fixed_joint_lump__front_left_wheel_body_wheel_lid_link_visual_1'>
-          <pose>0.416667 0.4 -0.1 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_body_wheel_lid_link_v1_1.stl</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <joint name='front_left_left_rotate_joint' type='revolute'>
-        <pose relative_to='front_left_wheel_body_link'>0 0.055 -0.05 0 -0 0</pose>
-        <parent>front_left_wheel_body_link</parent>
-        <child>front_left_wheel_left_side_link</child>
-        <axis>
-          <xyz>0 1 0</xyz>
-          <limit>
-            <lower>-1e+16</lower>
-            <upper>1e+16</upper>
-          </limit>
-          <dynamics>
-            <spring_reference>0</spring_reference>
-            <spring_stiffness>0</spring_stiffness>
-          </dynamics>
-        </axis>
-      </joint>
-      <link name='front_left_wheel_left_side_link'>
-        <pose relative_to='front_left_left_rotate_joint'>0 0 0 0 -0 0</pose>
-        <inertial>
-          <pose>9.2e-05 0.023148 -3e-06 0 -0 0</pose>
-          <mass>1.2902</mass>
-          <inertia>
-            <ixx>0.000654026</ixx>
-            <ixy>-9.93336e-07</ixy>
-            <ixz>5.94638e-11</ixz>
-            <iyy>0.001009</iyy>
-            <iyz>-2.28192e-10</iyz>
-            <izz>0.000656027</izz>
-          </inertia>
-        </inertial>
-        <collision name='front_left_wheel_left_side_link_collision'>
-          <pose>0.416667 0.35 -0.05 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_right_side_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode>
-                <kp>1e+07</kp>
-                <kd>1</kd>
-              </ode>
-            </contact>
-            <friction>
-              <ode>
-                <mu>0</mu>
-                <mu2>0</mu2>
-              </ode>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='front_left_wheel_left_side_link_fixed_joint_lump__front_left_wheel_left_tyre_link_collision_1'>
-          <pose>0.416667 0.35 -0.05 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_right_tyre_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode>
-                <kp>1e+07</kp>
-                <kd>1</kd>
-              </ode>
-            </contact>
-            <friction>
-              <ode>
-                <mu>0.3</mu>
-                <mu2>0.3</mu2>
-              </ode>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <visual name='front_left_wheel_left_side_link_visual'>
-          <pose>0.416667 0.35 -0.05 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_right_side_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/Grey</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <visual name='front_left_wheel_left_side_link_fixed_joint_lump__front_left_wheel_left_tyre_link_visual_1'>
-          <pose>0.416667 0.35 -0.05 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_right_tyre_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/DarkGrey</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <joint name='front_left_right_rotate_joint' type='revolute'>
-        <pose relative_to='front_left_wheel_body_link'>0 -0.055 -0.05 0 -0 0</pose>
-        <parent>front_left_wheel_body_link</parent>
-        <child>front_left_wheel_right_side_link</child>
-        <axis>
-          <xyz>0 1 0</xyz>
-          <limit>
-            <lower>-1e+16</lower>
-            <upper>1e+16</upper>
-          </limit>
-          <dynamics>
-            <spring_reference>0</spring_reference>
-            <spring_stiffness>0</spring_stiffness>
-          </dynamics>
-        </axis>
-      </joint>
-      <link name='front_left_wheel_right_side_link'>
-        <pose relative_to='front_left_right_rotate_joint'>0 0 0 0 -0 0</pose>
-        <inertial>
-          <pose>0 -0.023096 -0 0 -0 0</pose>
-          <mass>1.28428</mass>
-          <inertia>
-            <ixx>0.000653034</ixx>
-            <ixy>6.26416e-18</ixy>
-            <ixz>-9.25982e-32</ixz>
-            <iyy>0.001007</iyy>
-            <iyz>4.99057e-22</iyz>
-            <izz>0.000653034</izz>
-          </inertia>
-        </inertial>
-        <collision name='front_left_wheel_right_side_link_collision'>
-          <pose>0.416667 0.45 -0.05 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_left_side_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode>
-                <kp>1e+07</kp>
-                <kd>1</kd>
-              </ode>
-            </contact>
-            <friction>
-              <ode>
-                <mu>0</mu>
-                <mu2>0</mu2>
-              </ode>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='front_left_wheel_right_side_link_fixed_joint_lump__front_left_wheel_right_tyre_link_collision_1'>
-          <pose>0.416667 0.45 -0.05 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_left_tyre_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode>
-                <kp>1e+07</kp>
-                <kd>1</kd>
-              </ode>
-            </contact>
-            <friction>
-              <ode>
-                <mu>0.3</mu>
-                <mu2>0.3</mu2>
-              </ode>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <visual name='front_left_wheel_right_side_link_visual'>
-          <pose>0.416667 0.45 -0.05 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_left_side_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/Grey</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <visual name='front_left_wheel_right_side_link_fixed_joint_lump__front_left_wheel_right_tyre_link_visual_1'>
-          <pose>0.416667 0.45 -0.05 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_left_tyre_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/DarkGrey</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <joint name='front_right_whole_rotate_joint' type='revolute'>
-        <pose relative_to='base_link'>0.833333 -0.4 0.1 0 -0 0</pose>
-        <parent>base_link</parent>
-        <child>front_right_wheel_body_link</child>
-        <axis>
-          <xyz>0 0 -1</xyz>
-          <limit>
-            <lower>-1e+16</lower>
-            <upper>1e+16</upper>
-          </limit>
-          <dynamics>
-            <spring_reference>0</spring_reference>
-            <spring_stiffness>0</spring_stiffness>
-          </dynamics>
-        </axis>
-      </joint>
-      <link name='front_right_wheel_body_link'>
-        <pose relative_to='front_right_whole_rotate_joint'>0 0 0 0 -0 0</pose>
-        <inertial>
-          <pose>0 -0 -0.046815 0 -0 0</pose>
-          <mass>5.52379</mass>
-          <inertia>
-            <ixx>0.0124518</ixx>
-            <ixy>-7.61802e-20</ixy>
-            <ixz>8.93256e-18</ixz>
-            <iyy>0.0249398</iyy>
-            <iyz>-2.33561e-18</iyz>
-            <izz>0.029177</izz>
-          </inertia>
-        </inertial>
-        <collision name='front_right_wheel_body_link_collision'>
-          <pose>0.416667 0.4 -0.1 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_body_link_v1_1.stl</uri>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode>
-                <kp>1e+07</kp>
-                <kd>1</kd>
-              </ode>
-            </contact>
-            <friction>
-              <ode>
-                <mu>0</mu>
-                <mu2>0</mu2>
-              </ode>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='front_right_wheel_body_link_fixed_joint_lump__front_right_wheel_body_wheel_lid_link_collision_1'>
-          <pose>0.416667 0.4 -0.1 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_body_wheel_lid_link_v1_1.stl</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='front_right_wheel_body_link_visual'>
-          <pose>0.416667 0.4 -0.1 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_body_link_v1_1.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/Green</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <visual name='front_right_wheel_body_link_fixed_joint_lump__front_right_wheel_body_wheel_lid_link_visual_1'>
-          <pose>0.416667 0.4 -0.1 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_body_wheel_lid_link_v1_1.stl</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <joint name='front_right_left_rotate_joint' type='revolute'>
-        <pose relative_to='front_right_wheel_body_link'>0 0.055 -0.05 0 -0 0</pose>
-        <parent>front_right_wheel_body_link</parent>
-        <child>front_right_wheel_left_side_link</child>
-        <axis>
-          <xyz>0 1 0</xyz>
-          <limit>
-            <lower>-1e+16</lower>
-            <upper>1e+16</upper>
-          </limit>
-          <dynamics>
-            <spring_reference>0</spring_reference>
-            <spring_stiffness>0</spring_stiffness>
-          </dynamics>
-        </axis>
-      </joint>
-      <link name='front_right_wheel_left_side_link'>
-        <pose relative_to='front_right_left_rotate_joint'>0 0 0 0 -0 0</pose>
-        <inertial>
-          <pose>9.2e-05 0.023148 -3e-06 0 -0 0</pose>
-          <mass>1.2902</mass>
-          <inertia>
-            <ixx>0.000654026</ixx>
-            <ixy>-9.93336e-07</ixy>
-            <ixz>5.94638e-11</ixz>
-            <iyy>0.001009</iyy>
-            <iyz>-2.28192e-10</iyz>
-            <izz>0.000656027</izz>
-          </inertia>
-        </inertial>
-        <collision name='front_right_wheel_left_side_link_collision'>
-          <pose>0.416667 0.35 -0.05 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_right_side_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode>
-                <kp>1e+07</kp>
-                <kd>1</kd>
-              </ode>
-            </contact>
-            <friction>
-              <ode>
-                <mu>0</mu>
-                <mu2>0</mu2>
-              </ode>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='front_right_wheel_left_side_link_fixed_joint_lump__front_right_wheel_left_tyre_link_collision_1'>
-          <pose>0.416667 0.35 -0.05 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_right_tyre_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode>
-                <kp>1e+07</kp>
-                <kd>1</kd>
-              </ode>
-            </contact>
-            <friction>
-              <ode>
-                <mu>0.3</mu>
-                <mu2>0.3</mu2>
-              </ode>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <visual name='front_right_wheel_left_side_link_visual'>
-          <pose>0.416667 0.35 -0.05 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_right_side_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/Grey</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <visual name='front_right_wheel_left_side_link_fixed_joint_lump__front_right_wheel_left_tyre_link_visual_1'>
-          <pose>0.416667 0.35 -0.05 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_right_tyre_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/DarkGrey</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <joint name='front_right_right_rotate_joint' type='revolute'>
-        <pose relative_to='front_right_wheel_body_link'>0 -0.055 -0.05 0 -0 0</pose>
-        <parent>front_right_wheel_body_link</parent>
-        <child>front_right_wheel_right_side_link</child>
-        <axis>
-          <xyz>0 1 0</xyz>
-          <limit>
-            <lower>-1e+16</lower>
-            <upper>1e+16</upper>
-          </limit>
-          <dynamics>
-            <spring_reference>0</spring_reference>
-            <spring_stiffness>0</spring_stiffness>
-          </dynamics>
-        </axis>
-      </joint>
-      <link name='front_right_wheel_right_side_link'>
-        <pose relative_to='front_right_right_rotate_joint'>0 0 0 0 -0 0</pose>
-        <inertial>
-          <pose>0 -0.023096 -0 0 -0 0</pose>
-          <mass>1.28428</mass>
-          <inertia>
-            <ixx>0.000653034</ixx>
-            <ixy>6.26416e-18</ixy>
-            <ixz>-9.25982e-32</ixz>
-            <iyy>0.001007</iyy>
-            <iyz>4.99057e-22</iyz>
-            <izz>0.000653034</izz>
-          </inertia>
-        </inertial>
-        <collision name='front_right_wheel_right_side_link_collision'>
-          <pose>0.416667 0.45 -0.05 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_left_side_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode>
-                <kp>1e+07</kp>
-                <kd>1</kd>
-              </ode>
-            </contact>
-            <friction>
-              <ode>
-                <mu>0</mu>
-                <mu2>0</mu2>
-              </ode>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='front_right_wheel_right_side_link_fixed_joint_lump__front_right_wheel_right_tyre_link_collision_1'>
-          <pose>0.416667 0.45 -0.05 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_left_tyre_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode>
-                <kp>1e+07</kp>
-                <kd>1</kd>
-              </ode>
-            </contact>
-            <friction>
-              <ode>
-                <mu>0.3</mu>
-                <mu2>0.3</mu2>
-              </ode>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <visual name='front_right_wheel_right_side_link_visual'>
-          <pose>0.416667 0.45 -0.05 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_left_side_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/Grey</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <visual name='front_right_wheel_right_side_link_fixed_joint_lump__front_right_wheel_right_tyre_link_visual_1'>
-          <pose>0.416667 0.45 -0.05 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/wheel_left_tyre_link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/DarkGrey</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <joint name='beam_fork_slide_joint' type='prismatic'>
-        <pose relative_to='base_link'>0.675 -0.4732 1.89 0 -0 0</pose>
-        <parent>base_link</parent>
-        <child>fork_link</child>
-        <axis>
-          <xyz>0 0 1</xyz>
-          <limit>
-            <lower>0</lower>
-            <upper>1.6</upper>
-            <effort>1000</effort>
-            <velocity>1</velocity>
-          </limit>
-          <dynamics>
-            <spring_reference>0</spring_reference>
-            <spring_stiffness>0</spring_stiffness>
-          </dynamics>
-        </axis>
-      </joint>
-      <link name='fork_link'>
-        <pose relative_to='beam_fork_slide_joint'>0 0 0 0 -0 0</pose>
-        <inertial>
-          <pose>-0.648423 0.472301 -1.647 0 -0 0</pose>
-          <mass>36.2231</mass>
-          <inertia>
-            <ixx>6.38391</ixx>
-            <ixy>-1.65e-05</ixy>
-            <ixz>-1.40236</ixz>
-            <iyy>8.78267</iyy>
-            <iyz>-8.9e-06</iyz>
-            <izz>13.821</izz>
-          </inertia>
-        </inertial>
-        <collision name='fork_link_collision'>
-          <pose>0.575 0.4673 -1.885 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/AGV_forklift_fork_link_v1_1.stl</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='fork_link_visual'>
-          <pose>0.575 0.4673 -1.885 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.001 0.001 0.001</scale>
-              <uri>/home/jack/catkin_myws/src/agv_forklift_description/meshes/AGV_forklift_fork_link_v1_1.stl</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <static>0</static>
-      <plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'>
-        <robotNamespace>/forklift_controllers</robotNamespace>
-      </plugin>
-      <pose>0 0 0 0 -0 0</pose>
-    </model>
     <model name='load_box'>
-      <static>0</static>
+      <static>1</static>
       <link name='link'>
         <inertial>
           <pose>0 0 0 0 -0 0</pose>
@@ -4003,10 +2160,10 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
-      <pose>8.1889 24.5911 0 0 -0 0</pose>
+      <pose>8.09123 15.3654 0 0 -0 0</pose>
     </model>
     <model name='load_box_clone'>
-      <static>0</static>
+      <static>1</static>
       <link name='link'>
         <inertial>
           <pose>0 0 0 0 -0 0</pose>
@@ -4055,10 +2212,10 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
-      <pose>10.7525 24.5618 -3e-06 -7e-06 3e-06 0</pose>
+      <pose>10.9705 24.5478 1.62773 0 -0 0</pose>
     </model>
-    <model name='load_box_clone_0'>
-      <static>0</static>
+    <model name='load_box_clone_clone'>
+      <static>1</static>
       <link name='link'>
         <inertial>
           <pose>0 0 0 0 -0 0</pose>
@@ -4107,10 +2264,10 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
-      <pose>8.16518 15.3964 -3e-06 -7e-06 3e-06 0</pose>
+      <pose>13.7742 27.5551 1.63484 -7e-06 3e-06 0</pose>
     </model>
-    <model name='load_box_clone_1'>
-      <static>0</static>
+    <model name='load_box_clone_clone_clone'>
+      <static>1</static>
       <link name='link'>
         <inertial>
           <pose>0 0 0 0 -0 0</pose>
@@ -4159,10 +2316,10 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
-      <pose>10.9712 15.4286 -3e-06 -7e-06 3e-06 0</pose>
+      <pose>15.8283 24.6001 1.63486 -7e-06 3e-06 0</pose>
     </model>
-    <model name='load_box_clone_2'>
-      <static>0</static>
+    <model name='load_box_clone_clone_clone_clone'>
+      <static>1</static>
       <link name='link'>
         <inertial>
           <pose>0 0 0 0 -0 0</pose>
@@ -4211,10 +2368,10 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
-      <pose>14.6834 15.4541 -3e-06 -7e-06 3e-06 0</pose>
+      <pose>18.6111 24.664 1.63486 -7e-06 3e-06 0</pose>
     </model>
-    <model name='load_box_clone_3'>
-      <static>0</static>
+    <model name='load_box_clone_clone_clone_clone_0'>
+      <static>1</static>
       <link name='link'>
         <inertial>
           <pose>0 0 0 0 -0 0</pose>
@@ -4263,10 +2420,10 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
-      <pose>18.106 15.4314 -3e-06 -7e-06 3e-06 0</pose>
+      <pose>20.9426 24.6403 1.63486 -7e-06 3e-06 0</pose>
     </model>
-    <model name='load_box_clone_4'>
-      <static>0</static>
+    <model name='load_box_clone_clone_clone_clone_1'>
+      <static>1</static>
       <link name='link'>
         <inertial>
           <pose>0 0 0 0 -0 0</pose>
@@ -4315,10 +2472,10 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
-      <pose>25.9874 15.4433 -3e-06 -7e-06 3e-06 0</pose>
+      <pose>23.53 24.6418 1.63486 -7e-06 3e-06 0</pose>
     </model>
-    <model name='load_box_clone_5'>
-      <static>0</static>
+    <model name='load_box_clone_clone_clone_clone_2'>
+      <static>1</static>
       <link name='link'>
         <inertial>
           <pose>0 0 0 0 -0 0</pose>
@@ -4367,10 +2524,10 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
-      <pose>23.5408 15.4108 -3e-06 -7e-06 3e-06 0</pose>
+      <pose>25.6719 24.6564 1.63486 -7e-06 3e-06 0</pose>
     </model>
-    <model name='load_box_clone_6'>
-      <static>0</static>
+    <model name='load_box_clone_clone_clone_clone_3'>
+      <static>1</static>
       <link name='link'>
         <inertial>
           <pose>0 0 0 0 -0 0</pose>
@@ -4419,10 +2576,10 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
-      <pose>71.037 24.2386 -3e-06 -7e-06 3e-06 0</pose>
+      <pose>8.49751 15.4372 1.63486 -7e-06 3e-06 0</pose>
     </model>
-    <model name='load_box_clone_7'>
-      <static>0</static>
+    <model name='load_box_clone_clone_clone_clone_4'>
+      <static>1</static>
       <link name='link'>
         <inertial>
           <pose>0 0 0 0 -0 0</pose>
@@ -4471,10 +2628,10 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
-      <pose>70.9913 26.8416 -3e-06 -7e-06 3e-06 0</pose>
+      <pose>10.7956 15.4889 1.63486 -7e-06 3e-06 0</pose>
     </model>
-    <model name='load_box_clone_8'>
-      <static>0</static>
+    <model name='load_box_clone_clone_clone_clone_5'>
+      <static>1</static>
       <link name='link'>
         <inertial>
           <pose>0 0 0 0 -0 0</pose>
@@ -4523,10 +2680,10 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
-      <pose>70.972 29.3811 -3e-06 -7e-06 3e-06 0</pose>
+      <pose>13.5104 15.4513 1.63486 -7e-06 3e-06 0</pose>
     </model>
-    <model name='load_box_clone_9'>
-      <static>0</static>
+    <model name='load_box_clone_clone_clone_clone_6'>
+      <static>1</static>
       <link name='link'>
         <inertial>
           <pose>0 0 0 0 -0 0</pose>
@@ -4575,10 +2732,10 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
-      <pose>70.9442 31.9456 -3e-06 -7e-06 3e-06 0</pose>
+      <pose>15.7791 15.4377 1.63486 -7e-06 3e-06 0</pose>
     </model>
-    <model name='load_box_clone_10'>
-      <static>0</static>
+    <model name='load_box_clone_clone_clone_clone_7'>
+      <static>1</static>
       <link name='link'>
         <inertial>
           <pose>0 0 0 0 -0 0</pose>
@@ -4627,10 +2784,10 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
-      <pose>79.6057 24.5442 -3e-06 -7e-06 3e-06 0</pose>
+      <pose>25.0014 15.5139 1.63486 -7e-06 3e-06 0</pose>
     </model>
-    <model name='load_box_clone_11'>
-      <static>0</static>
+    <model name='load_box_clone_clone_clone_clone_8'>
+      <static>1</static>
       <link name='link'>
         <inertial>
           <pose>0 0 0 0 -0 0</pose>
@@ -4679,10 +2836,10 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
-      <pose>79.559 27.0088 -3e-06 -7e-06 3e-06 0</pose>
+      <pose>19.7553 15.4706 1.63486 -7e-06 3e-06 0</pose>
     </model>
-    <model name='load_box_clone_12'>
-      <static>0</static>
+    <model name='load_box_clone_clone_clone_clone_9'>
+      <static>1</static>
       <link name='link'>
         <inertial>
           <pose>0 0 0 0 -0 0</pose>
@@ -4731,10 +2888,10 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
-      <pose>89.5707 24.1546 -3e-06 -7e-06 3e-06 0</pose>
+      <pose>107.751 19.7496 1.63486 -7e-06 3e-06 0</pose>
     </model>
-    <model name='load_box_clone_13'>
-      <static>0</static>
+    <model name='load_box_clone_clone_clone_clone_10'>
+      <static>1</static>
       <link name='link'>
         <inertial>
           <pose>0 0 0 0 -0 0</pose>
@@ -4783,10 +2940,10 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
-      <pose>89.5362 27.0722 -3e-06 -7e-06 3e-06 0</pose>
+      <pose>107.719 26.8627 1.63486 -7e-06 3e-06 0</pose>
     </model>
-    <model name='load_box_clone_14'>
-      <static>0</static>
+    <model name='load_box_clone_clone_clone_clone_11'>
+      <static>1</static>
       <link name='link'>
         <inertial>
           <pose>0 0 0 0 -0 0</pose>
@@ -4835,10 +2992,10 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
-      <pose>107.519 26.7864 -3e-06 -7e-06 3e-06 0</pose>
+      <pose>89.6676 24.9047 1.63486 -7e-06 3e-06 0</pose>
     </model>
-    <model name='load_box_clone_15'>
-      <static>0</static>
+    <model name='load_box_clone_clone_clone_clone_12'>
+      <static>1</static>
       <link name='link'>
         <inertial>
           <pose>0 0 0 0 -0 0</pose>
@@ -4887,10 +3044,10 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
-      <pose>107.486 24.3331 -3e-06 -7e-06 3e-06 0</pose>
+      <pose>89.6396 27.1693 1.63486 -7e-06 3e-06 0</pose>
     </model>
-    <model name='load_box_clone_16'>
-      <static>0</static>
+    <model name='load_box_clone_clone_clone_clone_13'>
+      <static>1</static>
       <link name='link'>
         <inertial>
           <pose>0 0 0 0 -0 0</pose>
@@ -4939,10 +3096,10 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
-      <pose>107.618 19.2213 -3e-06 -7e-06 3e-06 0</pose>
+      <pose>89.5198 31.9635 1.63486 -7e-06 3e-06 0</pose>
     </model>
-    <model name='load_box_clone_17'>
-      <static>0</static>
+    <model name='load_box_clone_clone_clone_clone_14'>
+      <static>1</static>
       <link name='link'>
         <inertial>
           <pose>0 0 0 0 -0 0</pose>
@@ -4991,7 +3148,215 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
-      <pose>107.59 21.6844 -3e-06 -7e-06 3e-06 0</pose>
+      <pose>79.6282 24.766 1.63486 -7e-06 3e-06 0</pose>
+    </model>
+    <model name='load_box_clone_clone_clone_clone_15'>
+      <static>1</static>
+      <link name='link'>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>4396.8</mass>
+          <inertia>
+            <ixx>1521.56</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1521.56</iyy>
+            <iyz>0</iyz>
+            <izz>1653.48</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://load_box/meshes/load_box.stl</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://load_box/meshes/load_box.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>79.5592 29.7441 1.63486 -7e-06 3e-06 0</pose>
+    </model>
+    <model name='load_box_clone_clone_clone_clone_16'>
+      <static>1</static>
+      <link name='link'>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>4396.8</mass>
+          <inertia>
+            <ixx>1521.56</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1521.56</iyy>
+            <iyz>0</iyz>
+            <izz>1653.48</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://load_box/meshes/load_box.stl</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://load_box/meshes/load_box.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>71.1054 24.9147 1.63486 -7e-06 3e-06 0</pose>
+    </model>
+    <model name='load_box_clone_clone_clone_clone_17'>
+      <static>1</static>
+      <link name='link'>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>4396.8</mass>
+          <inertia>
+            <ixx>1521.56</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1521.56</iyy>
+            <iyz>0</iyz>
+            <izz>1653.48</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://load_box/meshes/load_box.stl</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://load_box/meshes/load_box.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>71.008 26.7862 1.63486 -7e-06 3e-06 0</pose>
+    </model>
+    <model name='load_box_clone_clone_clone_clone_18'>
+      <static>1</static>
+      <link name='link'>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>4396.8</mass>
+          <inertia>
+            <ixx>1521.56</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1521.56</iyy>
+            <iyz>0</iyz>
+            <izz>1653.48</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://load_box/meshes/load_box.stl</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://load_box/meshes/load_box.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>71.0149 29.8279 1.63486 -7e-06 3e-06 0</pose>
     </model>
   </world>
 </sdf>
