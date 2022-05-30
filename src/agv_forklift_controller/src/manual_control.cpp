@@ -8,8 +8,8 @@ float translation_vel_factor, rotation_vel_factor;
 
 class Controller2Cmd {
 private:
-    ros::NodeHandle nh_;
-    ros::Subscriber sub_;
+    ros::NodeHandle nh_; //ROS node handler
+    ros::Subscriber sub_;// Subscriber subscribing to the PS4 controller topic
     ros::Subscriber nav_sub_;
     ros::Publisher pub_;
     ros::Publisher fork_pub_;
